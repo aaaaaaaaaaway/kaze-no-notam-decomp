@@ -1,0 +1,3250 @@
+[
+ {
+  "function": "kaze_approach_angle",
+  "src": "src/approach_math.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_approach_value",
+  "src": "src/approach_math.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_asset_prim_master_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_backbuffer_copy_offscreen",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_color_apply",
+  "src": "src/main_menu.c",
+  "opt": "-O2",
+  "notes": " TU-consistency re-crack 2026-07-06: now 2.7.2-psx -O2 (was -O1 coincidence-shape)."
+ },
+ {
+  "function": "kaze_balloon_color_channel_edit",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_color_editor_draw",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_editor_panel_sprites_init",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_editor_zoom_in_anim",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_editor_zoom_in_draw",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_editor_zoom_out_anim",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_editor_zoom_out_draw",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_entry_grid_sprites_init",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_overlay_builder",
+  "src": "src/object_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_paint_cursor_move",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_paint_draw",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_paint_highlight_update",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_paint_input",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_paint_poly_pick",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_prm_load",
+  "src": "src/main_menu.c",
+  "opt": "-O2",
+  "notes": " TU-consistency re-crack 2026-07-06: now 2.7.2-psx -O2 (was -O1 coincidence-shape)."
+ },
+ {
+  "function": "kaze_balloon_render",
+  "src": "src/balloon_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_select_draw",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_select_input",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_select_row_sprites_init",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_switch_swing_anim",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_balloon_view_rotate_input",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_banner_simple_renderer",
+  "src": "src/kaze_banner_simple_renderer.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_bios_a0_thunk",
+  "src": "src/kaze_bios_a0_thunk.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_burner_input_update",
+  "src": "src/kaze_burner_input_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_burner_sound_toggle",
+  "src": "src/kaze_burner_sound_toggle.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_button_config_cursor_reset",
+  "src": "src/kaze_button_config_cursor_reset.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_button_config_input",
+  "src": "src/button_config.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_button_config_prims_draw",
+  "src": "src/options_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_button_config_screen_draw",
+  "src": "src/options_screens_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_button_config_sprites_init",
+  "src": "src/options_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_button_map_copy_slot",
+  "src": "src/button_map.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_button_map_find_action",
+  "src": "src/button_map.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_button_remap_assign",
+  "src": "src/button_config.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_camera_control_update",
+  "src": "src/objective_markers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_audio_set_volume_33c58",
+  "src": "src/kaze_cd_audio_set_volume_33c58.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_cd_dir_tree_build",
+  "src": "src/cd_filesystem.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_file_cache_root_init",
+  "src": "src/cd_filesystem.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_file_lookup_cached",
+  "src": "src/cd_filesystem.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_load_file_alloc",
+  "src": "src/kaze_cd_load_file_alloc.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_load_file_into",
+  "src": "src/cd_filesystem.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_load_tim_upload",
+  "src": "src/cd_filesystem.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_read_at_loc",
+  "src": "src/cd_filesystem.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_read_postprocess",
+  "src": "src/cd_filesystem.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_read_sectors",
+  "src": "src/cd_filesystem.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_setmode_vsync_341c",
+  "src": "src/xa_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_cd_stream_seek_start",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_clear_image_rect",
+  "src": "src/kaze_clear_image_rect.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_collision_shape_test",
+  "src": "src/collision.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_color_edit_popup_sprites_init",
+  "src": "src/kaze_color_edit_popup_sprites_init.c",
+  "opt": "-O2",
+  "compiler": "2.6.3-psx"
+ },
+ {
+  "function": "kaze_common_assets_load",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_confirm_box_renderer",
+  "src": "src/hud_postevent_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_demo_attract_runner_34478",
+  "src": "src/demo_attract.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_demo_input_playback",
+  "src": "src/stage_setup.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_draw_area_anim",
+  "src": "src/terrain_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_draw_model",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_draw_model_flatlit_3dd2c",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_drawenv_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_drmove_addprim_a0ec",
+  "src": "src/drmove_wipe.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_drmove_grid_setup",
+  "src": "src/drmove_wipe.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_drmove_pair_setup_a064",
+  "src": "src/drmove_wipe.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_drmove_wipe_tiles",
+  "src": "src/drmove_wipe.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynamic_object_collision_query",
+  "src": "src/collision.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynamic_object_spawn_slot",
+  "src": "src/stage_setup.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynamic_object_spawner",
+  "src": "src/objective_spawn.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynobj_bob_anim",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynobj_fall_respawn_anim",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynobj_patrol_shuttle",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2",
+  "notes": " TU-consistency re-crack 2026-07-06: now matches default 2.7.2-psx -O2 (and still 2.6.3)."
+ },
+ {
+  "function": "kaze_dynobj_render",
+  "src": "src/object_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynobj_route_follow_direct",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynobj_route_follow_smooth",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynobj_state_timer",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_dynobj_update",
+  "src": "src/kaze_dynobj_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_balloon_model_load",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_balloon_path_step",
+  "src": "src/ending_path.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_buffers_free",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_burner_light_update",
+  "src": "src/ending_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_camera_init",
+  "src": "src/ending_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_camera_reset_defaults",
+  "src": "src/kaze_ending_camera_reset_defaults.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_ending_credit_page_upload",
+  "src": "src/ending_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_credit_prims_add",
+  "src": "src/ending_path.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_credit_text_layout",
+  "src": "src/ending_text.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_credits_update",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_debug_camera_control",
+  "src": "src/ending_text.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_debug_viewer_update",
+  "src": "src/kaze_ending_debug_viewer_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_fade_poly_update",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_fade_prims_init",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_flame_quad_render",
+  "src": "src/ending_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_graphics_init",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_keyframe_load",
+  "src": "src/ending_text.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_lighting_init",
+  "src": "src/ending_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_path_segment_setup",
+  "src": "src/ending_path.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_prims_init",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_screen_loop",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_screen_move_prim_add",
+  "src": "src/ending_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_state_dispatch",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_state_reset",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_ending_textures_load",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_enter_critical_section",
+  "src": "src/critical_section.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_env_prim_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_env_sky_render_pass",
+  "src": "src/env_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_env_water_render_pass",
+  "src": "src/kaze_env_water_render_pass.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_environment_color_update",
+  "src": "src/environment_lighting.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_environment_lookup_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_environment_poly_refresh",
+  "src": "src/environment_lighting.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_exit_critical_section",
+  "src": "src/critical_section.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_failure_terminal_handler",
+  "src": "src/flight_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_file_load_by_name",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_flight_control_dispatch",
+  "src": "src/flight_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_flight_scene_render_dispatch",
+  "src": "src/flight_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_flight_state_init",
+  "src": "src/objective_spawn.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_flight_timer_gas_update",
+  "src": "src/world_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_game_menu_master_loop",
+  "src": "src/kaze_game_menu_master_loop.c",
+  "opt": "-O2",
+  "compiler": "2.6.3-psx"
+ },
+ {
+  "function": "kaze_game_menu_mode_init",
+  "src": "src/kaze_game_menu_mode_init.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_game_state_defaults_init",
+  "src": "src/game_defaults.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gas_floor_reset",
+  "src": "src/collision.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_get_video_mode",
+  "src": "src/video_mode.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_grid_select_cell_sprites_init",
+  "src": "src/grid_select_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_confirm_result",
+  "src": "src/kaze_grid_select_confirm_result.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_grid_select_draw",
+  "src": "src/grid_select_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_fade_step",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_frame_prims_add",
+  "src": "src/grid_select_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_frame_sprites_init",
+  "src": "src/grid_select_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_init",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_input",
+  "src": "src/grid_select_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_pulse_draw",
+  "src": "src/grid_select_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_screen_loop",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_state_step",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_grid_select_teardown",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_clear_vcount",
+  "src": "src/kaze_gs_clear_vcount.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_gs_def_disp_buff",
+  "src": "src/kaze_gs_def_disp_buff.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_graphics_free_9270",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_graphics_init_9170",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_light_init_alt_9454",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_light_init_default_93b0",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_light_set_color_9568",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_model_pair_link_init_9604",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_set_projection",
+  "src": "src/kaze_gs_set_projection.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_gs_set_work_base",
+  "src": "src/kaze_gs_set_work_base.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_gs_tmd_div_f3l",
+  "src": "src/kaze_gs_tmd_div_f3l.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_tmd_div_g3l",
+  "src": "src/kaze_gs_tmd_div_g3l.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_tmd_div_tg3l",
+  "src": "src/kaze_gs_tmd_div_tg3l.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_view_init_92c8",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gs_view_set_pose_94c8",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gte_emit_textured_tri",
+  "src": "src/water_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gte_poly_project_clip_1424",
+  "src": "src/quad_subdivide.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_gte_project_vertex",
+  "src": "src/object_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_heap_alloc",
+  "src": "src/heap_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_heap_alloc_dir_toggle",
+  "src": "src/kaze_heap_alloc_dir_toggle.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_heap_free",
+  "src": "src/heap_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_heap_init",
+  "src": "src/heap_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_heap_malloc",
+  "src": "src/heap_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_hud_gauge_renderer",
+  "src": "src/hud_gauge.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_hud_status_update",
+  "src": "src/world_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_hud_two_digit_counter_284c",
+  "src": "src/hud_postevent_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_init_card",
+  "src": "src/kaze_init_card.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_init_geom",
+  "src": "src/kaze_init_geom.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_input_edge_detect",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_input_edge_detect_memcard",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_input_light_defaults_init",
+  "src": "src/game_defaults.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_input_poll",
+  "src": "src/input_defaults.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_landing_event_update",
+  "src": "src/flight_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_landing_goal_handler",
+  "src": "src/flight_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_light_matrix_defaults",
+  "src": "src/environment_lighting.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_lighting_env_frame_update",
+  "src": "src/environment_lighting.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_linef3_gradient_bar",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_linef3_init",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_loading_screen_show",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_game_loop",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_draw",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_icon_highlight_draw",
+  "src": "src/main_menu_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_icon_prim_init",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_init",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_intro_scroll",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_label_draw",
+  "src": "src/main_menu_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_label_prim_init",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_loop",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_panel_prim_init",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_panel_zoom_anim",
+  "src": "src/main_menu_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_select_input",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_titlebar_draw",
+  "src": "src/main_menu_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_main_menu_titlebar_prim_init",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_banner_draw",
+  "src": "src/map_screen_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_banner_prim_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_cdlfile_lookup",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_confirm_state_draw",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_cursor_confirm_input",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_cursor_draw",
+  "src": "src/map_screen_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_cursor_prim_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_cursor_state_draw",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_fade_in_state",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_fade_out_state",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_fade_quad_draw",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_fade_quad_init",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_frame_lines_draw",
+  "src": "src/map_screen_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_panel_draw",
+  "src": "src/map_screen_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_panel_prim_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_panel_scroll_update",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_screen_free_buffers",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_screen_state_renderers",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_scroll_arrow_draw",
+  "src": "src/map_screen_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_scroll_arrow_prim_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_second_confirm_input",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_target_marker_draw",
+  "src": "src/map_screen_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_target_marker_prim_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_tile_prim_init",
+  "src": "src/map_screen_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_tiles_draw",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_wind_overlay_anim",
+  "src": "src/kaze_map_wind_overlay_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_wind_overlay_prim_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_map_wind_quad_reset",
+  "src": "src/kaze_map_wind_quad_reset.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_marker_attach_to_dynobj",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_marker_brightness_anim",
+  "src": "src/postevent_bg.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_marker_drop",
+  "src": "src/objective_markers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_marker_render",
+  "src": "src/object_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_marker_slot_find_free",
+  "src": "src/kaze_marker_slot_find_free.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_marker_slot_update",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_busy_state_check",
+  "src": "src/kaze_memcard_busy_state_check.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_memcard_card_recheck",
+  "src": "src/memcard_menu_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_clear_events_a",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_clear_events_b",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_events_close",
+  "src": "src/kaze_memcard_events_close.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_memcard_events_open",
+  "src": "src/kaze_memcard_events_open.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_file_count",
+  "src": "src/memcard_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_file_read",
+  "src": "src/memcard_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_file_write",
+  "src": "src/memcard_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_find_file",
+  "src": "src/memcard_fs.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_memcard_format",
+  "src": "src/memcard_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_format_draw",
+  "src": "src/kaze_memcard_format_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_format_flow",
+  "src": "src/kaze_memcard_format_flow.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_free_blocks",
+  "src": "src/memcard_fs.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_memcard_intro_scroll",
+  "src": "src/memcard_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_load_draw",
+  "src": "src/kaze_memcard_load_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_load_flow",
+  "src": "src/kaze_memcard_load_flow.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_load_records",
+  "src": "src/save_records_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_menu_draw",
+  "src": "src/memcard_menu_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_menu_select",
+  "src": "src/memcard_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_probe_blocking",
+  "src": "src/memcard_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_result_decode",
+  "src": "src/kaze_memcard_result_decode.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_memcard_save_draw",
+  "src": "src/kaze_memcard_save_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_save_flow",
+  "src": "src/kaze_memcard_save_flow.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_screen_init",
+  "src": "src/memcard_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_screen_loop",
+  "src": "src/memcard_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_slot_poll_start",
+  "src": "src/memcard_poll.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_slot_select",
+  "src": "src/kaze_memcard_slot_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_slot_select_draw",
+  "src": "src/memcard_menu_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_slot_status_reset",
+  "src": "src/kaze_memcard_slot_status_reset.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_memcard_state_dispatch",
+  "src": "src/kaze_memcard_state_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_state_machine",
+  "src": "src/memcard_poll.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_wait_result_a",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_memcard_wait_result_b",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_menu_bg_tim_load",
+  "src": "src/kaze_menu_bg_tim_load.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_menu_fade_transition",
+  "src": "src/menu_transition.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_menu_model_free",
+  "src": "src/main_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_menu_model_load",
+  "src": "src/menu_transition.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_menu_panel_grid_draw_a308",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_menu_prim_pair_draw_a6a4",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_menu_rgb_slider_panel_draw",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_menu_settings_trampoline_34458",
+  "src": "src/kaze_menu_settings_trampoline_34458.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_menu_two_row_sprites_draw_a210",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_min_gas_init",
+  "src": "src/stage_setup.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_minimap_marker_renderer",
+  "src": "src/balloon_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_minimap_radar_builder",
+  "src": "src/hud_radar.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_mode1_slot_populate",
+  "src": "src/objective_spawn.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_mode_object_proximity_test",
+  "src": "src/collision.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_mode_object_render",
+  "src": "src/object_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_mode_object_update",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_get_field_348ec",
+  "src": "src/kaze_model_get_field_348ec.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_model_packet_table_build_97ec",
+  "src": "src/kaze_model_packet_table_build_97ec.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_model_packet_triple_table_build_9828",
+  "src": "src/title_render_setup.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_f4_37ab8",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_f4_nolight_3c3d0",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_f4_nolight_semitrans_3c6f4",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_f4_semitrans_37dd8",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_ft4_3a500",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_ft4_fixedlight_3e97c",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_ft4_nolight_3d3e8",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_g4_38124",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_g4_38720",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_g4_392d4",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_g4_39898",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_g4_nolight_3c9bc",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_g4_nolight_semitrans_3cf00",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_g4_semitrans_38cc0",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_g4_semitrans_39ef4",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_gt4_3a904",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_gt4_fixedlight_3ecdc",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_quad_gt4_nolight_3d778",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_set_rotation_component_3489c",
+  "src": "src/model_transform_set.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_model_set_translation_component_348b0",
+  "src": "src/model_transform_set.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_model_tri_f3_4f98",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_f3_fixedlight_3f0cc",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_f3_nolight_3af60",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_f3_nolight_semitrans_3b1fc",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_f3_semitrans_352c4",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_ft3_37234",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_ft3_fixedlight_3e358",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_ft3_nolight_3bc48",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_g3_355ac",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_g3_3normal_36864",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_g3_3normal_semitrans_36d68",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_g3_nolight_3b460",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_g3_nolight_semitrans_3b870",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_g3_pervtx_35ec4",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_g3_pervtx_semitrans_363b0",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_g3_semitrans_35a54",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_gt3_375ac",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_gt3_fixedlight_3e638",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_model_tri_gt3_nolight_3bf54",
+  "src": "src/draw_model.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_object_physics_snapshot",
+  "src": "src/kaze_object_physics_snapshot.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_object_shape_test",
+  "src": "src/collision.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_object_vertex_anim",
+  "src": "src/env_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_camera_keyframe",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_camera_view",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_demo_draw",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_demo_exit",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_demo_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_demo_update",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_model_link",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_model_sort",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_opening_state_dispatch",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_fade_step",
+  "src": "src/options_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_header_prims_add",
+  "src": "src/options_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_header_set_y",
+  "src": "src/options_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_header_sprites_init",
+  "src": "src/kaze_options_header_sprites_init.c",
+  "opt": "-O2",
+  "compiler": "2.6.3-psx"
+ },
+ {
+  "function": "kaze_options_row_sprites_init",
+  "src": "src/options_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_rows_highlight_draw",
+  "src": "src/options_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_screen_init",
+  "src": "src/grid_select_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_screen_loop",
+  "src": "src/grid_select_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_state_dispatch",
+  "src": "src/kaze_options_state_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_top_menu_draw",
+  "src": "src/options_screens_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_options_top_menu_input",
+  "src": "src/options_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_pad_edge_latch_update",
+  "src": "src/ending_credits.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_pad_mask_update",
+  "src": "src/kaze_pad_mask_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_paint_cursor_sprites_init",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_panel_frame_vertices",
+  "src": "src/hud_radar.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_pause_exit_prompt",
+  "src": "src/kaze_pause_exit_prompt.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_play_sound_effect",
+  "src": "src/seq_sfx.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_post_event_banner_prim_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_post_event_frame_prim_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_post_event_grid_prim_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_post_event_menu_prim_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_post_event_menu_update",
+  "src": "src/world_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_post_event_split_prim_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_post_event_sprite_anim",
+  "src": "src/hud_postevent_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_post_event_sprite_init",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_postevent_banner_addprim_32f98",
+  "src": "src/hud_postevent_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_postevent_bg_draw",
+  "src": "src/postevent_bg.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_postevent_menu_anim",
+  "src": "src/hud_gauge.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_postevent_prim_dispatch",
+  "src": "src/balloon_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_pressstart_sprite_addprim",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_pressstart_sprite_setup",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_prim_buffer_append",
+  "src": "src/env_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_prim_color_table_copy",
+  "src": "src/kaze_prim_color_table_copy.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_prim_ot_link_insert_345bc",
+  "src": "src/demo_attract.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_quad_addprim_color",
+  "src": "src/drmove_wipe.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_quad_addprim_texpage",
+  "src": "src/drmove_wipe.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_quad_screen_clip_test",
+  "src": "src/water_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_quad_subdivide_render",
+  "src": "src/quad_subdivide.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_radar_dot_colors_update",
+  "src": "src/hud_radar.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_radar_range_delta",
+  "src": "src/hud_radar.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_rand_range",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_read_sz_fifo3",
+  "src": "src/kaze_read_sz_fifo3.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_read_sz_fifo4",
+  "src": "src/kaze_read_sz_fifo4.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_record_table_insert",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_record_table_reset_defaults",
+  "src": "src/kaze_record_table_reset_defaults.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_records_combined_sort",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_cursor_input",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_cursor_tab_draw",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_draw_dispatch",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_entries_draw",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_entry_glyph_update",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_header_draw",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_header_prim_init",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_rank_labels_draw",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_rank_prim_init",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_screen_frame",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_screen_free",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_screen_init",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_tab_prim_init",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_records_text_prim_init",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_registration_confirm_draw",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_registration_confirm_input",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_registration_confirm_sprites_init",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_registration_screen_init",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_registration_sprites_init_all",
+  "src": "src/balloon_editor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_registration_state_dispatch",
+  "src": "src/kaze_registration_state_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_render_vector_load",
+  "src": "src/hud_gauge.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_result_retry_prompt",
+  "src": "src/world_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_save_image_pack",
+  "src": "src/save_slot_overlay.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_save_verify_unpack_full",
+  "src": "src/save_slot_overlay.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_save_verify_unpack_records",
+  "src": "src/save_records_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_score_banner_renderer",
+  "src": "src/kaze_score_banner_renderer.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_screen_composite_draw",
+  "src": "src/kaze_screen_composite_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_semitrans_quad_setup",
+  "src": "src/drmove_wipe.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_seq_reset_track_volumes_34048",
+  "src": "src/seq_sfx.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_seq_stop_track_34310",
+  "src": "src/seq_sfx.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_seq_vab_bank_close_33f58",
+  "src": "src/seq_sfx.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_seq_vab_bank_load_33d2c",
+  "src": "src/seq_sfx.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_set_geom_offset",
+  "src": "src/kaze_set_geom_offset.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_set_geom_screen",
+  "src": "src/kaze_set_geom_screen.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_set_video_mode",
+  "src": "src/video_mode.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_settings_menu_dispatch",
+  "src": "src/kaze_settings_menu_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_settings_mode_row_handler",
+  "src": "src/setup_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_settings_mode_rows_draw",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_ack_input_2978",
+  "src": "src/setup_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_bgm_row_input",
+  "src": "src/kaze_setup_menu_bgm_row_input.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_confirm_input",
+  "src": "src/setup_menu_rows.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_draw_2f88",
+  "src": "src/kaze_setup_menu_draw_2f88.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_setup_menu_header_prim_init",
+  "src": "src/setup_menu_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_init",
+  "src": "src/setup_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_intro_scroll",
+  "src": "src/setup_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_loop",
+  "src": "src/kaze_setup_menu_loop.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_memcard_prompt_state",
+  "src": "src/setup_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_mode_panel_prim_init",
+  "src": "src/setup_menu_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_mode_row_draw",
+  "src": "src/setup_menu_rows.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_mode_texture_upload",
+  "src": "src/setup_menu_rows.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_option_row_29b4",
+  "src": "src/setup_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_option_row_2ad8",
+  "src": "src/setup_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_option_rows_draw",
+  "src": "src/setup_menu_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_stage_panel_prim_init",
+  "src": "src/setup_menu_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_stage_row_draw",
+  "src": "src/setup_menu_rows.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_stage_row_input",
+  "src": "src/setup_menu.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_setup_menu_textline_prim_init",
+  "src": "src/setup_menu_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sfx_play_dispatch",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sfx_stop_dispatch",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sfx_voice_keyoff_34170",
+  "src": "src/seq_sfx.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sfx_voice_keyon_34108",
+  "src": "src/seq_sfx.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sky_cloud_quads_render",
+  "src": "src/terrain_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_slot_overlay_add_glyph_prims",
+  "src": "src/save_records_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_slot_overlay_add_header_prims",
+  "src": "src/save_records_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_slot_overlay_add_rows",
+  "src": "src/save_records_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_slot_overlay_add_status_strip",
+  "src": "src/save_records_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_slot_overlay_glyph_sprites_init",
+  "src": "src/slot_overlay_sprites.c",
+  "opt": "-O2",
+  "compiler": "2.6.3-psx"
+ },
+ {
+  "function": "kaze_slot_overlay_header_sprites_init",
+  "src": "src/save_slot_overlay.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_slot_overlay_panel_prims_init",
+  "src": "src/save_records_io.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_slot_overlay_row_sprites_init",
+  "src": "src/slot_overlay_sprites.c",
+  "opt": "-O2",
+  "compiler": "2.6.3-psx"
+ },
+ {
+  "function": "kaze_slot_select_overlay_draw",
+  "src": "src/save_slot_overlay.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sound_mode_input",
+  "src": "src/options_screens_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sound_mode_prims_add",
+  "src": "src/options_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sound_mode_screen_draw",
+  "src": "src/options_screens_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sound_mode_sprites_init",
+  "src": "src/options_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sound_system_init",
+  "src": "src/hud_postevent_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_spu_get_in_transfer",
+  "src": "src/spu_transfer.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_spu_init",
+  "src": "src/kaze_spu_init.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_spu_set_in_transfer",
+  "src": "src/spu_transfer.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_ss_init",
+  "src": "src/kaze_ss_init.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_ss_set_mono",
+  "src": "src/spu_stereo.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_ss_set_stereo",
+  "src": "src/spu_stereo.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_ss_ut_reverb_off",
+  "src": "src/spu_reverb.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_ss_ut_reverb_on",
+  "src": "src/spu_reverb.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_ss_vm_damper_off",
+  "src": "src/spu_damper.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_ss_vm_damper_on",
+  "src": "src/spu_damper.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_st_set_mask",
+  "src": "src/kaze_st_set_mask.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_st_unset_ring",
+  "src": "src/kaze_st_unset_ring.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_stage_completion_check",
+  "src": "src/kaze_stage_completion_check.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_stage_flag_cloth_anim",
+  "src": "src/dynobj_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_stage_flag_fx_render",
+  "src": "src/env_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_stage_map_cd_loader",
+  "src": "src/environment_lighting.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_stage_score_compute",
+  "src": "src/flight_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_stage_staging_copy",
+  "src": "src/kaze_stage_staging_copy.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_stage_weather_fx_roll",
+  "src": "src/stage_setup.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_start_card",
+  "src": "src/kaze_start_card.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_start_location_commit",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_start_location_map_loop",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_start_location_skip_path",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_start_location_validity",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_start_map_cursor_move",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_start_map_screen_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_state_oneshot_trigger_34580",
+  "src": "src/demo_attract.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_static_map_bg_draw",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_static_map_bg_prim_init",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_static_map_screen_free",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_static_map_screen_init",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_static_map_screen_update",
+  "src": "src/map_screen_commit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_str_frame_vlc_decode",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_str_movie_play",
+  "src": "src/heap_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_str_next_frame_fetch",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_str_playback_buffers_free",
+  "src": "src/asset_load.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_str_playback_buffers_init",
+  "src": "src/heap_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_str_stream_start",
+  "src": "src/heap_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_success_terminal_handler",
+  "src": "src/flight_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_sun_angle_light_update",
+  "src": "src/environment_lighting.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_system_boot_init",
+  "src": "src/kaze_system_boot_init.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_target_gas_law",
+  "src": "src/objective_markers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_autospin_step",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_constants_init",
+  "src": "src/kaze_task_carousel_constants_init.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_task_carousel_exit_handler",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_exit_update",
+  "src": "src/kaze_task_carousel_exit_update.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_task_carousel_frame_draw",
+  "src": "src/task_carousel_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_glyph_highlight",
+  "src": "src/task_carousel_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_glyph_render",
+  "src": "src/task_carousel_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_intro_anim",
+  "src": "src/task_carousel.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_layout_update",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_rotate_input",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_rotate_interp",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_scatter_init",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_select_input",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_state_init",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_update",
+  "src": "src/task_carousel.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_carousel_zoom_anim",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_glyph_models_link",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_letter_add_anim_commit",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_letter_add_highlight",
+  "src": "src/task_carousel_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_letter_delete_anim",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_letter_delete_input",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_list_draw",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_list_slide_draw",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_list_slide_out_anim",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_menu_camera_bob",
+  "src": "src/task_carousel_anim.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_menu_camera_descend",
+  "src": "src/kaze_task_menu_camera_descend.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_task_menu_enter_init",
+  "src": "src/kaze_task_menu_enter_init.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_menu_prim_init",
+  "src": "src/kaze_task_menu_prim_init.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_task_menu_row_sprites_draw",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_menu_state_machine",
+  "src": "src/kaze_task_menu_state_machine.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_name_empty_check",
+  "src": "src/records_screen.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_name_grid_draw",
+  "src": "src/balloon_editor_prims.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_name_letter_models_link",
+  "src": "src/task_carousel.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_task_name_letters_render",
+  "src": "src/task_carousel_draw.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_terrain_collision_neighbor_query",
+  "src": "src/collision.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_terrain_render_setup",
+  "src": "src/terrain_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_terrain_tile_render",
+  "src": "src/terrain_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_terrain_tile_window_cull",
+  "src": "src/terrain_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_terrain_zone_collision_query",
+  "src": "src/collision.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tile_edge_factor",
+  "src": "src/kaze_tile_edge_factor.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tim_display_by_name",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tim_load_to_vram",
+  "src": "src/drmove_wipe.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_bg_prims_add",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_bg_sprites_init",
+  "src": "src/title_sprites.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_check_savedata",
+  "src": "src/title_screen.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_title_cursor_frame_draw_3e00",
+  "src": "src/title_sprites.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_goto_state2",
+  "src": "src/title_screen.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_title_icon_rows_draw",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_icon_sprites_init",
+  "src": "src/title_sprites.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_menu_row_sprites_init",
+  "src": "src/title_sprites.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_menu_substate",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_model_buffers_alloc",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_model_buffers_free",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_model_sort_dispatch",
+  "src": "src/title_render_setup.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_model_sort_primary",
+  "src": "src/title_model_sort.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_model_sort_shadow",
+  "src": "src/title_model_sort.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_panel_prims_add_3edc",
+  "src": "src/title_sprites.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_pressstart_draw",
+  "src": "src/title_screen.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_title_row_groups_fade_draw",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_rows3_highlight_draw",
+  "src": "src/grid_select.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_screen_cleanup",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_screen_init",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_screen_loop",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_shadow_line_project",
+  "src": "src/title_model_sort.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_shadow_line_setup",
+  "src": "src/title_render_setup.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_sprite_blink_addprim",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_sprite_setup_b",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_state2_advance",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_state2_fade_draw",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_state2_init",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_state2_substate",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_state2_update",
+  "src": "src/map_screen_states.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_state_render_dispatch",
+  "src": "src/title_memcard_events.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_title_wait_input",
+  "src": "src/title_screen.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_tmd_clip_quad_flat_lit_3760",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_quad_flat_prelit_3a18",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_quad_ftex_lit_4648",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_quad_gouraud_4normal_42b0",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_quad_gouraud_lit_3c5c",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_quad_grad_1normal_3f60",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_quad_gtex_lit_49d8",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_sort_dispatch_2070",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_tri_flat_lit_23e0",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_tri_flat_prelit_265c",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_tri_ftex_lit_2b0c",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_tri_gouraud_3normal_3450",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_tri_gouraud_lit_285c",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_tri_grad_1normal_3170",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_clip_tri_gtex_lit_2e30",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_const_color_opaque_quad_8fc0",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_const_color_opaque_tri_8e68",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_const_color_quad_8858",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_const_color_tri_86d0",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_divide_quad_flat_510c",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_divide_quad_ftex_608c",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_divide_quad_gouraud_58a4",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_divide_quad_gtex_68b4",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_divide_tri_flat_4db8",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_divide_tri_ftex_5cf8",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_divide_tri_gouraud_5530",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_divide_tri_gtex_6500",
+  "src": "src/tmd_clip_quads.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_emit_poly_f3_7f28",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_emit_poly_ft3_8094",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_emit_poly_g3_7fd4",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_emit_poly_gt3_8178",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_midpoint_vertex_6d58",
+  "src": "src/tmd_midpoint.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_tmd_midpoint_vertex_rgb_6dd4",
+  "src": "src/tmd_midpoint.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_tmd_midpoint_vertex_uv_6e88",
+  "src": "src/tmd_midpoint.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_tmd_midpoint_vertex_uv_rgb_6f34",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_model_relocate_3462c",
+  "src": "src/demo_attract.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_quad_flat_lit_06c8",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_quad_flat_lit_tpage_0924",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_quad_gouraud_4normal_1910",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_quad_gouraud_4normal_tpage_1ce8",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_quad_gouraud_lit_0bac",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_quad_gouraud_lit_tpage_0f24",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_quad_grad_1normal_1240",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_quad_grad_1normal_tpage_15d0",
+  "src": "src/tmd_clip_dispatch.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_sort_const_color_opaque_8a38",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_sort_const_color_trans_8274",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_subdiv_screen_test_quad_71bc",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_subdiv_screen_test_quad_ft_7944",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_subdiv_screen_test_quad_g_7580",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_subdiv_screen_test_quad_gt_7d08",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_subdiv_screen_test_tri_7018",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_subdiv_screen_test_tri_ft_77a0",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_subdiv_screen_test_tri_g_73dc",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_subdiv_screen_test_tri_gt_7b64",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_tri_flat_lit_f348",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_tri_gouraud_3normal_00b8",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_tri_gouraud_3normal_tpage_03dc",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_tri_gouraud_lit_f580",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_tri_gouraud_lit_tpage_f848",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_tri_grad_1normal_fad8",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_tmd_tri_grad_1normal_tpage_fde4",
+  "src": "src/tmd_tris_lit.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_trail_particle_render",
+  "src": "src/env_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_trail_particle_spawn",
+  "src": "src/flight_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_trail_particle_update",
+  "src": "src/flight_scene.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_trans_matrix",
+  "src": "src/kaze_trans_matrix.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_txp_archive_load_vram",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_uint_to_decimal_string",
+  "src": "src/misc_helpers.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_vertex_midpoint_lerp",
+  "src": "src/kaze_vertex_midpoint_lerp.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_vertical_control_update",
+  "src": "src/kaze_vertical_control_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_vram_clear_all",
+  "src": "src/kaze_vram_clear_all.c",
+  "opt": "-O1"
+ },
+ {
+  "function": "kaze_vram_clear_black_95b8",
+  "src": "src/gs_graphics.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_water_quad_subdivide_render",
+  "src": "src/water_render.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_wind_layers_reroll",
+  "src": "src/world_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_wind_motion_update",
+  "src": "src/kaze_wind_motion_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_world_update_pass",
+  "src": "src/world_update.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_audio_fade_in_33bac",
+  "src": "src/xa_audio_fade.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_audio_fade_out_33ae8",
+  "src": "src/xa_audio_fade.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_audio_loop_poll_33690",
+  "src": "src/kaze_xa_audio_loop_poll_33690.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_audio_manager_35a0",
+  "src": "src/xa_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_audio_seek_resume_339a8",
+  "src": "src/xa_audio_fade.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_audio_start_track_3384c",
+  "src": "src/xa_audio_fade.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_audio_stop_33a3c",
+  "src": "src/xa_audio_fade.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_file_table_init_331c",
+  "src": "src/xa_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_stream_disable_33e8",
+  "src": "src/xa_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_stream_enable_33b0",
+  "src": "src/xa_stream.c",
+  "opt": "-O2"
+ },
+ {
+  "function": "kaze_xa_track_seek_setup_3454",
+  "src": "src/xa_stream.c",
+  "opt": "-O2"
+ }
+]

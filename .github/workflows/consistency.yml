@@ -1,0 +1,20 @@
+name: consistency
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Repository consistency
+        run: python3 tools/check_consistency.py
+      - name: Tools compile
+        run: python3 -m compileall -q tools/ configure.py
+      - name: configure.py unit tests
+        run: |
+          python3 -m pip install -q pytest
+          python3 -m pytest tools/test_configure.py -q

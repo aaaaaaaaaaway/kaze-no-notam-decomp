@@ -1,0 +1,3577 @@
+{
+ "D_80010018": {
+  "name": "kaze_cd_root_dir_name",
+  "confidence": "high",
+  "rationale": "Bytes at this address are the string \"\\BAL\", passed as the root path to kaze_cd_file_cache_root_init at boot."
+ },
+ "D_80010020": {
+  "name": "kaze_record_default_score_table",
+  "confidence": "high",
+  "rationale": "3-word struct {9999,0,5999} copied into src_words[] and cycled into the D_800B1ADC int field of the 3x3x6 record table by kaze_game_state_defaults_init; 9999/5999 match the mode1/mode2 score caps documented elsewhere."
+ },
+ "D_8001002C": {
+  "name": "kaze_cd_filename_version_suffix",
+  "confidence": "high",
+  "rationale": "Doc comment says the function 'appends \\';1\\'' to the path before CD lookup; strcat(path, D_8001002C) is that ISO9660 version suffix."
+ },
+ "D_80010030": {
+  "name": "kaze_terrain_tile_cull_mask",
+  "confidence": "medium",
+  "rationale": "kaze_terrain_tile_window_cull's doc comment says tiles are 'masked out in DAT_80010030'; also address-taken and stored into a GPU primitive field in the water pass, so exact role is not fully certain."
+ },
+ "D_80010230": {
+  "name": "kaze_mapdata_file_path",
+  "confidence": "high",
+  "rationale": "kaze_map_cdlfile_lookup's doc comment says it resolves \\BAL\\MAP\\MAPDATA.DAT into +0x48224, matching this string's use with kaze_state_base_ptr+0x48224."
+ },
+ "D_80010248": {
+  "name": "kaze_texdata_file_path",
+  "confidence": "high",
+  "rationale": "Same function resolves TEXDATA.DAT into +0x4823c, matching this string's usage."
+ },
+ "D_80010260": {
+  "name": "kaze_rmode_file_path",
+  "confidence": "high",
+  "rationale": "Same function resolves RMODE.DAT into +0x48254, matching this string's usage."
+ },
+ "D_80010280": {
+  "name": "kaze_loading_screen_tim_fmt",
+  "confidence": "high",
+  "rationale": "Doc comment: loads \\BAL\\M\\LOAD%d.TIM selected by stage level; sprintf(buf, D_80010280, kaze_staged_stage_level) builds that filename."
+ },
+ "D_80010294": {
+  "name": "kaze_common_ssp_tim_path",
+  "confidence": "high",
+  "rationale": "First of the shared-asset TIM loads in kaze_common_assets_load, whose doc comment lists SSP.TIM first."
+ },
+ "D_800102A4": {
+  "name": "kaze_common_demotext_tim_path",
+  "confidence": "high",
+  "rationale": "Second shared-asset TIM load in kaze_common_assets_load, matching DEMOTEXT.TIM in the doc comment order."
+ },
+ "D_800102B8": {
+  "name": "kaze_common_tex02_tim_path",
+  "confidence": "high",
+  "rationale": "Third shared-asset TIM load, matching TEX02.TIM in the doc comment order."
+ },
+ "D_800102CC": {
+  "name": "kaze_common_tex01_tim_path",
+  "confidence": "high",
+  "rationale": "Fourth shared-asset TIM load, matching TEX01.TIM in the doc comment order."
+ },
+ "D_800102E0": {
+  "name": "kaze_common_console_tim_path",
+  "confidence": "high",
+  "rationale": "Fifth shared-asset TIM load, matching CONSOLE.TIM in the doc comment order."
+ },
+ "D_800102F4": {
+  "name": "kaze_balmodel_file_path",
+  "confidence": "high",
+  "rationale": "Loaded via kaze_cd_load_file_into into live-root +0x509e8, matching the doc comment's 'BALMODEL.DAT into live-root +0x509e8'."
+ },
+ "D_80010308": {
+  "name": "kaze_texture_tbl_file_path",
+  "confidence": "high",
+  "rationale": "Loaded into live-root +0x5ae98, matching the doc comment's 'TEXTURE.TBL into +0x5ae98'."
+ },
+ "D_8001031C": {
+  "name": "kaze_env_lookup_vram_rect",
+  "confidence": "medium",
+  "rationale": "RECT destination used by LoadImage in kaze_environment_lookup_init to upload the 256-entry 0xffff lookup buffer consumed by kaze_environment_color_update."
+ },
+ "D_80010324": {
+  "name": "kaze_post_event_grid_area_rect1",
+  "confidence": "medium",
+  "rationale": "Copied into r1 and passed to SetDrawArea (offset by outer<<8 in y per page) in kaze_post_event_grid_prim_init, sizing the post-event grid panel's first draw area."
+ },
+ "D_80010354": {
+  "name": "kaze_default_normal_vector",
+  "confidence": "high",
+  "rationale": "Copied into a local SVECTOR and passed straight to NormalColor() in kaze_lighting_env_frame_update to compute the base ambient color."
+ },
+ "D_800104C8": {
+  "name": "kaze_seq_vh_filename_fmt",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_seq_vab_bank_load_33d2c says it 'opens VH (SsVabOpenHeadSticky)' first; sprintf with this format builds that VH filename."
+ },
+ "D_800104D0": {
+  "name": "kaze_seq_vb_filename_fmt",
+  "confidence": "high",
+  "rationale": "Same function's doc comment says it next 'transfers VB body (SsVabTransBody)'; this format builds the VB filename."
+ },
+ "D_800104D8": {
+  "name": "kaze_seq_sep_filename_fmt",
+  "confidence": "high",
+  "rationale": "Same function's doc comment says it 'opens the SEP sequence (SsSepOpen)'; this format builds the SEP filename."
+ },
+ "D_800104E0": {
+  "name": "kaze_tim_load_error_msg",
+  "confidence": "medium",
+  "rationale": "printf(D_800104E0) with no args is called only when a loaded TIM's magic word is not 0x10, i.e. an invalid-TIM error message."
+ },
+ "D_800104F0": {
+  "name": "kaze_file_path_drive_prefix",
+  "confidence": "high",
+  "rationale": "kaze_file_load_by_name's doc comment literally calls it the 'drive prefix DAT_800104f0' prepended to paths not starting with backslash."
+ },
+ "D_800104F4": {
+  "name": "kaze_memcard_device_path",
+  "confidence": "high",
+  "rationale": "kaze_memcard_format's doc comment: 'Builds the device name from DAT_800104f4'; also used directly as the memory-card device path base in kaze_memcard_file_read."
+ },
+ "D_800104F8": {
+  "name": "kaze_memcard_device_path_tail",
+  "confidence": "medium",
+  "rationale": "s16 read immediately after D_800104F4 (`tail = D_800104F8`) to complete the 6-byte Name6 memcard device path."
+ },
+ "D_800104FC": {
+  "name": "kaze_memcard_file_glob_pattern",
+  "confidence": "high",
+  "rationale": "S7 pattern copied into 'name' and passed to firstfile()/nextfile() in kaze_memcard_file_count to enumerate save files."
+ },
+ "D_80010504": {
+  "name": "kaze_title_txp_path",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_title_screen_init: 'loads BAL\\K\\TITLE.TXP'."
+ },
+ "D_80010514": {
+  "name": "kaze_opening_demo_model_path",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_opening_demo_init: 'Loads BAL\\K\\OPN.MDL/OPN.TXP'; this is the first (model) load via kaze_file_load_by_name."
+ },
+ "D_80010524": {
+  "name": "kaze_opening_demo_txp_path",
+  "confidence": "high",
+  "rationale": "Same function's second load, via kaze_txp_archive_load_vram, matching OPN.TXP from the doc comment."
+ },
+ "D_80010534": {
+  "name": "kaze_map_bg_tile_present_table",
+  "confidence": "high",
+  "rationale": "kaze_map_tiles_draw's doc comment: 'AddPrims the map background tile SPRTs flagged present in the DAT_80010534 8x10 table'."
+ },
+ "D_80010584": {
+  "name": "kaze_start_zone_excl_table_mode1",
+  "confidence": "high",
+  "rationale": "kaze_start_location_validity uses this 7-entry table under the mode_one label (kaze_menu_stage_source==1) as a per-zone exclusion list."
+ },
+ "D_8001058C": {
+  "name": "kaze_start_zone_excl_table_mode2",
+  "confidence": "high",
+  "rationale": "Used under the mode_two label (kaze_menu_stage_source==2), 13-entry zone exclusion list."
+ },
+ "D_8001059C": {
+  "name": "kaze_start_zone_excl_table_mode0",
+  "confidence": "high",
+  "rationale": "Used under the mode_zero label (kaze_menu_stage_source==0), 9-entry zone exclusion list."
+ },
+ "D_800105A8": {
+  "name": "kaze_skip_start_x_tile_table",
+  "confidence": "medium",
+  "rationale": "In kaze_start_location_skip_path, byte b0 from this table (indexed by (variant-1)*3) is scaled by 0xed8 and stored as kaze_staged_start_x's tile coordinate."
+ },
+ "D_800105A9": {
+  "name": "kaze_skip_start_z_tile_table",
+  "confidence": "medium",
+  "rationale": "Same function's byte b1, scaled by 0xed8 into kaze_staged_start_z's tile coordinate."
+ },
+ "D_800105AA": {
+  "name": "kaze_skip_start_wind_table",
+  "confidence": "medium",
+  "rationale": "Same function's byte b2 is stored directly into kaze_staged_start_wind_dir."
+ },
+ "D_800105FC": {
+  "name": "kaze_menu_bg_tim_path",
+  "confidence": "high",
+  "rationale": "File already carries an inline comment /* \"BAL\\\\K\\\\MBG.TIM\" */ on this extern declaration."
+ },
+ "D_8001060C": {
+  "name": "kaze_menu_model_pack_path",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_menu_model_load: 'Loads the menu model pack BAL\\K\\GM.MDL'."
+ },
+ "D_8001061C": {
+  "name": "kaze_menu_model_txp_path",
+  "confidence": "high",
+  "rationale": "Same function's doc comment: '...then loads BAL\\K\\GM.TXP textures.'"
+ },
+ "D_80010674": {
+  "name": "kaze_balloon_prm_alt_path",
+  "confidence": "high",
+  "rationale": "kaze_balloon_prm_load's doc comment: loads BAL\\K\\BALL2.PRM when (DAT_800b1650 & 0xf)==0xf (cur==mask branch selects this string)."
+ },
+ "D_80010684": {
+  "name": "kaze_balloon_prm_path",
+  "confidence": "high",
+  "rationale": "Default balloon design pack path BAL\\K\\BALL.PRM per the same doc comment (default branch)."
+ },
+ "D_8001070C": {
+  "name": "kaze_mode_panel_uv_u_table",
+  "confidence": "high",
+  "rationale": "kaze_setup_menu_mode_panel_prim_init's doc comment: 'uv from DAT_8001070c/DAT_80010710 tables' for the three mode-choice panel SPRTs; assigned into uv_u."
+ },
+ "D_80010710": {
+  "name": "kaze_mode_panel_uv_v_table",
+  "confidence": "high",
+  "rationale": "Same doc comment's second UV table, assigned into uv_v."
+ },
+ "D_80010714": {
+  "name": "kaze_variant_stage_source_table",
+  "confidence": "high",
+  "rationale": "kaze_grid_select_teardown reads this (stride 3, indexed by variant-1) into kaze_menu_stage_source."
+ },
+ "D_80010715": {
+  "name": "kaze_variant_flags_source_table",
+  "confidence": "high",
+  "rationale": "Same function, adjacent byte in the same stride-3 record, written into kaze_menu_flags_source."
+ },
+ "D_80010716": {
+  "name": "kaze_variant_level_source_table",
+  "confidence": "high",
+  "rationale": "Same function, third byte of the stride-3 record, written into kaze_menu_level_source."
+ },
+ "D_80010730": {
+  "name": "kaze_variant_weather_source_table",
+  "confidence": "high",
+  "rationale": "Same function, single-byte-per-variant table (stride 1, indexed by variant-1) written into kaze_menu_weather_source."
+ },
+ "D_8001076C": {
+  "name": "kaze_header_sprite_clut_x_table",
+  "confidence": "high",
+  "rationale": "kaze_options_header_sprites_init's doc comment: 'CLUT coords from ROM tables DAT_8001076c/DAT_8001077c'; used as tbl[0] (a0, the GetClut x argument)."
+ },
+ "D_8001077C": {
+  "name": "kaze_header_sprite_clut_y_table",
+  "confidence": "high",
+  "rationale": "Same doc comment's second CLUT-coord table, used as tbl[1] (a1, the GetClut y argument)."
+ },
+ "D_800108F8": {
+  "name": "kaze_record_default_initial0_table",
+  "confidence": "high",
+  "rationale": "kaze_record_table_reset_defaults's doc comment: ROM default table at DAT_800108f8 holding 'name chars + value per entry'; this is the first name-char byte of each 8-byte record."
+ },
+ "D_800108F9": {
+  "name": "kaze_record_default_initial1_table",
+  "confidence": "high",
+  "rationale": "Second name-char byte of the same 8-byte default record table."
+ },
+ "D_800108FA": {
+  "name": "kaze_record_default_initial2_table",
+  "confidence": "high",
+  "rationale": "Third name-char byte of the same 8-byte default record table."
+ },
+ "D_800108FC": {
+  "name": "kaze_record_default_value_table",
+  "confidence": "high",
+  "rationale": "Int 'value' field of the same 8-byte default record table, per the doc comment's 'name chars + value per entry'."
+ },
+ "D_80010AA8": {
+  "name": "kaze_records_tab_underline_w_table",
+  "confidence": "medium",
+  "rationale": "kaze_records_tab_prim_init's doc comment says the 4 underline TILEs are 'sized from DAT_80010aa8..DAT_80010ab4'; this half (tab.h[0]) feeds tab.s[i], the width field of the underline TILE."
+ },
+ "D_80010AB0": {
+  "name": "kaze_records_tab_underline_h_table",
+  "confidence": "medium",
+  "rationale": "Second half (tab.h[1]) feeds tab.s[i+4], the height field of the same underline TILEs."
+ },
+ "D_80010AB8": {
+  "name": "kaze_save_icon_clut",
+  "confidence": "high",
+  "rationale": "kaze_save_image_pack's doc comment: 'icon data from DAT_80010ad8/DAT_80010b58'; this 0x20-byte block is memcpy'd just before the icon frames, sized like a 16-color CLUT."
+ },
+ "D_80010AD8": {
+  "name": "kaze_save_icon_frame0",
+  "confidence": "high",
+  "rationale": "0x80-byte icon frame memcpy'd into the save image's common (non-rare) icon-data path, per the doc comment's icon-data DAT_80010ad8 reference."
+ },
+ "D_80010B58": {
+  "name": "kaze_save_icon_frame1",
+  "confidence": "high",
+  "rationale": "0x80-byte icon frame used in both the common and rare (1/51) branches of kaze_save_image_pack's icon packing, per the doc comment's DAT_80010b58 reference."
+ },
+ "D_80010BD8": {
+  "name": "kaze_save_icon_frame2",
+  "confidence": "high",
+  "rationale": "Third 0x80-byte icon frame, also shared between both branches of the save icon packing."
+ },
+ "D_80010C58": {
+  "name": "kaze_save_icon_frame0_rare",
+  "confidence": "high",
+  "rationale": "0x80-byte icon frame that replaces D_80010AD8 in the rare (kaze_rand_range(0,0x32)==0x32) branch of kaze_save_image_pack."
+ },
+ "D_80010DF4": {
+  "name": "kaze_save_file_name",
+  "confidence": "high",
+  "rationale": "kaze_memcard_load_flow's doc comment: 'locate file BISLPS-00912'; this string is passed to kaze_memcard_find_file/kaze_memcard_file_read/kaze_memcard_save_flow throughout the save/load flows."
+ },
+ "D_80010EC8": {
+  "name": "kaze_status_strip_glyph_table",
+  "confidence": "high",
+  "rationale": "kaze_slot_overlay_add_status_strip's doc comment: 'message glyph byte from the DAT_80010ec8 table (index 2 or 8)'."
+ },
+ "D_80010ED8": {
+  "name": "kaze_ending_balloon_model_path",
+  "confidence": "high",
+  "rationale": "kaze_ending_balloon_model_load's doc comment: loads the balloon model 'BAL\\T\\BALL.MDL'."
+ },
+ "D_80010EE8": {
+  "name": "kaze_ending_full_tim_path",
+  "confidence": "high",
+  "rationale": "kaze_ending_state_reset's doc comment: uploads 'BAL\\T\\FULL.TIM' to VRAM; this string is loaded then passed straight to kaze_tim_load_to_vram there."
+ },
+ "D_80010EF8": {
+  "name": "kaze_ending_txp_path",
+  "confidence": "high",
+  "rationale": "kaze_ending_textures_load's doc comment: 'Loads BAL\\T\\END.TXP and uploads each TIM to VRAM'; this is the first load in that function."
+ },
+ "D_80010F08": {
+  "name": "kaze_ending_txp2_path",
+  "confidence": "high",
+  "rationale": "Same function's second load, matching the doc comment's 'then loads BAL\\T\\END2.TXP'."
+ },
+ "D_8008C6A4": {
+  "name": "kaze_mode1_target_x_table",
+  "confidence": "high",
+  "rationale": "Per-stage target table indexed by kaze_stage_index*0x10 in kaze_mode1_slot_populate, matching architecture.md's documented mode-1 target x values (241300/245100/233700 per stage)."
+ },
+ "D_8008C6A8": {
+  "name": "kaze_mode1_target_y_table",
+  "confidence": "high",
+  "rationale": "Parallel per-stage table for the target y coordinate, same indexing as D_8008C6A4."
+ },
+ "D_8008C6AC": {
+  "name": "kaze_mode1_target_z_table",
+  "confidence": "high",
+  "rationale": "Parallel per-stage table for the target z coordinate, same indexing as D_8008C6A4."
+ },
+ "D_8008C704": {
+  "name": "kaze_mode1_target_variant2_x",
+  "confidence": "high",
+  "rationale": "Overrides slot0's x when kaze_stage_variant==2, matching architecture.md's documented variant-2 override (427500, 0, 349600)."
+ },
+ "D_8008C708": {
+  "name": "kaze_mode1_target_variant2_y",
+  "confidence": "high",
+  "rationale": "Overrides slot0's y in the same variant==2 branch."
+ },
+ "D_8008C70C": {
+  "name": "kaze_mode1_target_variant2_z",
+  "confidence": "high",
+  "rationale": "Overrides slot0's z in the same variant==2 branch."
+ },
+ "D_8008C714": {
+  "name": "kaze_cd_root_cache_node",
+  "confidence": "high",
+  "rationale": "kaze_cd_file_cache_root_init's doc comment: allocates the 0x1c-byte root record into DAT_8008c714, the head of the cached CD directory tree used by kaze_cd_file_lookup_cached."
+ },
+ "D_8008C718": {
+  "name": "kaze_str_frame_cached_width",
+  "confidence": "high",
+  "rationale": "kaze_str_next_frame_fetch's doc comment: 'updates cached width/height (DAT_8008c718/DAT_8008c71c) on resolution change'."
+ },
+ "D_8008C71C": {
+  "name": "kaze_str_frame_cached_height",
+  "confidence": "high",
+  "rationale": "Same doc comment, the paired cached-height field."
+ },
+ "D_8008C720": {
+  "name": "kaze_dynobj_placement_table_0",
+  "confidence": "high",
+  "rationale": "architecture.md: dynamic-object placement table for stage 0, 0x40-byte records, spawned via kaze_dynamic_object_spawner."
+ },
+ "D_8008CBA0": {
+  "name": "kaze_dynobj_placement_table_1",
+  "confidence": "high",
+  "rationale": "architecture.md: dynamic-object placement table for stage 1, same record format as D_8008C720."
+ },
+ "D_8008D020": {
+  "name": "kaze_dynobj_placement_table_2",
+  "confidence": "high",
+  "rationale": "architecture.md: dynamic-object placement table for stage 2, same record format as D_8008C720."
+ },
+ "D_8008D4A0": {
+  "name": "kaze_route_node_next_table",
+  "confidence": "high",
+  "rationale": "In dynobj_anim.c route-follow logic, indexed by node*0x10 to read the next-node index (nx), which becomes the object's new node cursor."
+ },
+ "D_8008D4A4": {
+  "name": "kaze_route_node_x_table",
+  "confidence": "high",
+  "rationale": "Same 0x10-byte-stride node table, read right after the next-index to populate param_1[0x15] (the object's route target x)."
+ },
+ "D_8008D4A8": {
+  "name": "kaze_route_node_y_table",
+  "confidence": "medium",
+  "rationale": "Same node table, next field read into param_1[0x16] (route target y/height component)."
+ },
+ "D_8008D4AC": {
+  "name": "kaze_route_node_z_table",
+  "confidence": "high",
+  "rationale": "Same node table's final field, read as next_z, the route target z component."
+ },
+ "D_8008D9A0": {
+  "name": "kaze_min_gas_base_table",
+  "confidence": "high",
+  "rationale": "kaze_min_gas_init's doc comment: 'Initializes kaze_min_gas from per-mode static tables at DAT_8008d9a0..DAT_8008d9ac shifted left 12', indexed by stage level and selected by kaze_stage_flags."
+ },
+ "D_8008D9D4": {
+  "name": "kaze_radar_wind_needle_x_offsets",
+  "confidence": "medium",
+  "rationale": "In kaze_minimap_radar_builder, indexed by the 8-direction wind-angle bucket (temp_s0) and added to the needle sprite's x field (+0x496d4)."
+ },
+ "D_8008D9E4": {
+  "name": "kaze_radar_wind_needle_y_offsets",
+  "confidence": "medium",
+  "rationale": "Same function, parallel table added to the needle sprite's y field (+0x496d6)."
+ },
+ "D_8008D9F4": {
+  "name": "kaze_sound_state_base_ptr",
+  "confidence": "high",
+  "rationale": "kaze_sound_system_init's doc comment: 'allocates the 0x14b20 sound work area into DAT_8008d9f4'; used as a base pointer (base+0x14acX etc.) throughout the sound subsystem, analogous to kaze_state_base_ptr."
+ },
+ "D_8008D9F8": {
+  "name": "kaze_demo_attract_mode_pool",
+  "confidence": "medium",
+  "rationale": "3-entry table randomly indexed (rand()%3) to seed kaze_staged_stage_index[2] (mode) in kaze_demo_attract_runner_34478."
+ },
+ "D_8008DA04": {
+  "name": "kaze_demo_attract_variant_pool",
+  "confidence": "medium",
+  "rationale": "4-entry table randomly indexed (rand()%4) to seed kaze_staged_stage_index[3] (variant) in the same attract-mode runner."
+ },
+ "D_8008DA14": {
+  "name": "kaze_xa_filename_table",
+  "confidence": "high",
+  "rationale": "kaze_xa_file_table_init_331c's doc comment: 'resolving \\BAL\\STR\\BALXA01.XA entries' from this char* table into packed CdlLOC fields."
+ },
+ "D_8008DA1C": {
+  "name": "kaze_xa_file_index_table",
+  "confidence": "high",
+  "rationale": "Same function, int table used to select which filename in D_8008DA14 corresponds to each of the 16 XA location-table slots."
+ },
+ "D_8008DA20": {
+  "name": "kaze_xa_track_default_volume_table",
+  "confidence": "medium",
+  "rationale": "In kaze_xa_audio_start_track_3384c, indexed by track<<4 and compared against/written into the sound state's current-volume byte (+0x14af1) when starting a track."
+ },
+ "D_8008DA24": {
+  "name": "kaze_xa_file_loc_table",
+  "confidence": "high",
+  "rationale": "Populated by kaze_xa_file_table_init_331c as the packed CdlLOC (24-bit CD location) table, then read per-track in kaze_xa_audio_start_track_3384c to seek the CD."
+ },
+ "D_8008DA28": {
+  "name": "kaze_xa_track_length_table",
+  "confidence": "medium",
+  "rationale": "In kaze_xa_audio_start_track_3384c, indexed by track*4 to read the track's sector length, added to the start sector to compute the end sector."
+ },
+ "D_8008DB1C": {
+  "name": "kaze_seq_vab_name_table",
+  "confidence": "high",
+  "rationale": "VH/VB name pointer table (stride 0x10) used to build .VH/.VB filenames in kaze_seq_vab_bank_load_33d2c, matching its header comment order."
+ },
+ "D_8008DB20": {
+  "name": "kaze_seq_sep_name_table",
+  "confidence": "high",
+  "rationale": "SEP sequence name pointer table used to build the .SEP filename, per the same header comment order."
+ },
+ "D_8008DB24": {
+  "name": "kaze_seq_id_table",
+  "confidence": "high",
+  "rationale": "seq id table passed to SsSepOpen and stored as the track count, per the header comment ('/* seq id */')."
+ },
+ "D_8008DB28": {
+  "name": "kaze_seq_vab_id_table",
+  "confidence": "high",
+  "rationale": "vab id table passed as the third arg to SsVabOpenHeadSticky, per the header comment ('/* vab id */')."
+ },
+ "D_8008DB3C": {
+  "name": "kaze_sfx_note_table",
+  "confidence": "high",
+  "rationale": "note table indexed by SFX voice number, passed to SsVoKeyOn/SsVoKeyOff per their doc comments."
+ },
+ "D_8008DBE0": {
+  "name": "kaze_task_record_index",
+  "confidence": "medium",
+  "rationale": "indexes the balloon/task record pointer table D_800B2DB8 and is one of the 'options' unpacked from a save slot per kaze_save_verify_unpack_full's doc comment."
+ },
+ "D_8008DBE4": {
+  "name": "kaze_task_name_letter0_table",
+  "confidence": "high",
+  "rationale": "stride-3 signed-char array holding letter 0 of each task's 3-letter name, indexed by kaze_task_record_index*3."
+ },
+ "D_8008DBE5": {
+  "name": "kaze_task_name_letter1_table",
+  "confidence": "high",
+  "rationale": "same underlying array as D_8008DBE4 offset by 1 byte; records_screen.c copies it as (&D_8008DBE5)[idx*3], the record's letter 1."
+ },
+ "D_8008DBE6": {
+  "name": "kaze_task_name_letter2_table",
+  "confidence": "high",
+  "rationale": "same underlying array offset by 2 bytes; copied as (&D_8008DBE6)[idx*3], the record's letter 2."
+ },
+ "D_8008DBF4": {
+  "name": "kaze_title_vertex_remap_table_a",
+  "confidence": "medium",
+  "rationale": "index table used to reorder title model vertices via base[D_8008DBF4[i]].vx/vy/vz in title_render_setup.c."
+ },
+ "D_8008DC04": {
+  "name": "kaze_title_vertex_remap_table_b",
+  "confidence": "medium",
+  "rationale": "second index table used the same way (base[*a1]) for a second vertex set right after D_8008DBF4's loop."
+ },
+ "D_8008DC14": {
+  "name": "kaze_button_action_map",
+  "confidence": "high",
+  "rationale": "per-button assigned action id table, edited by kaze_button_remap_assign/kaze_button_map_find_action and persisted to/from the save slot data."
+ },
+ "D_8008DC1C": {
+  "name": "kaze_settings_toggle_a",
+  "confidence": "medium",
+  "rationale": "first of two boolean option toggle bytes, edited by the settings 'toggle row' input and copied into a staged flag destination in kaze_settings_menu_dispatch; persisted in the save slot."
+ },
+ "D_8008DC1D": {
+  "name": "kaze_settings_toggle_b",
+  "confidence": "medium",
+  "rationale": "second toggle byte, immediately after D_8008DC1C, used identically (copied to D_800B199C, persisted alongside D_8008DC1C)."
+ },
+ "D_8008DC20": {
+  "name": "kaze_task_grid_available_flags",
+  "confidence": "medium",
+  "rationale": "stride-3 per-stage flags gating which task-grid prim cells are drawn in grid_select.c; unpacked from the save slot's 'bit flags' per kaze_save_verify_unpack_full's doc comment."
+ },
+ "D_8008DC29": {
+  "name": "kaze_grid_variant_saved_index",
+  "confidence": "medium",
+  "rationale": "persisted grid-variant selection (sentinel 9 = unset) restored from/to the save slot in save_slot_overlay.c and grid_select.c."
+ },
+ "D_8008DC2A": {
+  "name": "kaze_sound_mode_setting",
+  "confidence": "high",
+  "rationale": "stereo/mono XA-stream mode value set by kaze_sound_mode_input and applied via kaze_xa_stream_enable_33b0/kaze_xa_stream_disable_33e8."
+ },
+ "D_8008DC2B": {
+  "name": "kaze_game_menu_entered_flag",
+  "confidence": "medium",
+  "rationale": "set to 1 by kaze_game_menu_mode_init; checked by the title flow to jump directly to title state 2, per kaze_game_menu_mode_init's doc comment."
+ },
+ "D_8008DC2C": {
+  "name": "kaze_drmove_wipe_height_table_0",
+  "confidence": "high",
+  "rationale": "one of the four per-column height tables (UNK_8008dd58/de84/dfb0/DAT_8008dc2c) for the DR_MOVE wipe/dissolve grid, per kaze_drmove_wipe_tiles's doc comment."
+ },
+ "D_8008DD58": {
+  "name": "kaze_drmove_wipe_height_table_1",
+  "confidence": "high",
+  "rationale": "second of the four wipe-tile height tables, selected when the wipe style param is 1, per the same doc comment."
+ },
+ "D_8008DE84": {
+  "name": "kaze_drmove_wipe_height_table_2",
+  "confidence": "high",
+  "rationale": "third of the four wipe-tile height tables, selected when the wipe style param is 2, per the same doc comment."
+ },
+ "D_8008DFB0": {
+  "name": "kaze_drmove_wipe_height_table_3",
+  "confidence": "high",
+  "rationale": "fourth of the four wipe-tile height tables, selected when the wipe style param is 3, per the same doc comment."
+ },
+ "D_8008E0DC": {
+  "name": "kaze_memcard_poll_retry_count",
+  "confidence": "medium",
+  "rationale": "counter reset to 0 on card-slot state changes and incremented on the 'do_incr' retry path in memcard_poll.c, guarded against a 0x79 cap."
+ },
+ "D_8008E0E0": {
+  "name": "kaze_title_screen_cleanup_flag",
+  "confidence": "medium",
+  "rationale": "set to 1 by kaze_title_screen_cleanup ('sets DAT_8008e0e0=1' per its doc comment) and read to gate the no-savedata branch in kaze_title_check_savedata."
+ },
+ "D_8008E0E4": {
+  "name": "kaze_title_pressstart_sprite_buffer",
+  "confidence": "medium",
+  "rationale": "heap-allocated 0x38-byte sprite buffer indexed as D_8008E0E4[i] and built by kaze_pressstart_sprite_setup/kaze_title_sprite_setup_b."
+ },
+ "D_8008E0EC": {
+  "name": "kaze_opening_camera_keyframe_alt_table",
+  "confidence": "high",
+  "rationale": "keyframe record field 'int altitude' at DAT_8008e0ec, per kaze_opening_camera_keyframe's doc comment (16-byte records: altitude/yaw/pitch/dx/dy/dz)."
+ },
+ "D_8008E0F0": {
+  "name": "kaze_opening_camera_keyframe_yaw_table",
+  "confidence": "high",
+  "rationale": "keyframe record field 'u16 yaw', per the same doc comment (offset +4 in the 16-byte record)."
+ },
+ "D_8008E0F2": {
+  "name": "kaze_opening_camera_keyframe_pitch_table",
+  "confidence": "high",
+  "rationale": "keyframe record field 'u16 pitch', per the same doc comment (offset +6)."
+ },
+ "D_8008E0F4": {
+  "name": "kaze_opening_camera_keyframe_dx_table",
+  "confidence": "high",
+  "rationale": "keyframe record field 's16 dx', per the same doc comment (offset +8)."
+ },
+ "D_8008E0F6": {
+  "name": "kaze_opening_camera_keyframe_dy_table",
+  "confidence": "high",
+  "rationale": "keyframe record field 's16 dy', per the same doc comment (offset +10)."
+ },
+ "D_8008E0F8": {
+  "name": "kaze_opening_camera_keyframe_dz_table",
+  "confidence": "high",
+  "rationale": "keyframe record field 's16 dz', per the same doc comment (offset +12)."
+ },
+ "D_8008E20C": {
+  "name": "kaze_map_screen_prim_buffer",
+  "confidence": "medium",
+  "rationale": "heap-allocated 0x1fa8-byte primitive work buffer shared by the start-location map screen (map_screen_draw/commit/states.c) and the static in-flight pause map (kaze_static_map_screen_*)."
+ },
+ "D_8008E210": {
+  "name": "kaze_start_location_target_x_table",
+  "confidence": "high",
+  "rationale": "per-stage target x table indexed by kaze_menu_stage_source, used for the mode-1 launch-distance validity check documented in docs/architecture.md."
+ },
+ "D_8008E21C": {
+  "name": "kaze_start_location_target_z_table",
+  "confidence": "high",
+  "rationale": "per-stage target z table paired with D_8008E210 for the same mode-1 launch-distance validity check documented in docs/architecture.md."
+ },
+ "D_8008E228": {
+  "name": "kaze_main_menu_neighbor_up_table",
+  "confidence": "high",
+  "rationale": "Up-direction (input edge 0x1000) neighbor-item lookup table in the main menu's directional navigation."
+ },
+ "D_8008E238": {
+  "name": "kaze_main_menu_neighbor_down_table",
+  "confidence": "high",
+  "rationale": "Down-direction (input edge 0x4000) neighbor-item lookup table, read right after D_8008E228 in the same navigation function."
+ },
+ "D_8008E248": {
+  "name": "kaze_main_menu_neighbor_left_table",
+  "confidence": "high",
+  "rationale": "Left-direction (input edge 0x8000) neighbor-item lookup table in the same navigation function."
+ },
+ "D_8008E258": {
+  "name": "kaze_main_menu_neighbor_right_table",
+  "confidence": "high",
+  "rationale": "Right-direction (input edge 0x2000) neighbor-item lookup table in the same navigation function."
+ },
+ "D_8008E268": {
+  "name": "kaze_grid_select_prim_buffer_a",
+  "confidence": "medium",
+  "rationale": "heap-allocated 0x17c-byte primitive buffer for the task grid-select screen, built in grid_select.c/grid_select_draw.c."
+ },
+ "D_8008E26C": {
+  "name": "kaze_grid_select_prim_buffer_b",
+  "confidence": "medium",
+  "rationale": "second 0x17c-byte primitive buffer allocated/freed alongside D_8008E268 for the grid-select screen."
+ },
+ "D_8008E270": {
+  "name": "kaze_balloon_color_shade_table",
+  "confidence": "medium",
+  "rationale": "byte table of shade values indexed by panel phase and left-shifted 3 into a prim's color fields in the balloon editor's render code."
+ },
+ "D_8008E2D0": {
+  "name": "kaze_balloon_editor_skip_face_table",
+  "confidence": "medium",
+  "rationale": "list of triangle indices to skip while rendering the balloon model in the editor's highlighted-panel loop."
+ },
+ "D_8008E304": {
+  "name": "kaze_records_screen_prim_buffer_a",
+  "confidence": "medium",
+  "rationale": "heap-allocated 0x628-byte primitive buffer for the records screen, freed by kaze_records_screen_free."
+ },
+ "D_8008E308": {
+  "name": "kaze_records_screen_prim_buffer_b",
+  "confidence": "medium",
+  "rationale": "second 0x628-byte primitive buffer allocated/freed alongside D_8008E304 for the records screen."
+ },
+ "D_8008E30C": {
+  "name": "kaze_task_name_string",
+  "confidence": "medium",
+  "rationale": "strcpy'd into the packed save image (pack+4) alongside other task/profile fields in the save-image packing code."
+ },
+ "D_8008E34C": {
+  "name": "kaze_memcard_active_slot_index",
+  "confidence": "high",
+  "rationale": "toggles between 0 and 1 to select which of the two memcard slots is currently being polled/drawn in memcard_menu.c/memcard_screen.c."
+ },
+ "D_8008E350": {
+  "name": "kaze_ending_scene_transition_counter",
+  "confidence": "medium",
+  "rationale": "counter ramping 0..0x28 that drives a camera pull-in fade value (-D_8008E350/20) in ending_scene.c."
+ },
+ "D_8008E354": {
+  "name": "kaze_ending_scene_phase_index",
+  "confidence": "medium",
+  "rationale": "phase index cycling 0..5, advanced each transition and used to derive light/camera parameters in ending_scene.c."
+ },
+ "D_8008E358": {
+  "name": "kaze_ending_keyframe_table",
+  "confidence": "high",
+  "rationale": "EndingKeyframe-typed array indexed by the current ending stage (D_800AE6F0) in ending_text.c."
+ },
+ "D_8008E700": {
+  "name": "kaze_ending_text_glyph_width_table",
+  "confidence": "medium",
+  "rationale": "byte table indexed by a glyph offset and copied into a credits-text primitive's width-like field (pp[0xc])."
+ },
+ "D_8008E701": {
+  "name": "kaze_ending_text_glyph_height_table",
+  "confidence": "medium",
+  "rationale": "byte table parallel to D_8008E700, copied into the adjacent primitive field (pp[0xd])."
+ },
+ "D_8008E702": {
+  "name": "kaze_ending_text_line_width_table",
+  "confidence": "medium",
+  "rationale": "short table used to horizontally center credits text lines via (0xa0 - value)/2 and also copied directly into a primitive field."
+ },
+ "D_8008E750": {
+  "name": "kaze_ending_path_keyframe_table",
+  "confidence": "medium",
+  "rationale": "0x1c-byte-stride table indexed by the current ending stage, referenced by both ending_path.c and ending_text.c alongside the D_8008E358 keyframe table."
+ },
+ "D_800A0554": {
+  "name": "kaze_init_geom_patch_gte_ra_save",
+  "confidence": "high",
+  "rationale": "the $ra save/restore word for the InitGeom '_patch_gte' inline-asm sequence, per the documented GTE InitGeom special case in kaze_init_geom.c."
+ },
+ "D_800A67B0": {
+  "name": "kaze_video_mode",
+  "confidence": "high",
+  "rationale": "backing variable for kaze_set_video_mode/kaze_get_video_mode, which simply read/write it."
+ },
+ "D_800A6E3C": {
+  "name": "kaze_spu_transfer_busy_flag",
+  "confidence": "high",
+  "rationale": "backing variable for kaze_spu_set_in_transfer/kaze_spu_get_in_transfer, which toggle/read it as a busy flag."
+ },
+ "D_800A71B0": {
+  "name": "kaze_heap_free_list_head",
+  "confidence": "high",
+  "rationale": "sentinel/head node of the heap allocator's circular free list, walked by kaze_heap_malloc/kaze_heap_free and initialized in kaze_heap_init."
+ },
+ "D_800A71B4": {
+  "name": "kaze_heap_free_list_head_size",
+  "confidence": "high",
+  "rationale": "size field of the free-list head node (the word right after D_800A71B0, i.e. D_800A71B0[1]), set from the heap size in kaze_heap_init."
+ },
+ "D_800A71B8": {
+  "name": "kaze_heap_alloc_direction_flag",
+  "confidence": "high",
+  "rationale": "front-vs-back split direction flag for the free-list allocator, toggled by kaze_heap_alloc_dir_toggle per its doc comment."
+ },
+ "D_800A71BC": {
+  "name": "kaze_str_movie_end_flag",
+  "confidence": "high",
+  "rationale": "STR movie playback loop-end flag, per kaze_str_movie_play's doc comment ('end flag DAT_800a71bc')."
+ },
+ "D_800A71C0": {
+  "name": "kaze_str_movie_stream_count",
+  "confidence": "medium",
+  "rationale": "frame/stream count derived from arg2+1 and passed to StSetStream in kaze_str_movie_play."
+ },
+ "D_800A71C4": {
+  "name": "kaze_str_vlc_buffer_a",
+  "confidence": "high",
+  "rationale": "first 0x28000-byte VLC decode buffer allocated from the heap in kaze_str_playback_buffers_init (param_1[0])."
+ },
+ "D_800A71C8": {
+  "name": "kaze_str_vlc_buffer_b",
+  "confidence": "high",
+  "rationale": "second 0x28000-byte VLC decode buffer allocated alongside D_800A71C4 (param_1[1])."
+ },
+ "D_800A71CC": {
+  "name": "kaze_str_vlc_buffer_index",
+  "confidence": "high",
+  "rationale": "0/1 toggle selecting the active VLC buffer, used as base[D_800A71CC] in kaze_str_movie_play (param_1[2])."
+ },
+ "D_800A71D0": {
+  "name": "kaze_str_mdec_buffer_a",
+  "confidence": "high",
+  "rationale": "first 0x3c00-byte MDEC image buffer allocated in kaze_str_playback_buffers_init (param_1[3])."
+ },
+ "D_800A71D4": {
+  "name": "kaze_str_mdec_buffer_b",
+  "confidence": "high",
+  "rationale": "second 0x3c00-byte MDEC image buffer allocated alongside D_800A71D0 (param_1[4])."
+ },
+ "D_800A71D8": {
+  "name": "kaze_str_mdec_buffer_index",
+  "confidence": "high",
+  "rationale": "0/1 toggle selecting the active MDEC buffer via (index<<2)+base pointer arithmetic (param_1[5])."
+ },
+ "D_800A71EC": {
+  "name": "kaze_str_display_page_index",
+  "confidence": "medium",
+  "rationale": "0/1 flag selecting the DISPENV y offset (0 or 0xf0) for STR movie page flipping (param_1[10])."
+ },
+ "D_800A71FC": {
+  "name": "kaze_str_stream_ring_buffer",
+  "confidence": "high",
+  "rationale": "CD streaming ring buffer pointer passed to StSetRing in the STR movie playback init/teardown code."
+ },
+ "D_800A7200": {
+  "name": "kaze_fade_overlay_quad_table",
+  "confidence": "high",
+  "rationale": "POLY_F4 semi-transparent fade overlay quads built by kaze_semitrans_quad_setup per its doc comment."
+ },
+ "D_800A7230": {
+  "name": "kaze_fade_overlay_tpage_table",
+  "confidence": "high",
+  "rationale": "DR_TPAGE entries paired with the fade overlay quads at D_800A7200, per the same doc comment."
+ },
+ "D_800A72B0": {
+  "name": "kaze_drmove_pair_table",
+  "confidence": "high",
+  "rationale": "two DR_MOVE frame-copy primitives built by kaze_drmove_pair_setup_a064 per its doc comment."
+ },
+ "D_800A72E0": {
+  "name": "kaze_linef3_gradient_bar_table_a",
+  "confidence": "high",
+  "rationale": "one of two LINE_F3 gradient-bar halves initialized by kaze_linef3_init per its doc comment ('4 LINE_F3 gradient bars at DAT_800a72e0/7310')."
+ },
+ "D_800A7310": {
+  "name": "kaze_linef3_gradient_bar_table_b",
+  "confidence": "high",
+  "rationale": "the second LINE_F3 gradient-bar half, paired with D_800A72E0 in the same doc comment."
+ },
+ "D_800A7340": {
+  "name": "kaze_linef3_gradient_bar_phase",
+  "confidence": "high",
+  "rationale": "rsin animation phase for the gradient bars, wrapped 0..0xfff and reset to 0 in kaze_linef3_init."
+ },
+ "D_800A7344": {
+  "name": "kaze_drmove_wipe_grid_table",
+  "confidence": "high",
+  "rationale": "20x15 grid of DR_MOVE tile primitives for the screen wipe, built by kaze_drmove_grid_setup per its doc comment."
+ },
+ "D_800AAB88": {
+  "name": "kaze_memcard_slot0_event_a",
+  "confidence": "medium",
+  "rationale": "first of four card-class (F4000001) event handles opened for memcard slot 0 in kaze_memcard_events_open."
+ },
+ "D_800AAB8C": {
+  "name": "kaze_memcard_slot0_event_b",
+  "confidence": "medium",
+  "rationale": "second of the four slot-0 event handles opened in kaze_memcard_events_open."
+ },
+ "D_800AAB90": {
+  "name": "kaze_memcard_slot0_event_c",
+  "confidence": "medium",
+  "rationale": "third of the four slot-0 event handles opened in kaze_memcard_events_open."
+ },
+ "D_800AAB94": {
+  "name": "kaze_memcard_slot0_event_d",
+  "confidence": "medium",
+  "rationale": "fourth of the four slot-0 event handles opened in kaze_memcard_events_open."
+ },
+ "D_800AAB98": {
+  "name": "kaze_memcard_slot1_event_a",
+  "confidence": "medium",
+  "rationale": "first of four card-class (F0000011) event handles opened for memcard slot 1, mirroring the slot-0 events."
+ },
+ "D_800AAB9C": {
+  "name": "kaze_memcard_slot1_event_b",
+  "confidence": "medium",
+  "rationale": "second of the four slot-1 event handles."
+ },
+ "D_800AABA0": {
+  "name": "kaze_memcard_slot1_event_c",
+  "confidence": "medium",
+  "rationale": "third of the four slot-1 event handles."
+ },
+ "D_800AABA4": {
+  "name": "kaze_memcard_slot1_event_d",
+  "confidence": "medium",
+  "rationale": "fourth of the four slot-1 event handles."
+ },
+ "D_800AABA8": {
+  "name": "kaze_memcard_directory_table",
+  "confidence": "high",
+  "rationale": "card directory array (stride 0x28) summed for free-block count and linear-searched by filename, per kaze_memcard_free_blocks/kaze_memcard_find_file doc comments."
+ },
+ "D_800AAE00": {
+  "name": "kaze_memcard_wait_timeout_count",
+  "confidence": "high",
+  "rationale": "timeout counter incremented each spin while waiting on TestEvent, per kaze_memcard_wait_result_a/b's doc comments."
+ },
+ "D_800AAE08": {
+  "name": "kaze_title_screen_state",
+  "confidence": "high",
+  "rationale": "top-level title-screen state machine variable; kaze_title_screen_loop runs until it equals 0xff, per its doc comment."
+ },
+ "D_800AAE10": {
+  "name": "kaze_title_next_state",
+  "confidence": "high",
+  "rationale": "next-state value written into D_800AAE08 by kaze_title_state2_advance, per its doc comment."
+ },
+ "D_800AAE14": {
+  "name": "kaze_title_idle_timer",
+  "confidence": "high",
+  "rationale": "frame counter of consecutive no-input frames, reset on input and triggering the attract-demo transition once it reaches 0x259."
+ },
+ "D_800AAE18": {
+  "name": "kaze_title_vsync_frame_delay",
+  "confidence": "medium",
+  "rationale": "Passed directly as VSync(D_800AAE18) each title-loop frame; set to 0 by title/state2 init and 2 by kaze_opening_demo_init, i.e. a per-state vsync wait count."
+ },
+ "D_800AAE1C": {
+  "name": "kaze_title_blink_phase",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_title_sprite_blink_addprim says 'blink phase DAT_800aae1c < 0x3c'; incremented mod 0x5a each frame in kaze_title_state2_update."
+ },
+ "D_800AAE20": {
+  "name": "kaze_title_clear_color_r",
+  "confidence": "high",
+  "rationale": "First arg of GsSortClear(D_800AAE20, D_800AAE24, D_800AAE28, ot) in kaze_title_screen_loop; set to 0/0x80/0xff together with the g/b components as the title screen clear color."
+ },
+ "D_800AAE24": {
+  "name": "kaze_title_clear_color_g",
+  "confidence": "high",
+  "rationale": "Second (green) arg of GsSortClear in kaze_title_screen_loop, always written alongside D_800AAE20/D_800AAE28 as an RGB clear-color triple."
+ },
+ "D_800AAE28": {
+  "name": "kaze_title_clear_color_b",
+  "confidence": "high",
+  "rationale": "Third (blue) arg of GsSortClear in kaze_title_screen_loop, always written alongside D_800AAE20/D_800AAE24 as an RGB clear-color triple."
+ },
+ "D_800AAE2C": {
+  "name": "kaze_title_press_start_cycle_count",
+  "confidence": "medium",
+  "rationale": "kaze_title_state2_advance reads it as 'flag' to choose between queuing the opening demo (state 3) or exiting the loop (0xff), then increments it; tracks how many times the press-start cycle has completed."
+ },
+ "D_800AAE30": {
+  "name": "kaze_title_xa_track_id",
+  "confidence": "high",
+  "rationale": "Passed to kaze_xa_audio_manager_35a0(D_800AAE30, 2) when != -2; set to specific track numbers (0xE) or -1/-2 for stop/none across the title states."
+ },
+ "D_800AAE34": {
+  "name": "kaze_title_start_skip_flag",
+  "confidence": "medium",
+  "rationale": "Returned as the result of kaze_title_screen_loop; set to 1 only in kaze_title_state2_update when START is pressed during the press-start wait, signalling the caller to skip ahead."
+ },
+ "D_800AAE38": {
+  "name": "kaze_title_model_buffer_ptrs",
+  "confidence": "high",
+  "rationale": "5-entry pointer array filled by kaze_title_model_buffers_alloc (heap copies of DAT_800b2db8 model buffers) and copied back/freed by kaze_title_model_buffers_free."
+ },
+ "D_800AAE4C": {
+  "name": "kaze_title_fade_started_flag",
+  "confidence": "high",
+  "rationale": "Guards re-entry in both kaze_title_state2_update and kaze_opening_demo_update ('if D_800AAE4C==0') before arming the fade-out transition; set to 1 once the fade sequence has started."
+ },
+ "D_800AAE50": {
+  "name": "kaze_title_fade_blend_mode",
+  "confidence": "medium",
+  "rationale": "Passed as the abr (semi-transparency mode) argument to kaze_quad_addprim_texpage for the title fade overlay; set to 1 or 2 depending on which exit path triggered the fade."
+ },
+ "D_800AAE58": {
+  "name": "kaze_opening_model_loaded_flag",
+  "confidence": "high",
+  "rationale": "kaze_opening_demo_init checks 'if (D_800AAE58 == 0)' before loading BAL\\\\K\\\\OPN.MDL, then sets it to 1 so the model is only loaded once; kaze_title_screen_cleanup frees the model only if it is set."
+ },
+ "D_800AAE5C": {
+  "name": "kaze_opening_model_file_ptr",
+  "confidence": "high",
+  "rationale": "Holds the result of kaze_file_load_by_name(D_80010514) (BAL\\\\K\\\\OPN.MDL) in kaze_opening_demo_init; used as the base pointer for kaze_opening_model_link's header offsets and freed via kaze_heap_free."
+ },
+ "D_800AAE60": {
+  "name": "kaze_opening_model_data_ptr",
+  "confidence": "medium",
+  "rationale": "In kaze_opening_model_link, set to a pointer computed from the loaded opening model file (D_800AAE5C header offset) that is then advanced and passed to GsMapModelingData."
+ },
+ "D_800AAE64": {
+  "name": "kaze_opening_model_link_handle",
+  "confidence": "medium",
+  "rationale": "Zeroed and passed by address as the second GsLinkObject4 argument in kaze_opening_model_link, then read back in kaze_opening_model_sort ('h = &D_800AAE68' indirection) as the linked-object handle."
+ },
+ "D_800AAE68": {
+  "name": "kaze_opening_model_coord_ptr",
+  "confidence": "medium",
+  "rationale": "Set to &D_800AAE74 in kaze_opening_model_link (the coordinate2 struct address) and read via GsGetLws in kaze_opening_model_sort to fetch the light/world matrices."
+ },
+ "D_800AAE74": {
+  "name": "kaze_opening_model_coord2",
+  "confidence": "medium",
+  "rationale": "Base of the GsCOORDINATE2 struct built by GsInitCoordinate2(0, &D_800AAE74) in kaze_opening_model_link for the opening balloon model."
+ },
+ "D_800AAE78": {
+  "name": "kaze_opening_model_matrix",
+  "confidence": "medium",
+  "rationale": "4 bytes into the D_800AAE74 coordinate2 struct; RotMatrix writes the opening model's rotation matrix here and GsSortObject4 reads it for rendering."
+ },
+ "D_800AAEC4": {
+  "name": "kaze_opening_model_rot_x",
+  "confidence": "medium",
+  "rationale": "First of three u16 zeroed together in kaze_opening_model_link and passed as &D_800AAEC4 (an SVECTOR) to RotMatrix in kaze_opening_model_sort, i.e. the opening model's rotation angle vector."
+ },
+ "D_800AAEC6": {
+  "name": "kaze_opening_model_rot_y",
+  "confidence": "medium",
+  "rationale": "Second u16 of the D_800AAEC4 rotation angle vector consumed by RotMatrix(&D_800AAEC4, m) in kaze_opening_model_sort."
+ },
+ "D_800AAEC8": {
+  "name": "kaze_opening_model_rot_z",
+  "confidence": "medium",
+  "rationale": "Third u16 of the D_800AAEC4 rotation angle vector consumed by RotMatrix(&D_800AAEC4, m) in kaze_opening_model_sort."
+ },
+ "D_800AAECC": {
+  "name": "kaze_opening_model_pos_x",
+  "confidence": "medium",
+  "rationale": "First int of the translation vector passed as &D_800AAECC to kaze_trans_matrix(m, &D_800AAECC) in kaze_opening_model_sort, i.e. the opening model's world position."
+ },
+ "D_800AAED0": {
+  "name": "kaze_opening_model_pos_y",
+  "confidence": "medium",
+  "rationale": "Second int of the D_800AAECC translation vector consumed by kaze_trans_matrix in kaze_opening_model_sort."
+ },
+ "D_800AAED4": {
+  "name": "kaze_opening_model_pos_z",
+  "confidence": "medium",
+  "rationale": "Third int of the D_800AAECC translation vector consumed by kaze_trans_matrix in kaze_opening_model_sort."
+ },
+ "D_800AAEDC": {
+  "name": "kaze_opening_camera_keyframe_frames",
+  "confidence": "high",
+  "rationale": "kaze_opening_camera_keyframe sets it to frac>>4 (frames until the next keyframe); kaze_opening_camera_view compares it against D_800AAE14 to drive the rsin ease-in/out interpolation."
+ },
+ "D_800AAEE0": {
+  "name": "kaze_opening_camera_yaw_delta",
+  "confidence": "high",
+  "rationale": "kaze_opening_camera_keyframe stores the wrapped yaw_next-yaw_cur delta here; kaze_opening_camera_view scales it by rsin to interpolate the camera yaw between keyframes."
+ },
+ "D_800AAEE4": {
+  "name": "kaze_opening_camera_pitch_delta",
+  "confidence": "high",
+  "rationale": "kaze_opening_camera_keyframe stores the wrapped pitch_next-pitch_cur delta here; kaze_opening_camera_view scales it by rsin to interpolate the camera pitch between keyframes."
+ },
+ "D_800AAEE8": {
+  "name": "kaze_opening_camera_dx_delta",
+  "confidence": "medium",
+  "rationale": "kaze_opening_camera_keyframe stores next.dx-cur.dx (table field at +4 per the 16-byte keyframe record) here for the per-frame camera position interpolation in kaze_opening_camera_view."
+ },
+ "D_800AAEEA": {
+  "name": "kaze_opening_camera_dy_delta",
+  "confidence": "medium",
+  "rationale": "kaze_opening_camera_keyframe stores next.dy-cur.dy here, paired with D_800AAEE8/D_800AAEEC for the camera position interpolation in kaze_opening_camera_view."
+ },
+ "D_800AAEEC": {
+  "name": "kaze_opening_camera_dz_delta",
+  "confidence": "medium",
+  "rationale": "kaze_opening_camera_keyframe stores next.dz-cur.dz here, paired with D_800AAEE8/D_800AAEEA for the camera position interpolation in kaze_opening_camera_view."
+ },
+ "D_800AAEF0": {
+  "name": "kaze_opening_camera_keyframe_index",
+  "confidence": "high",
+  "rationale": "Doc comment states kaze_opening_camera_keyframe 'advances the keyframe index DAT_800aaef0'; used as the row index into the DAT_8008e0ec keyframe table."
+ },
+ "D_800AAEF8": {
+  "name": "kaze_map_screen_ot_table",
+  "confidence": "medium",
+  "rationale": "Used as the order-table base for GsClearOt/GsSortClear/GsDrawOt across the double-buffered map screen (kaze_start_location_map_loop, kaze_start_location_skip_path)."
+ },
+ "D_800AAEFC": {
+  "name": "kaze_map_screen_prim_ot_ptr",
+  "confidence": "medium",
+  "rationale": "Copied from the D_800AAF20 heap allocation in kaze_start_map_screen_init/kaze_static_map_screen_init and then indexed everywhere in map_screen_commit.c/draw.c as the per-slot OT pointer for AddPrim calls."
+ },
+ "D_800AAF10": {
+  "name": "kaze_map_heap_ptr_alt",
+  "confidence": "medium",
+  "rationale": "Assigned the value of the second map-screen heap allocation (D_800AAF24) in both kaze_start_map_screen_init and kaze_static_map_screen_init, mirroring D_800AAEFC's relationship to D_800AAF20."
+ },
+ "D_800AAF20": {
+  "name": "kaze_map_ot_heap_alloc_a",
+  "confidence": "high",
+  "rationale": "kaze_heap_alloc(0x10,4) result stored here in the map-screen init functions and later freed via kaze_heap_free(D_800AAF20); the first of two order-table heap allocations."
+ },
+ "D_800AAF24": {
+  "name": "kaze_map_ot_heap_alloc_b",
+  "confidence": "high",
+  "rationale": "kaze_heap_alloc(0x10,4) result stored here (D_800AAF24 = kaze_heap_alloc...) in the map-screen init functions and later freed via kaze_heap_free(D_800AAF24); the second order-table heap allocation."
+ },
+ "D_800AAF3C": {
+  "name": "kaze_map_wind_overlay_phase",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_map_wind_overlay_anim: 'phase DAT_800aae0c/aaf3c 0..0x1f, cell reset via FUN_8004f2d4'; wraps every 0x20 and gates the per-cell wind-vector reset."
+ },
+ "D_800AAF40": {
+  "name": "kaze_map_wind_overlay_angle",
+  "confidence": "high",
+  "rationale": "Doc comment: 'rsin(DAT_800aaf40) brightness'; advanced by 0x20 & 0xfff each call to animate the wind overlay's shimmer brightness."
+ },
+ "D_800AAF44": {
+  "name": "kaze_map_target_marker_pulse_phase",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_map_target_marker_draw: 'green brightness from rsin(DAT_800aaf44); advances the pulse phase by 0x30 mod 0xfff'."
+ },
+ "D_800AAF48": {
+  "name": "kaze_map_scroll_arrow_pulse",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_map_scroll_arrow_draw: 'red channel pulsed via DAT_800aaf48 (+8 mod 0x100)'."
+ },
+ "D_800AAF60": {
+  "name": "kaze_menu_fade_transition_state",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_menu_fade_transition names the states directly; set to 0 (fade in) or 1 (fade out) by the caller and 9 to end the transition's own render loop."
+ },
+ "D_800AAF64": {
+  "name": "kaze_menu_fade_transition_alpha",
+  "confidence": "high",
+  "rationale": "Doc comment: 'param 0 fades in (DAT_800aaf64 0xff down past -0x10), param 1 fades out (0 up past 0x10f)'; drives kaze_quad_addprim_color's alpha each frame."
+ },
+ "D_800AAF68": {
+  "name": "kaze_menu_model_ptr",
+  "confidence": "high",
+  "rationale": "Doc comments for kaze_menu_model_free ('frees the menu model buffer DAT_800aaf68 (GM.MDL)') and kaze_menu_model_load (stores kaze_file_load_by_name result here) identify it as the loaded GM.MDL model pointer."
+ },
+ "D_800AAF70": {
+  "name": "kaze_main_menu_substate",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_main_menu_loop: 'own VSync/GsOT render loop over sub-state DAT_800aaf70 (0 intro scroll, 1 item select), exits at 3'."
+ },
+ "D_800AAF74": {
+  "name": "kaze_main_menu_selected_item",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_main_menu_icon_highlight_draw: 'the selected icon (DAT_800aaf74) pulses'; updated by D-pad navigation in kaze_main_menu_select_input."
+ },
+ "D_800AAF78": {
+  "name": "kaze_main_menu_prev_item",
+  "confidence": "high",
+  "rationale": "Set from the old D_800AAF74 value right before it changes ('D_800AAF78 = D_800AAF74; D_800AAF74 = item;'); used to index the shrinking panel/icon in main_menu_draw.c."
+ },
+ "D_800AAF7C": {
+  "name": "kaze_main_menu_panel_zoom_phase",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_main_menu_panel_zoom_anim: 'phase DAT_800aaf7c 0x400..0xbff shrinks the previous item then grows the new one'; armed to 0x400 on selection change."
+ },
+ "D_800AAF80": {
+  "name": "kaze_main_menu_icon_pulse_phase",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_main_menu_icon_highlight_draw: 'the selected icon...pulses via rsin(DAT_800aaf80)'; advanced by 0x20 & 0xfff each frame."
+ },
+ "D_800AAF84": {
+  "name": "kaze_main_menu_state_timer",
+  "confidence": "medium",
+  "rationale": "Doc comments describe dual use: 'draws the background at scroll DAT_800aaf84 (0..0x2a)' during intro, then 'idle timeout 0xe10 exits to attract' during item select."
+ },
+ "D_800AAF8C": {
+  "name": "kaze_main_menu_titlebar_sprite",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_main_menu_titlebar_prim_init: 'Inits the main-menu title-bar SPRT per buffer...at DAT_800aaf8c'; AddPrim'd by kaze_main_menu_titlebar_draw."
+ },
+ "D_800AAF9A": {
+  "name": "kaze_main_menu_titlebar_clut",
+  "confidence": "medium",
+  "rationale": "GetClut result stored at D_800AAF9A+offset, 0xE bytes into the D_800AAF8C sprite struct (the CLUT field of the title-bar SPRT)."
+ },
+ "D_800AAFB4": {
+  "name": "kaze_main_menu_titlebar_tpage",
+  "confidence": "high",
+  "rationale": "Doc comment: 'plus DR_TPAGE at DAT_800aaf8c/DAT_800aafb4'; SetDrawTPage target for the title-bar sprite, AddPrim'd by kaze_main_menu_titlebar_draw."
+ },
+ "D_800AAFC4": {
+  "name": "kaze_main_menu_icon_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_main_menu_icon_prim_init: 'Inits the four 64x64 menu item icon SPRTs per buffer at DAT_800aafc4'."
+ },
+ "D_800AAFC8": {
+  "name": "kaze_main_menu_icon_shade",
+  "confidence": "high",
+  "rationale": "4 bytes into the D_800AAFC4 icon sprite struct; kaze_main_menu_icon_highlight_draw writes the pulsing/decaying RGB shade triple here per icon."
+ },
+ "D_800AAFD2": {
+  "name": "kaze_main_menu_icon_clut",
+  "confidence": "medium",
+  "rationale": "0xE bytes into the D_800AAFC4 icon sprite struct; kaze_main_menu_icon_prim_init stores each icon's GetClut result at &D_800AAFD2+inner_offset."
+ },
+ "D_800AB064": {
+  "name": "kaze_main_menu_icon_tpage",
+  "confidence": "high",
+  "rationale": "Doc comment: 'plus DR_TPAGE'; SetDrawTPage(&D_800AB064 + outer*8, ...) target for the icon sprites, AddPrim'd in kaze_main_menu_icon_highlight_draw."
+ },
+ "D_800AB074": {
+  "name": "kaze_main_menu_panel_polys",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_main_menu_panel_prim_init: 'Inits the four 128x128 POLY_FT4 menu item preview panels at DAT_800ab074'; sorted by GsSortPoly in kaze_main_menu_panel_zoom_anim."
+ },
+ "D_800AB078": {
+  "name": "kaze_main_menu_panel_color_r",
+  "confidence": "high",
+  "rationale": "Indexed as D_800AB078[item*0x28] and written together with D_800AB079/D_800AB07A as the red channel of the shrinking panel's RGB shade in kaze_main_menu_panel_zoom_anim."
+ },
+ "D_800AB079": {
+  "name": "kaze_main_menu_panel_color_g",
+  "confidence": "high",
+  "rationale": "Indexed as D_800AB079[item*0x28], the green channel written alongside D_800AB078/D_800AB07A in kaze_main_menu_panel_zoom_anim."
+ },
+ "D_800AB07A": {
+  "name": "kaze_main_menu_panel_color_b",
+  "confidence": "high",
+  "rationale": "Indexed as D_800AB07A[item*0x28], the blue channel written alongside D_800AB078/D_800AB079 in kaze_main_menu_panel_zoom_anim."
+ },
+ "D_800AB082": {
+  "name": "kaze_main_menu_panel_clut",
+  "confidence": "high",
+  "rationale": "In kaze_main_menu_panel_prim_init, 'clut_x = GetClut(...); *(short*)(D_800AB082+ofs) = t;' stores the CLUT for each of the four preview panels."
+ },
+ "D_800AB08A": {
+  "name": "kaze_main_menu_panel_tpage",
+  "confidence": "high",
+  "rationale": "In kaze_main_menu_panel_prim_init, 't = GetTPage(...); *(short*)(D_800AB08A+ofs) = t;' stores the TPAGE for each of the four preview panels."
+ },
+ "D_800AB114": {
+  "name": "kaze_main_menu_label_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_main_menu_label_prim_init: 'Inits the four menu item label SPRTs per buffer at DAT_800ab114'; AddPrim'd by kaze_main_menu_label_draw."
+ },
+ "D_800AB122": {
+  "name": "kaze_main_menu_label_clut",
+  "confidence": "medium",
+  "rationale": "0xE bytes into the D_800AB114 label sprite struct; kaze_main_menu_label_prim_init stores each label's GetClut result at &D_800AB122+inner_offset."
+ },
+ "D_800AB1B4": {
+  "name": "kaze_main_menu_label_tpage",
+  "confidence": "high",
+  "rationale": "Doc comment: 'plus DR_TPAGE'; SetDrawTPage(&D_800AB1B4 + outer*8, ...) target for label sprites, AddPrim'd by kaze_main_menu_label_draw."
+ },
+ "D_800AB1CC": {
+  "name": "kaze_setup_menu_scroll_counter",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_setup_menu_intro_scroll: 'draws the background at scroll DAT_800ab1cc (0..0x2a)'."
+ },
+ "D_800AB1D0": {
+  "name": "kaze_setup_menu_mode_texture_latch",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_setup_menu_mode_texture_upload: 'guarded by the change-latch bitmask DAT_800ab1d0', a per-mode-bit cache of which preview textures were already uploaded."
+ },
+ "D_800AB1D4": {
+  "name": "kaze_setup_menu_bgm_track_id",
+  "confidence": "high",
+  "rationale": "Set to 13 in kaze_setup_menu_init and to values 0-8 per BGM row selection in kaze_setup_menu_bgm_row_input.c, then passed to kaze_xa_audio_manager_35a0(D_800AB1D4, 1)."
+ },
+ "D_800AB1DC": {
+  "name": "kaze_setup_menu_preview_sprite",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_setup_menu_header_prim_init: 'Inits setup-menu header sprites per buffer at DAT_800ab1dc: a 64x64 preview SPRT...'."
+ },
+ "D_800AB204": {
+  "name": "kaze_setup_menu_preview_tpage",
+  "confidence": "high",
+  "rationale": "SetDrawTPage(D_800AB204 + dr_ofs, ...) target for the header preview SPRT built at D_800AB1DC in kaze_setup_menu_header_prim_init."
+ },
+ "D_800AB214": {
+  "name": "kaze_setup_menu_caption_sprite",
+  "confidence": "high",
+  "rationale": "Doc comment: '...and a 128x32 caption SPRT at (-0x60,-0x58) (clut 0x3d0)'; the second sprite built in kaze_setup_menu_header_prim_init."
+ },
+ "D_800AB23C": {
+  "name": "kaze_setup_menu_caption_tpage",
+  "confidence": "high",
+  "rationale": "SetDrawTPage(D_800AB23C + dr_ofs, ...) target for the header caption SPRT built at D_800AB214 in kaze_setup_menu_header_prim_init."
+ },
+ "D_800AB24C": {
+  "name": "kaze_setup_menu_textline_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_setup_menu_textline_prim_init: 'Inits six 256x16 setup-menu text-line SPRTs per buffer at DAT_800ab24c'."
+ },
+ "D_800AB25A": {
+  "name": "kaze_setup_menu_textline_clut",
+  "confidence": "medium",
+  "rationale": "0xE bytes into the D_800AB24C textline sprite struct; kaze_setup_menu_textline_prim_init stores each line's GetClut result at D_800AB25A+inner_ofs."
+ },
+ "D_800AB33C": {
+  "name": "kaze_setup_menu_textline_tpage",
+  "confidence": "high",
+  "rationale": "Doc comment: 'plus DR_TPAGE'; SetDrawTPage(D_800AB33C + outer*8, ...) target for the textline sprites in kaze_setup_menu_textline_prim_init."
+ },
+ "D_800AB34C": {
+  "name": "kaze_setup_menu_textline_underline_a",
+  "confidence": "medium",
+  "rationale": "Doc comment: '...and two LINE_F3 underline frames'; the first LINE_F3, positioned along the upper edge (y -0x81..0x57), built in kaze_setup_menu_textline_prim_init."
+ },
+ "D_800AB37C": {
+  "name": "kaze_setup_menu_textline_underline_b",
+  "confidence": "medium",
+  "rationale": "The second LINE_F3 underline frame from the same doc comment, positioned along the lower edge (y 0x57..0x68), paired with D_800AB34C."
+ },
+ "D_800AB3AC": {
+  "name": "kaze_setup_menu_stage_panel_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_setup_menu_stage_panel_prim_init: 'Inits the three 0x40x0x80 stage-choice panel SPRTs per buffer at DAT_800ab3ac'; also reused by kaze_title_rows3_highlight_draw for the same rows."
+ },
+ "D_800AB3B0": {
+  "name": "kaze_setup_menu_stage_panel_shade",
+  "confidence": "high",
+  "rationale": "4 bytes into the D_800AB3AC panel sprite struct; kaze_title_rows3_highlight_draw fades this RGB triple toward bright/dim for the selected stage row."
+ },
+ "D_800AB424": {
+  "name": "kaze_setup_menu_stage_panel_tpage",
+  "confidence": "high",
+  "rationale": "SetDrawTPage(D_800AB424 + dr_ofs, ...) target for the stage-choice panels in kaze_setup_menu_stage_panel_prim_init, AddPrim'd as the trailer prim in kaze_title_rows3_highlight_draw."
+ },
+ "D_800AB434": {
+  "name": "kaze_setup_menu_mode_panel_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_setup_menu_mode_panel_prim_init: 'Inits the three mode-choice panel SPRTs at DAT_800ab434'."
+ },
+ "D_800AB438": {
+  "name": "kaze_setup_menu_mode_panel_shade",
+  "confidence": "high",
+  "rationale": "4 bytes into the D_800AB434 panel sprite struct; kaze_settings_mode_rows_draw fades this RGB triple toward bright/dim for the selected mode row."
+ },
+ "D_800AB4AC": {
+  "name": "kaze_setup_menu_mode_icon_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment: '...plus three 0x18x0x20 icon SPRTs (clut 0x3f0)' built alongside the mode panels in kaze_setup_menu_mode_panel_prim_init."
+ },
+ "D_800AB524": {
+  "name": "kaze_setup_menu_mode_icon_tpage",
+  "confidence": "high",
+  "rationale": "SetDrawTPage(D_800AB524 + page*8, ...) target for the mode-choice icon SPRTs (D_800AB4AC) in kaze_setup_menu_mode_panel_prim_init."
+ },
+ "D_800AB534": {
+  "name": "kaze_setup_menu_level_row_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment for kaze_title_menu_row_sprites_init: 'Builds double-buffered title-menu SPRT rows (3/4/10 entries) at DAT_800ab534...'; the 3-entry group indexed by kaze_menu_level_source in kaze_title_row_groups_fade_draw."
+ },
+ "D_800AB538": {
+  "name": "kaze_setup_menu_level_row_shade",
+  "confidence": "high",
+  "rationale": "4 bytes into the D_800AB534 row sprite struct; kaze_title_row_groups_fade_draw fades this RGB triple for the selected/unselected level row."
+ },
+ "D_800AB542": {
+  "name": "kaze_setup_menu_level_row_clut",
+  "confidence": "medium",
+  "rationale": "0xE bytes into the D_800AB534 row sprite struct; kaze_title_menu_row_sprites_init stores each level row's GetClut(0x350,0xf1) result here."
+ },
+ "D_800AB5AC": {
+  "name": "kaze_setup_menu_flags_row_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment: '...DAT_800ab5ac...' the 4-entry SPRT row group; indexed by kaze_menu_flags_source in kaze_title_row_groups_fade_draw (matches the 0..3 flags option range)."
+ },
+ "D_800AB5B0": {
+  "name": "kaze_setup_menu_flags_row_shade",
+  "confidence": "high",
+  "rationale": "4 bytes into the D_800AB5AC row sprite struct; kaze_title_row_groups_fade_draw fades this RGB triple for the selected/unselected flags row."
+ },
+ "D_800AB5BA": {
+  "name": "kaze_setup_menu_flags_row_clut",
+  "confidence": "medium",
+  "rationale": "0xE bytes into the D_800AB5AC row sprite struct; kaze_title_menu_row_sprites_init stores each flags row's GetClut(0x350,0xf1) result here."
+ },
+ "D_800AB64C": {
+  "name": "kaze_setup_menu_weather_row_sprites",
+  "confidence": "high",
+  "rationale": "Doc comment: '...DAT_800ab64c' the 10-entry SPRT row group; indexed by kaze_menu_weather_source in kaze_title_row_groups_fade_draw."
+ },
+ "D_800AB650": {
+  "name": "kaze_title_weather_rows_tint",
+  "confidence": "medium",
+  "rationale": "RGB tint bytes (offset+4 alias of the D_800AB64C weather-row array) faded per-frame in kaze_title_row_groups_fade_draw for the 10-entry weather row group."
+ },
+ "D_800AB65A": {
+  "name": "kaze_title_weather_rows_clut",
+  "confidence": "high",
+  "rationale": "CLUT u16 written per weather-row entry in kaze_title_menu_row_sprites_init's third (10-entry) loop, parallel to D_800AB542/D_800AB5BA for the other groups."
+ },
+ "D_800AB7DC": {
+  "name": "kaze_title_rows_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target per buffer in kaze_title_menu_row_sprites_init and AddPrim target in kaze_title_row_groups_fade_draw, i.e. the DR_TPAGE prim trailing the title row groups."
+ },
+ "D_800AB7EC": {
+  "name": "kaze_title_icon_row1_sprites",
+  "confidence": "high",
+  "rationale": "3 SPRT_16 icon sprites built in kaze_title_icon_sprites_init and animated (position/CLUT) as 'row 1' in kaze_title_icon_rows_draw."
+ },
+ "D_800AB84C": {
+  "name": "kaze_title_icon_row2_sprites",
+  "confidence": "high",
+  "rationale": "Second 3-entry SPRT_16 icon row, mirrors D_800AB7EC's construction/animation as 'row 2'."
+ },
+ "D_800AB8AC": {
+  "name": "kaze_title_icon_rows_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the icon rows in kaze_title_icon_sprites_init, AddPrim'd after both icon rows in kaze_title_icon_rows_draw."
+ },
+ "D_800AB8BC": {
+  "name": "kaze_setup_row1_flash_level",
+  "confidence": "high",
+  "rationale": "Row-1 icon flash byte reset to 0xE0 by the level-row (kaze_menu_level_source) input handler kaze_setup_menu_option_row_29b4; feeds D_800AB7EC row-1 sprites via pb2 in kaze_title_icon_rows_draw."
+ },
+ "D_800AB8BD": {
+  "name": "kaze_setup_row1_flash_flags",
+  "confidence": "high",
+  "rationale": "Row-1 icon flash byte (index 1) reset by the flags-row handler kaze_setup_menu_option_row_2ad8 (kaze_menu_flags_source)."
+ },
+ "D_800AB8BE": {
+  "name": "kaze_setup_row1_flash_bgm",
+  "confidence": "high",
+  "rationale": "Row-1 icon flash byte (index 2) reset to 0xE0 in kaze_setup_menu_bgm_row_input, the BGM-row handler."
+ },
+ "D_800AB8C0": {
+  "name": "kaze_setup_row2_flash_level",
+  "confidence": "high",
+  "rationale": "Row-2 icon flash byte reset by the level-row handler kaze_setup_menu_option_row_29b4; feeds D_800AB84C row-2 sprites via pb3 in kaze_title_icon_rows_draw."
+ },
+ "D_800AB8C1": {
+  "name": "kaze_setup_row2_flash_flags",
+  "confidence": "high",
+  "rationale": "Row-2 icon flash byte reset by the flags-row handler kaze_setup_menu_option_row_2ad8."
+ },
+ "D_800AB8C2": {
+  "name": "kaze_setup_row2_flash_bgm",
+  "confidence": "high",
+  "rationale": "Row-2 icon flash byte reset by kaze_setup_menu_bgm_row_input, the BGM-row handler."
+ },
+ "D_800AB8C4": {
+  "name": "kaze_title_bg_sprt_prims",
+  "confidence": "medium",
+  "rationale": "Base of the left+right title background SPRT pair per buffer, built in kaze_title_bg_sprites_init and AddPrim'd in kaze_title_bg_prims_add."
+ },
+ "D_800AB8D2": {
+  "name": "kaze_title_bg_left_clut",
+  "confidence": "high",
+  "rationale": "CLUT written for the left (256-wide) title background sprite in kaze_title_bg_sprites_init."
+ },
+ "D_800AB8E6": {
+  "name": "kaze_title_bg_right_clut",
+  "confidence": "high",
+  "rationale": "CLUT written for the right (64-wide) title background sprite in kaze_title_bg_sprites_init."
+ },
+ "D_800AB914": {
+  "name": "kaze_title_bg_tpage_prims",
+  "confidence": "high",
+  "rationale": "DR_TPAGE prims for both left/right title background sprites, set in kaze_title_bg_sprites_init and AddPrim'd in kaze_title_bg_prims_add."
+ },
+ "D_800AB938": {
+  "name": "kaze_grid_select_state",
+  "confidence": "high",
+  "rationale": "Grid-select modal loop state variable driving kaze_grid_select_state_step's switch (0 intro, 1 fade-in, 2 confirm, 0xA input) until 99 exits kaze_grid_select_screen_loop."
+ },
+ "D_800AB93C": {
+  "name": "kaze_grid_select_fade_counter",
+  "confidence": "high",
+  "rationale": "Screen fade counter advanced to 0x2a in kaze_grid_select_fade_step (doc: 'Advances the screen fade counter DAT_800ab93c to 0x2a')."
+ },
+ "D_800AB940": {
+  "name": "kaze_grid_select_pulse_phase",
+  "confidence": "high",
+  "rationale": "rsin phase clock advanced by 0x20 each frame (wrapped &0xfff) in kaze_grid_select_pulse_draw for a pulsing selection effect."
+ },
+ "D_800AB948": {
+  "name": "kaze_options_state",
+  "confidence": "high",
+  "rationale": "Options-menu master state variable switched on in kaze_options_state_dispatch (0/1 top menu, 2/3 registration, 4/5 button config, 6/7 sound, 10/11 records)."
+ },
+ "D_800AB94C": {
+  "name": "kaze_options_fade_counter",
+  "confidence": "high",
+  "rationale": "Fade counter advanced to 0x2a in kaze_options_fade_step, reset to 0 on every options sub-screen transition."
+ },
+ "D_800AB950": {
+  "name": "kaze_options_top_menu_row",
+  "confidence": "high",
+  "rationale": "0..3 row cursor for the options top menu, moved in kaze_options_top_menu_input and drawn as a ring in kaze_options_top_menu_draw."
+ },
+ "D_800AB954": {
+  "name": "kaze_button_config_action_row",
+  "confidence": "high",
+  "rationale": "Explicit '/* action row */' comment in button_config.c; 0..4 cursor over the 5 remappable actions, used by kaze_button_config_input/screen_draw."
+ },
+ "D_800AB958": {
+  "name": "kaze_button_config_toggle_row",
+  "confidence": "high",
+  "rationale": "Explicit '/* toggle row */' comment in button_config.c; 0..1 cursor over the 2 toggle options."
+ },
+ "D_800AB95C": {
+  "name": "kaze_button_config_column_flag",
+  "confidence": "high",
+  "rationale": "Explicit '/* toggle-column flag */' comment; selects between the action-row and toggle-row column in kaze_button_config_input."
+ },
+ "D_800AB960": {
+  "name": "kaze_button_config_remap_armed_flag",
+  "confidence": "high",
+  "rationale": "Explicit '/* remap-armed flag */' comment; when set, kaze_button_remap_assign is called to capture the next pad button."
+ },
+ "D_800AB964": {
+  "name": "kaze_options_fade_mode",
+  "confidence": "high",
+  "rationale": "Fade style passed to kaze_drmove_wipe_tiles (0/2/3) via kaze_options_fade_step, set to 2 on every sub-screen entry/exit transition."
+ },
+ "D_800AB968": {
+  "name": "kaze_sound_mode_cursor",
+  "confidence": "high",
+  "rationale": "0/1 stereo-mono cursor moved in kaze_sound_mode_input and drawn as a ring in kaze_sound_mode_screen_draw; committed to D_8008DC2A on accept."
+ },
+ "D_800AB96C": {
+  "name": "kaze_options_fade_reverse_flag",
+  "confidence": "medium",
+  "rationale": "Selects wipe mode 3 vs 0 in kaze_options_fade_step and is cleared on entering the top-menu input state in kaze_options_state_dispatch."
+ },
+ "D_800AB970": {
+  "name": "kaze_options_header_left_sprites",
+  "confidence": "high",
+  "rationale": "4 small (0x40x0x40) header banner sprites per buffer built in kaze_options_header_sprites_init, positioned via kaze_options_header_set_y, AddPrim'd in kaze_options_header_prims_add."
+ },
+ "D_800AB97A": {
+  "name": "kaze_options_header_left_sprites_y",
+  "confidence": "high",
+  "rationale": "Y-coordinate field alias (offset 0xA) of D_800AB970, written directly by kaze_options_header_set_y for the editor zoom animation."
+ },
+ "D_800AB97E": {
+  "name": "kaze_options_header_left_sprites_clut",
+  "confidence": "high",
+  "rationale": "CLUT field alias (offset 0xE) of D_800AB970, written from ROM table lookups in kaze_options_header_sprites_init."
+ },
+ "D_800ABA10": {
+  "name": "kaze_options_header_right_sprites",
+  "confidence": "high",
+  "rationale": "4 larger (0x80x0x20) header banner sprites per buffer, the second half of the header pair built in kaze_options_header_sprites_init."
+ },
+ "D_800ABA1A": {
+  "name": "kaze_options_header_right_sprites_y",
+  "confidence": "high",
+  "rationale": "Y-coordinate field alias (offset 0xA) of D_800ABA10, written by kaze_options_header_set_y."
+ },
+ "D_800ABA1E": {
+  "name": "kaze_options_header_right_sprites_clut",
+  "confidence": "high",
+  "rationale": "CLUT field alias (offset 0xE) of D_800ABA10, set from GetClut(0x360,0xF3) in kaze_options_header_sprites_init."
+ },
+ "D_800ABAB0": {
+  "name": "kaze_options_header_tpage_prims",
+  "confidence": "high",
+  "rationale": "DR_TPAGE prims for the header sprite pair, set in kaze_options_header_sprites_init and AddPrim'd in kaze_options_header_prims_add."
+ },
+ "D_800ABAC0": {
+  "name": "kaze_options_row_label_sprites",
+  "confidence": "high",
+  "rationale": "4 top-menu row-label SPRTs per buffer per doc comment on kaze_options_row_sprites_init, faded/highlighted in kaze_options_rows_highlight_draw."
+ },
+ "D_800ABAC4": {
+  "name": "kaze_options_row_label_tint",
+  "confidence": "high",
+  "rationale": "RGB tint bytes (offset+4 alias of D_800ABAC0) faded toward the selected row's highlight in kaze_options_rows_highlight_draw."
+ },
+ "D_800ABB60": {
+  "name": "kaze_options_row_label_tpage_prims",
+  "confidence": "high",
+  "rationale": "DR_TPAGE prims for the row-label sprites, set in kaze_options_row_sprites_init and AddPrim'd in kaze_options_rows_highlight_draw."
+ },
+ "D_800ABB70": {
+  "name": "kaze_button_config_action_label_sprites",
+  "confidence": "high",
+  "rationale": "6 action-label SPRTs per buffer per doc comment on kaze_button_config_sprites_init; UVs set from the action mapping in kaze_button_config_prims_draw."
+ },
+ "D_800ABB7E": {
+  "name": "kaze_button_config_action_label_clut",
+  "confidence": "high",
+  "rationale": "CLUT field alias (offset+0xE) of D_800ABB70, written with GetClut(0x350,0xf2) in kaze_button_config_sprites_init."
+ },
+ "D_800ABBD4": {
+  "name": "kaze_button_config_panel_bg_sprite",
+  "confidence": "medium",
+  "rationale": "Positioned quad (offset -0x40,0x48) built once per buffer in kaze_button_config_sprites_init alongside the action-label group's tpage lookup, likely the panel background behind the action labels."
+ },
+ "D_800ABC60": {
+  "name": "kaze_button_config_action_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the action-label group in kaze_button_config_sprites_init, AddPrim'd in kaze_button_config_prims_draw."
+ },
+ "D_800ABC70": {
+  "name": "kaze_button_config_glyph_sprites",
+  "confidence": "high",
+  "rationale": "5 button-glyph SPRTs per buffer per doc comment on kaze_button_config_sprites_init, UVs set from D_8008DC14 mapping in kaze_button_config_prims_draw."
+ },
+ "D_800ABC7E": {
+  "name": "kaze_button_config_glyph_clut",
+  "confidence": "high",
+  "rationale": "CLUT field alias (offset+0xE) of D_800ABC70, written with GetClut(0x360,0xf2)."
+ },
+ "D_800ABD38": {
+  "name": "kaze_button_config_glyph_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the button-glyph group, AddPrim'd in kaze_button_config_prims_draw."
+ },
+ "D_800ABD48": {
+  "name": "kaze_button_config_toggle_glyph_sprites",
+  "confidence": "high",
+  "rationale": "2 toggle-glyph SPRTs per buffer per doc comment on kaze_button_config_sprites_init, UVs set from D_8008DC1C/1D toggle flags."
+ },
+ "D_800ABD54": {
+  "name": "kaze_button_config_toggle_glyph_u",
+  "confidence": "medium",
+  "rationale": "U-coordinate field alias (offset+0xC) of D_800ABD48's first entry, set from the toggle color state in kaze_button_config_prims_draw."
+ },
+ "D_800ABD56": {
+  "name": "kaze_button_config_toggle_glyph_clut",
+  "confidence": "high",
+  "rationale": "CLUT field alias (offset+0xE) of D_800ABD48, written with GetClut(0x380,0xf3)."
+ },
+ "D_800ABD68": {
+  "name": "kaze_button_config_toggle_glyph2_u",
+  "confidence": "medium",
+  "rationale": "U-coordinate field alias for the toggle-glyph array's second entry (D_800ABD54+0x14), set from D_8008DC1D."
+ },
+ "D_800ABD98": {
+  "name": "kaze_button_config_toggle_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the toggle-glyph group, AddPrim'd in kaze_button_config_prims_draw."
+ },
+ "D_800ABDA8": {
+  "name": "kaze_sound_mode_label_sprites",
+  "confidence": "high",
+  "rationale": "2 stereo/mono label SPRTs per buffer per doc comment on kaze_sound_mode_sprites_init, AddPrim'd in kaze_sound_mode_prims_add."
+ },
+ "D_800ABDF8": {
+  "name": "kaze_sound_mode_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the sound-mode labels, AddPrim'd in kaze_sound_mode_prims_add."
+ },
+ "D_800ABE08": {
+  "name": "kaze_balloon_paint_held_flag",
+  "confidence": "high",
+  "rationale": "Edge-detected hold flag for the paint button (kaze_input_current_c & 0x20) in kaze_balloon_paint_input, gating the paint-stroke color write."
+ },
+ "D_800ABE10": {
+  "name": "kaze_task_menu_confirmed_index",
+  "confidence": "medium",
+  "rationale": "Balloon/task index saved on entry (kaze_task_menu_enter_init) and restored into D_8008DBE0 on confirmed exit in kaze_task_menu_state_machine/kaze_registration_state_dispatch."
+ },
+ "D_800ABE14": {
+  "name": "kaze_task_menu_confirm_flag",
+  "confidence": "medium",
+  "rationale": "Nonzero routes kaze_task_menu_state_machine's exit path to restore D_8008DBE0 and return 2 ('task chosen') per its doc comment; also set on the balloon-select cancel path."
+ },
+ "D_800ABE18": {
+  "name": "kaze_balloon_switch_direction_flag",
+  "confidence": "high",
+  "rationale": "Set 0/1 by the up/down balloon-select input and branches the camera swing math in kaze_balloon_switch_swing_anim."
+ },
+ "D_800ABE1C": {
+  "name": "kaze_registration_confirm_cursor",
+  "confidence": "high",
+  "rationale": "0/1 two-option cursor moved in kaze_registration_confirm_input and drawn as a ring in kaze_registration_confirm_draw."
+ },
+ "D_800ABE20": {
+  "name": "kaze_balloon_switch_anim_counter",
+  "confidence": "high",
+  "rationale": "0x20-frame countdown driving kaze_balloon_switch_swing_anim's camera swing and mid-point model swap."
+ },
+ "D_800ABE28": {
+  "name": "kaze_balloon_color_edit_channel",
+  "confidence": "high",
+  "rationale": "0..2 RGB channel selector cycled in kaze_balloon_color_channel_edit, indexing into the D_800ABE50 staging bytes."
+ },
+ "D_800ABE2C": {
+  "name": "kaze_balloon_view_pitch_timer",
+  "confidence": "high",
+  "rationale": "0x10-frame countdown gating camera pitch (rot_x) adjustment in kaze_balloon_view_rotate_input."
+ },
+ "D_800ABE30": {
+  "name": "kaze_balloon_view_yaw_timer",
+  "confidence": "high",
+  "rationale": "0x10-frame countdown gating camera yaw (rot_y) adjustment in kaze_balloon_view_rotate_input."
+ },
+ "D_800ABE34": {
+  "name": "kaze_balloon_view_zoom_timer",
+  "confidence": "high",
+  "rationale": "0x14-frame countdown gating camera zoom (scroll/pos_z) adjustment in kaze_balloon_view_rotate_input."
+ },
+ "D_800ABE38": {
+  "name": "kaze_balloon_view_pitch_dir_counter",
+  "confidence": "high",
+  "rationale": "Incremented each pitch-button press; its bit 1 selects the +/- direction applied to rot_x in kaze_balloon_view_rotate_input."
+ },
+ "D_800ABE3C": {
+  "name": "kaze_balloon_view_yaw_dir_flag",
+  "confidence": "high",
+  "rationale": "Set directly (0/1) by the two opposing yaw buttons in kaze_balloon_view_rotate_input, selecting +/-0x20 on rot_y."
+ },
+ "D_800ABE40": {
+  "name": "kaze_balloon_view_zoom_dir_counter",
+  "confidence": "high",
+  "rationale": "Incremented each zoom-button press; its bit 0 selects zoom-in vs zoom-out in kaze_balloon_view_rotate_input; also read as parity in kaze_balloon_switch_swing_anim's comment reference (DAT_800abe40)."
+ },
+ "D_800ABE44": {
+  "name": "kaze_balloon_paint_color_r",
+  "confidence": "high",
+  "rationale": "Red channel of the current paint color, doc: 'held 0x20 paints RGB DAT_800abe44/48/4c into hovered poly'."
+ },
+ "D_800ABE48": {
+  "name": "kaze_balloon_paint_color_g",
+  "confidence": "high",
+  "rationale": "Green channel of the current paint color, written/read alongside D_800ABE44/4C in kaze_balloon_paint_input."
+ },
+ "D_800ABE4C": {
+  "name": "kaze_balloon_paint_color_b",
+  "confidence": "high",
+  "rationale": "Blue channel of the current paint color, written/read alongside D_800ABE44/48 in kaze_balloon_paint_input."
+ },
+ "D_800ABE50": {
+  "name": "kaze_balloon_color_edit_r",
+  "confidence": "high",
+  "rationale": "Staging red value adjusted by the RGB editor (channel 0 of the &D_800ABE50 array) in kaze_balloon_color_channel_edit, committed to D_800ABE44 on accept."
+ },
+ "D_800ABE51": {
+  "name": "kaze_balloon_color_edit_g",
+  "confidence": "high",
+  "rationale": "Staging green value (channel 1), committed to D_800ABE48 on accept in kaze_balloon_color_channel_edit."
+ },
+ "D_800ABE52": {
+  "name": "kaze_balloon_color_edit_b",
+  "confidence": "high",
+  "rationale": "Staging blue value (channel 2), committed to D_800ABE4C on accept in kaze_balloon_color_channel_edit."
+ },
+ "D_800ABE54": {
+  "name": "kaze_balloon_paint_hovered_poly_idx",
+  "confidence": "high",
+  "rationale": "Set from kaze_balloon_paint_poly_pick's result in kaze_registration_state_dispatch; -1 when no polygon is hovered, indexes D_800B1CD0 for paint/eyedrop."
+ },
+ "D_800ABE58": {
+  "name": "kaze_balloon_highlight_phase_r",
+  "confidence": "high",
+  "rationale": "Mod-0x60 phase counter indexing D_8008E270 for the highlight outline's red byte (prim[4]) in kaze_balloon_paint_highlight_update."
+ },
+ "D_800ABE5C": {
+  "name": "kaze_balloon_highlight_phase_g",
+  "confidence": "high",
+  "rationale": "Mod-0x60 phase counter indexing D_8008E270 for the highlight outline's green byte (prim[5])."
+ },
+ "D_800ABE60": {
+  "name": "kaze_balloon_highlight_phase_b",
+  "confidence": "high",
+  "rationale": "Mod-0x60 phase counter indexing D_8008E270 for the highlight outline's blue byte (prim[6])."
+ },
+ "D_800ABE64": {
+  "name": "kaze_balloon_name_row_sprites",
+  "confidence": "high",
+  "rationale": "5 balloon-name row SPRTs per buffer per doc comment on kaze_balloon_select_row_sprites_init; X positions animated during editor zoom."
+ },
+ "D_800ABE6C": {
+  "name": "kaze_balloon_name_row_sprites_x",
+  "confidence": "high",
+  "rationale": "X-coordinate field alias (offset+8) of D_800ABE64, slid by kaze_balloon_editor_zoom_in_anim's counter."
+ },
+ "D_800ABE72": {
+  "name": "kaze_balloon_name_row_clut",
+  "confidence": "high",
+  "rationale": "CLUT field alias (offset+0xE) of D_800ABE64, written with GetClut(0x340,0xf2) in kaze_balloon_select_row_sprites_init."
+ },
+ "D_800ABF2C": {
+  "name": "kaze_balloon_name_row_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the balloon-name rows in kaze_balloon_select_row_sprites_init."
+ },
+ "D_800ABF3C": {
+  "name": "kaze_registration_confirm_label_sprites",
+  "confidence": "high",
+  "rationale": "2 confirm-option label SPRTs per buffer per doc comment on kaze_registration_confirm_sprites_init."
+ },
+ "D_800ABF8C": {
+  "name": "kaze_registration_confirm_tpage_prims",
+  "confidence": "high",
+  "rationale": "DR_TPAGE for the confirm-option labels per doc comment on kaze_registration_confirm_sprites_init."
+ },
+ "D_800ABF9C": {
+  "name": "kaze_balloon_editor_label_sprites",
+  "confidence": "high",
+  "rationale": "8 semi-trans label SPRTs (2 columns) for the paint-editor side panel per doc comment on kaze_balloon_editor_panel_sprites_init."
+ },
+ "D_800ABFA4": {
+  "name": "kaze_balloon_editor_label_sprites_x",
+  "confidence": "high",
+  "rationale": "X-coordinate field alias (offset+8) of D_800ABF9C, slid by kaze_balloon_editor_zoom_in_anim/zoom_out_anim."
+ },
+ "D_800ABFAA": {
+  "name": "kaze_balloon_editor_label_clut",
+  "confidence": "high",
+  "rationale": "CLUT field alias (offset+0xE) of D_800ABF9C, written with GetClut(0x380,0xf2)."
+ },
+ "D_800AC0DC": {
+  "name": "kaze_balloon_editor_label_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the editor side-panel labels in kaze_balloon_editor_panel_sprites_init."
+ },
+ "D_800AC0EC": {
+  "name": "kaze_balloon_editor_preview_sprite",
+  "confidence": "high",
+  "rationale": "Current-color preview SPRT (CLUT 0x390,0xf2) per doc comment on kaze_balloon_editor_panel_sprites_init."
+ },
+ "D_800AC0F4": {
+  "name": "kaze_balloon_editor_preview_sprite_x",
+  "confidence": "high",
+  "rationale": "X-coordinate field alias (offset+8) of D_800AC0EC, slid by the zoom animations."
+ },
+ "D_800AC114": {
+  "name": "kaze_balloon_editor_preview_tpage_prims",
+  "confidence": "medium",
+  "rationale": "SetDrawTPage(0x340,0x100) call immediately following the color-preview sprite setup in kaze_balloon_editor_panel_sprites_init."
+ },
+ "D_800AC124": {
+  "name": "kaze_balloon_editor_swatch_tiles",
+  "confidence": "high",
+  "rationale": "Color-swatch TILE_16 per doc comment on kaze_balloon_editor_panel_sprites_init, 2 entries (one per column)."
+ },
+ "D_800AC12C": {
+  "name": "kaze_balloon_editor_swatch_tiles_x",
+  "confidence": "high",
+  "rationale": "X-coordinate field alias (offset+8) of D_800AC124, slid by the zoom animations alongside the label/preview positions."
+ },
+ "D_800AC13C": {
+  "name": "kaze_color_edit_popup_window_sprite",
+  "confidence": "high",
+  "rationale": "0xc0x0x48 semi-trans window SPRT per doc comment on kaze_color_edit_popup_sprites_init."
+ },
+ "D_800AC14A": {
+  "name": "kaze_color_edit_popup_window_clut",
+  "confidence": "high",
+  "rationale": "CLUT field alias (offset+0xE) of D_800AC13C, written with GetClut(0x370,0xf2)."
+ },
+ "D_800AC164": {
+  "name": "kaze_color_edit_popup_window_tpage_prims",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the popup window sprite in kaze_color_edit_popup_sprites_init."
+ },
+ "D_800AC174": {
+  "name": "kaze_color_edit_channel_label_sprites",
+  "confidence": "high",
+  "rationale": "kaze_color_edit_popup_sprites_init doc: builds 3 channel-label SPRT_16s at DAT_800ac174; also used as the prim base in kaze_menu_rgb_slider_panel_draw."
+ },
+ "D_800AC17C": {
+  "name": "kaze_color_edit_channel_label_x",
+  "confidence": "medium",
+  "rationale": "D_800AC174+8 alias; kaze_menu_rgb_slider_panel_draw writes the RGB slider handle X position into it."
+ },
+ "D_800AC182": {
+  "name": "kaze_color_edit_channel_label_cluts",
+  "confidence": "high",
+  "rationale": "Stores GetClut(0x3a0,0xf2) per channel-label sprite in kaze_color_edit_popup_sprites_init."
+ },
+ "D_800AC1D4": {
+  "name": "kaze_color_edit_popup_cursor_tiles",
+  "confidence": "high",
+  "rationale": "doc: 9x0x25 cursor TILE built at DAT_800ac1d4; reused as the RGB preview prim base in kaze_menu_rgb_slider_panel_draw."
+ },
+ "D_800AC1F4": {
+  "name": "kaze_balloon_paint_cursor_sprites",
+  "confidence": "high",
+  "rationale": "kaze_paint_cursor_sprites_init doc: builds the paint-cursor SPRT_16 at DAT_800ac1f4."
+ },
+ "D_800AC1FC": {
+  "name": "kaze_balloon_paint_cursor_x",
+  "confidence": "high",
+  "rationale": "XR() macro reads/writes this as the paint cursor X position in kaze_balloon_paint_cursor_move."
+ },
+ "D_800AC1FE": {
+  "name": "kaze_balloon_paint_cursor_y",
+  "confidence": "high",
+  "rationale": "YR() macro reads/writes this as the paint cursor Y position in kaze_balloon_paint_cursor_move."
+ },
+ "D_800AC202": {
+  "name": "kaze_balloon_paint_cursor_cluts",
+  "confidence": "high",
+  "rationale": "Stores GetClut(0x3b0,0xf2) per cursor sprite in kaze_paint_cursor_sprites_init."
+ },
+ "D_800AC214": {
+  "name": "kaze_balloon_paint_cursor_tpages",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the paint cursor sprites in kaze_paint_cursor_sprites_init / kaze_menu_prim_pair_draw_a6a4."
+ },
+ "D_800AC224": {
+  "name": "kaze_balloon_paint_highlight_prims",
+  "confidence": "high",
+  "rationale": "doc: LINE_F4 poly-highlight prim per buffer, animated as a rainbow outline in kaze_balloon_paint_highlight_update."
+ },
+ "D_800AC25C": {
+  "name": "kaze_balloon_paint_tri_vertex_ax",
+  "confidence": "high",
+  "rationale": "Set from vtx_a_xy low half in kaze_balloon_paint_poly_pick, the picked triangle's A-vertex screen X."
+ },
+ "D_800AC260": {
+  "name": "kaze_balloon_paint_tri_vertex_bx",
+  "confidence": "high",
+  "rationale": "Set from vtx_b_xy low half in kaze_balloon_paint_poly_pick, triangle B-vertex screen X."
+ },
+ "D_800AC264": {
+  "name": "kaze_balloon_paint_tri_vertex_cx",
+  "confidence": "high",
+  "rationale": "Set from vtx_c_xy low half in kaze_balloon_paint_poly_pick, triangle C-vertex screen X."
+ },
+ "D_800AC268": {
+  "name": "kaze_balloon_paint_tri_vertex_ay",
+  "confidence": "high",
+  "rationale": "Set from vtx_a_xy high half in kaze_balloon_paint_poly_pick, triangle A-vertex screen Y."
+ },
+ "D_800AC26C": {
+  "name": "kaze_balloon_paint_tri_vertex_by",
+  "confidence": "high",
+  "rationale": "Set from vtx_b_xy high half in kaze_balloon_paint_poly_pick, triangle B-vertex screen Y."
+ },
+ "D_800AC270": {
+  "name": "kaze_balloon_paint_tri_vertex_cy",
+  "confidence": "high",
+  "rationale": "Set from vtx_c_xy high half in kaze_balloon_paint_poly_pick, triangle C-vertex screen Y."
+ },
+ "D_800AC274": {
+  "name": "kaze_balloon_entry_grid_sprites",
+  "confidence": "high",
+  "rationale": "kaze_balloon_entry_grid_sprites_init doc: 5x3 SPRT_16 grid per buffer at DAT_800ac274, also drawn as the letter-name grid by kaze_task_name_grid_draw."
+ },
+ "D_800AC27C": {
+  "name": "kaze_balloon_entry_grid_sprite_x",
+  "confidence": "high",
+  "rationale": "D_800AC274+8 alias; kaze_balloon_editor_zoom_in_anim writes grid sprite X positions here."
+ },
+ "D_800AC27E": {
+  "name": "kaze_balloon_entry_grid_sprite_y",
+  "confidence": "high",
+  "rationale": "D_800AC274+0xA alias; kaze_balloon_editor_zoom_in_anim writes grid sprite row-step Y positions here."
+ },
+ "D_800AC282": {
+  "name": "kaze_balloon_entry_grid_cluts",
+  "confidence": "high",
+  "rationale": "Stores GetClut(0x370,0xf3) per grid sprite in kaze_balloon_entry_grid_sprites_init."
+ },
+ "D_800AC454": {
+  "name": "kaze_balloon_entry_grid_tpages",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the entry grid sprite buffer in kaze_balloon_entry_grid_sprites_init."
+ },
+ "D_800AC464": {
+  "name": "kaze_task_glyph_count",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_glyph_models_link: links DAT_800ac464 glyph objects; used as the loop bound for the glyph model table."
+ },
+ "D_800AC468": {
+  "name": "kaze_task_letter_count",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_letter_delete_input: decrements the letter count DAT_800ac468; incremented in kaze_task_letter_add_anim_commit."
+ },
+ "D_800AC46C": {
+  "name": "kaze_task_menu_camera_bob_phase",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_menu_camera_bob: bobs camera height with rsin of phase DAT_800ac46c, incremented by 8/frame."
+ },
+ "D_800AC470": {
+  "name": "kaze_task_carousel_angle_ring",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_carousel_state_init: builds the 0x29-entry angle ring DAT_800ac470."
+ },
+ "D_800AC51C": {
+  "name": "kaze_task_carousel_angle_step",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_carousel_state_init: step DAT_800ac51c=0x63e70 used to build the angle ring."
+ },
+ "D_800AC540": {
+  "name": "kaze_task_letter_add_spin_amplitude",
+  "confidence": "high",
+  "rationale": "Multiplied by rsin(phase) to add spin displacement to the incoming glyph in kaze_task_letter_add_anim_commit."
+ },
+ "D_800AC544": {
+  "name": "kaze_task_letter_add_x_offset_0",
+  "confidence": "high",
+  "rationale": "(&D_800AC544)[D_800AC468] indexed array element 0, a per-slot X ease target in kaze_task_letter_add_anim_commit."
+ },
+ "D_800AC548": {
+  "name": "kaze_task_letter_add_x_offset_1",
+  "confidence": "high",
+  "rationale": "Same indexed array as D_800AC544, element 1 (value 0), set in kaze_task_carousel_constants_init."
+ },
+ "D_800AC54C": {
+  "name": "kaze_task_letter_add_x_offset_2",
+  "confidence": "high",
+  "rationale": "Same indexed array as D_800AC544, element 2 (value 0xaaaa), set in kaze_task_carousel_constants_init."
+ },
+ "D_800AC550": {
+  "name": "kaze_task_letter_add_row_ease_slope",
+  "confidence": "high",
+  "rationale": "Multiplied by phase for the linear ease-toward-name-row Y value in kaze_task_letter_add_anim_commit."
+ },
+ "D_800AC558": {
+  "name": "kaze_task_letter_delete_arm_timer",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_letter_delete_input: first press arms DAT_800ac558=0x18, then counts down to drive kaze_task_letter_delete_anim."
+ },
+ "D_800AC55C": {
+  "name": "kaze_task_letter_delete_phase1_divisor",
+  "confidence": "high",
+  "rationale": "Used as divisor `den` for the first-phase rsin ease in kaze_task_letter_delete_anim, set to 6 in constants_init."
+ },
+ "D_800AC560": {
+  "name": "kaze_task_letter_delete_phase2_divisor",
+  "confidence": "high",
+  "rationale": "Used as divisor `b` for the second-phase rsin ease in kaze_task_letter_delete_anim, set to 0x11 in constants_init."
+ },
+ "D_800AC564": {
+  "name": "kaze_task_letter_delete_phase1_amplitude",
+  "confidence": "high",
+  "rationale": "Multiplies rsin() for the first-phase Y ease in kaze_task_letter_delete_anim, set to -0xc0."
+ },
+ "D_800AC568": {
+  "name": "kaze_task_letter_delete_phase2_amplitude",
+  "confidence": "high",
+  "rationale": "Multiplies rsin() for the second-phase Y ease in kaze_task_letter_delete_anim, set to 0x230."
+ },
+ "D_800AC56C": {
+  "name": "kaze_task_carousel_scatter_remaining",
+  "confidence": "high",
+  "rationale": "Copy of the per-glyph scatter step magnitude, drawn while >0 as the scatter-exit distance remaining in task_carousel_draw.c."
+ },
+ "D_800AC610": {
+  "name": "kaze_task_carousel_scatter_step_mag",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_carousel_scatter_init: per-frame step magnitude r/0x28 for the dismiss scatter."
+ },
+ "D_800AC6B4": {
+  "name": "kaze_task_carousel_scatter_step_x",
+  "confidence": "high",
+  "rationale": "abs(step*target_x/total) per-frame X delta computed in kaze_task_carousel_scatter_init."
+ },
+ "D_800AC758": {
+  "name": "kaze_task_carousel_scatter_step_y",
+  "confidence": "high",
+  "rationale": "abs(step*target_y/total) per-frame Y delta computed in kaze_task_carousel_scatter_init."
+ },
+ "D_800AC7FC": {
+  "name": "kaze_task_carousel_scatter_target_x",
+  "confidence": "high",
+  "rationale": "Per-glyph random X scatter target (r+100) computed in kaze_task_carousel_scatter_init."
+ },
+ "D_800AC8A0": {
+  "name": "kaze_task_carousel_scatter_target_y",
+  "confidence": "high",
+  "rationale": "Per-glyph random Y scatter target (0x4b0-r) computed in kaze_task_carousel_scatter_init."
+ },
+ "D_800AC944": {
+  "name": "kaze_task_carousel_scatter_frame_count",
+  "confidence": "high",
+  "rationale": "Per-glyph random frame count from kaze_rand_range(10,0x32) for the dismiss scatter in kaze_task_carousel_scatter_init."
+ },
+ "D_800AC9E8": {
+  "name": "kaze_task_glyph_dobjs",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_glyph_models_link: links glyph objects into GsDOBJ2 slots DAT_800ac9e8."
+ },
+ "D_800AC9EC": {
+  "name": "kaze_task_glyph_dobj_coord_ptr",
+  "confidence": "high",
+  "rationale": "D_800AC9E8+4 alias; stores the GsCOORDINATE2 pointer field of each glyph GsDOBJ2 slot in kaze_task_glyph_models_link."
+ },
+ "D_800ACC78": {
+  "name": "kaze_task_glyph_coordinates",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_glyph_models_link: GsCOORDINATE2s at DAT_800acc78 linked to the glyph objects; zeroed per glyph in kaze_task_carousel_intro_anim."
+ },
+ "D_800AD948": {
+  "name": "kaze_task_glyph_rotation_x",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_carousel_state_init: zeroes the rotation table DAT_800ad948; X field read by kaze_task_name_letter_models_link."
+ },
+ "D_800AD94A": {
+  "name": "kaze_task_glyph_rotation_y",
+  "confidence": "high",
+  "rationale": "D_800AD948+2 alias, copied into the name row's rotation Y in kaze_task_name_letter_models_link."
+ },
+ "D_800AD94C": {
+  "name": "kaze_task_glyph_rotation_z",
+  "confidence": "high",
+  "rationale": "D_800AD948+4 alias, copied into the name row's rotation Z in kaze_task_name_letter_models_link."
+ },
+ "D_800ADA90": {
+  "name": "kaze_task_carousel_glyph_pos_x",
+  "confidence": "high",
+  "rationale": "Set from rsin(angle)*0x600>>12 per glyph in kaze_task_carousel_intro_anim, the ring layout X position."
+ },
+ "D_800ADA94": {
+  "name": "kaze_task_carousel_glyph_pos_y",
+  "confidence": "high",
+  "rationale": "Set from a frame_left ramp per glyph in kaze_task_carousel_intro_anim and eased toward the name row in kaze_task_letter_add_anim_commit."
+ },
+ "D_800ADA98": {
+  "name": "kaze_task_carousel_glyph_pos_z",
+  "confidence": "high",
+  "rationale": "Set from rcos(angle)*0x600>>12 per glyph in kaze_task_carousel_intro_anim, the ring layout Z position."
+ },
+ "D_800ADD20": {
+  "name": "kaze_task_name_letter_dobjs",
+  "confidence": "high",
+  "rationale": "GsDOBJ2 slots for the up-to-3 name-row letter models, linked in kaze_task_name_letter_models_link."
+ },
+ "D_800ADD24": {
+  "name": "kaze_task_name_letter_dobj_coord_ptr",
+  "confidence": "high",
+  "rationale": "D_800ADD20+4 alias; stores the GsCOORDINATE2 pointer for each name-row letter dobj slot."
+ },
+ "D_800ADD50": {
+  "name": "kaze_task_name_letter_coordinates",
+  "confidence": "high",
+  "rationale": "doc of kaze_task_name_letter_models_link: GsDOBJ2 slots DAT_800add20 with coords DAT_800add50."
+ },
+ "D_800ADE40": {
+  "name": "kaze_task_name_letter_rotation_x",
+  "confidence": "high",
+  "rationale": "Copied from the glyph rotation table X in kaze_task_name_letter_models_link."
+ },
+ "D_800ADE42": {
+  "name": "kaze_task_name_letter_rotation_y",
+  "confidence": "high",
+  "rationale": "D_800ADE40+2 alias, copied from D_800AD94A in kaze_task_name_letter_models_link."
+ },
+ "D_800ADE44": {
+  "name": "kaze_task_name_letter_rotation_z",
+  "confidence": "high",
+  "rationale": "D_800ADE40+4 alias, copied from D_800AD94C in kaze_task_name_letter_models_link."
+ },
+ "D_800ADE58": {
+  "name": "kaze_task_name_letter_pos_x",
+  "confidence": "high",
+  "rationale": "doc: positions the name-row letters x=-0x140/0/0x140, y=-0x260, z=-0x800; this is slot0's X field."
+ },
+ "D_800ADE5C": {
+  "name": "kaze_task_name_letter_pos_y",
+  "confidence": "high",
+  "rationale": "D_800ADE58+4 alias, slot0's Y field, initialized to -0x260 per doc."
+ },
+ "D_800ADE60": {
+  "name": "kaze_task_name_letter_pos_z",
+  "confidence": "high",
+  "rationale": "D_800ADE58+8 alias, slot0's Z field, initialized to -0x800 per doc."
+ },
+ "D_800ADE68": {
+  "name": "kaze_task_name_letter_slot1_x",
+  "confidence": "high",
+  "rationale": "D_800ADE58+0x10 alias, slot1's X field, initialized to 0 per doc."
+ },
+ "D_800ADE78": {
+  "name": "kaze_task_name_letter_slot2_x",
+  "confidence": "high",
+  "rationale": "D_800ADE58+0x20 alias, slot2's X field, initialized to 0x140 per doc."
+ },
+ "D_800ADE88": {
+  "name": "kaze_records_screen_state",
+  "confidence": "high",
+  "rationale": "doc of kaze_records_screen_frame: at state DAT_800ade88==10 runs cursor/draw, ==0x63 frees and exits."
+ },
+ "D_800ADE90": {
+  "name": "kaze_records_tab_slide_dir",
+  "confidence": "high",
+  "rationale": "Set 1/0 on Right/Left tab move in kaze_records_cursor_input, consumed as the stage-tab slide direction in the draw path."
+ },
+ "D_800ADE94": {
+  "name": "kaze_records_row_slide_dir",
+  "confidence": "high",
+  "rationale": "Set 1/0 on Down/Up row move in kaze_records_cursor_input, consumed as the category-row slide direction in the draw path."
+ },
+ "D_800ADE98": {
+  "name": "kaze_records_tab_slide_timer",
+  "confidence": "high",
+  "rationale": "Set to 0xC on Right/Left tab move in kaze_records_cursor_input; counted down to interpolate cursor_x in the draw path."
+ },
+ "D_800ADE9C": {
+  "name": "kaze_records_row_slide_timer",
+  "confidence": "high",
+  "rationale": "Set to 0xC on Down/Up row move in kaze_records_cursor_input; counted down to interpolate cursor_y in the draw path."
+ },
+ "D_800ADEA0": {
+  "name": "kaze_records_cursor_move_timer",
+  "confidence": "high",
+  "rationale": "Set to 0xF on any cursor move in kaze_records_cursor_input, gates flash/glow effects in the draw path."
+ },
+ "D_800ADEA4": {
+  "name": "kaze_records_cursor_tab",
+  "confidence": "high",
+  "rationale": "doc of kaze_records_cursor_input: Right/Left move stage tab DAT_800adea4 (0..3)."
+ },
+ "D_800ADEA8": {
+  "name": "kaze_records_cursor_row",
+  "confidence": "high",
+  "rationale": "doc of kaze_records_cursor_input: Down/Up move category row DAT_800adea8 (0..2)."
+ },
+ "D_800ADEB0": {
+  "name": "kaze_records_working_table",
+  "confidence": "high",
+  "rationale": "doc of kaze_records_screen_init: copies the 3x3x6 record table into working buffer DAT_800adeb0 with a source-stage tag byte."
+ },
+ "D_800ADEB1": {
+  "name": "kaze_records_working_table_name1",
+  "confidence": "high",
+  "rationale": "D_800ADEB0+1 alias, the record's second name-glyph byte read in kaze_records_entry_glyph_update."
+ },
+ "D_800ADEB2": {
+  "name": "kaze_records_working_table_name2",
+  "confidence": "high",
+  "rationale": "D_800ADEB0+2 alias, the record's third name-glyph byte read in kaze_records_entry_glyph_update."
+ },
+ "D_800ADEB3": {
+  "name": "kaze_records_working_table_stage_tag",
+  "confidence": "high",
+  "rationale": "D_800ADEB0+3 alias; set to source_stage in kaze_records_screen_init and used as a stage-icon index elsewhere."
+ },
+ "D_800ADEB4": {
+  "name": "kaze_records_working_table_score",
+  "confidence": "high",
+  "rationale": "D_800ADEB0+4 alias (int); the packed score value copied in kaze_records_screen_init and read in kaze_records_entry_glyph_update."
+ },
+ "D_800AE064": {
+  "name": "kaze_memcard_work_buffer",
+  "confidence": "high",
+  "rationale": "doc of kaze_memcard_screen_init: allocates the 0x2000-byte work buffer DAT_800ae064."
+ },
+ "D_800AE068": {
+  "name": "kaze_memcard_file_image",
+  "confidence": "high",
+  "rationale": "doc: file image at +0x200 of DAT_800ae064 (i.e. D_800AE064+0x200); holds the loaded save file for parsing."
+ },
+ "D_800AE070": {
+  "name": "kaze_memcard_intro_scroll_timer",
+  "confidence": "high",
+  "rationale": "doc of kaze_memcard_intro_scroll: advances counter DAT_800ae070 to 0x2a while sliding the intro panel into view."
+ },
+ "D_800AE074": {
+  "name": "kaze_memcard_menu_row",
+  "confidence": "high",
+  "rationale": "doc of kaze_memcard_menu_select: Up/Down toggles row DAT_800ae074, used to pick load vs save."
+ },
+ "D_800AE078": {
+  "name": "kaze_memcard_slot_index",
+  "confidence": "high",
+  "rationale": "doc of kaze_memcard_slot_select: Left/Right pick slot DAT_800ae078, passed to memcard probe/read/write/format calls."
+ },
+ "D_800AE07C": {
+  "name": "kaze_memcard_format_phase",
+  "confidence": "high",
+  "rationale": "doc of kaze_memcard_format_flow: format flow state machine phases DAT_800ae07c."
+ },
+ "D_800AE088": {
+  "name": "kaze_memcard_save_overwrite_flag",
+  "confidence": "high",
+  "rationale": "Set 1 when an existing save file is found in kaze_memcard_save_flow, passed as the overwrite arg to kaze_memcard_file_write."
+ },
+ "D_800AE08C": {
+  "name": "kaze_memcard_status_retry_count",
+  "confidence": "high",
+  "rationale": "doc of kaze_memcard_format_flow/kaze_memcard_card_recheck: up-to-5 retry counter for card format/status polling."
+ },
+ "D_800AE094": {
+  "name": "kaze_memcard_slot_poll_counter",
+  "confidence": "high",
+  "rationale": "Counts up to 0x10 in kaze_memcard_slot_select before allowing slot-select input, reset on menu entry."
+ },
+ "D_800AE098": {
+  "name": "kaze_slot_overlay_header_icon_sprites",
+  "confidence": "medium",
+  "rationale": "doc: double-buffered header SPRT pair at DAT_800ae098/DAT_800ae0c0; this one is the smaller 0x40x0x40 icon-shaped sprite."
+ },
+ "D_800AE0C0": {
+  "name": "kaze_slot_overlay_header_bar_sprites",
+  "confidence": "medium",
+  "rationale": "Companion header SPRT to D_800AE098, wider 0xC0x0x20 bar shape, built alongside it in kaze_slot_overlay_header_sprites_init."
+ },
+ "D_800AE0E8": {
+  "name": "kaze_slot_overlay_header_tpages",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the header sprite pair in kaze_slot_overlay_header_sprites_init."
+ },
+ "D_800AE0F8": {
+  "name": "kaze_slot_overlay_glyph_sprites",
+  "confidence": "high",
+  "rationale": "doc of kaze_slot_overlay_glyph_sprites_init: 2x2 double-buffered glyph SPRTs at DAT_800ae0f8 for the slot-select overlay."
+ },
+ "D_800AE106": {
+  "name": "kaze_slot_overlay_glyph_cluts",
+  "confidence": "high",
+  "rationale": "Stores GetClut(0x380,0xf4) per glyph sprite in kaze_slot_overlay_glyph_sprites_init."
+ },
+ "D_800AE148": {
+  "name": "kaze_slot_overlay_glyph_tpages",
+  "confidence": "high",
+  "rationale": "SetDrawTPage target for the glyph sprite buffer in kaze_slot_overlay_glyph_sprites_init."
+ },
+ "D_800AE158": {
+  "name": "kaze_slot_overlay_row_icon_sprites",
+  "confidence": "high",
+  "rationale": "kaze_slot_overlay_row_sprites_init textures these SPRTs (SetShadeTex ...,1) with CLUT 0x360, distinct from the flat highlight bar at D_800AE1A8."
+ },
+ "D_800AE166": {
+  "name": "kaze_slot_overlay_row_icon_cluts",
+  "confidence": "high",
+  "rationale": "kaze_slot_overlay_row_sprites_init stores GetClut(0x360,0xF4) results here per row, paired with the D_800AE158 icon sprites."
+ },
+ "D_800AE1A8": {
+  "name": "kaze_slot_overlay_row_highlight_sprites",
+  "confidence": "high",
+  "rationale": "kaze_slot_overlay_add_rows pulses r->unk4/5/6 brightness on this Row array to highlight the selected slot row; init uses SetShadeTex(...,0) flat color."
+ },
+ "D_800AE1AC": {
+  "name": "kaze_slot_overlay_row_glow_rgb",
+  "confidence": "medium",
+  "rationale": "Alias for D_800AE1A8+4 (the RGB color bytes) used directly as a byte pointer to ramp the selected row's brightness up/down by 0x10."
+ },
+ "D_800AE1B6": {
+  "name": "kaze_slot_overlay_row_highlight_cluts",
+  "confidence": "high",
+  "rationale": "kaze_slot_overlay_row_sprites_init stores GetClut(0x350,0xF4) results here per row, paired with the D_800AE1A8 highlight sprites."
+ },
+ "D_800AE1F8": {
+  "name": "kaze_slot_overlay_row_tpage_prims",
+  "confidence": "high",
+  "rationale": "Both init and add_rows functions document this as the DR_TPAGE prim pair for the row sprites."
+ },
+ "D_800AE208": {
+  "name": "kaze_slot_overlay_status_sprites",
+  "confidence": "high",
+  "rationale": "kaze_slot_overlay_panel_prims_init/add_status_strip build SPRT prims here for the memcard slot status panel."
+ },
+ "D_800AE212": {
+  "name": "kaze_slot_overlay_status_sprite_y0",
+  "confidence": "high",
+  "rationale": "Offset 0xA into the D_800AE208 SPRT struct (y0 field); add_status_strip sets it to 0x48 or 0x50 depending on message length."
+ },
+ "D_800AE215": {
+  "name": "kaze_slot_overlay_status_sprite_v0",
+  "confidence": "high",
+  "rationale": "Offset 0xD into the D_800AE208 SPRT struct (v0 texture coord); set from the D_80010EC8 glyph table by message index."
+ },
+ "D_800AE216": {
+  "name": "kaze_slot_overlay_status_sprite_clut",
+  "confidence": "high",
+  "rationale": "Offset 0xE into the D_800AE208 SPRT struct (clut field); panel_prims_init stores GetClut(0x390,0xF4) here."
+ },
+ "D_800AE21A": {
+  "name": "kaze_slot_overlay_status_sprite_h",
+  "confidence": "high",
+  "rationale": "Offset 0x12 into the D_800AE208 SPRT struct (height field); add_status_strip sets it to 0x20 or 0x10 with y0."
+ },
+ "D_800AE230": {
+  "name": "kaze_slot_overlay_status_tpage_lo",
+  "confidence": "medium",
+  "rationale": "DR_TPAGE prim (page 0x240) added when the status glyph index arg1<4 in kaze_slot_overlay_add_status_strip."
+ },
+ "D_800AE240": {
+  "name": "kaze_slot_overlay_status_tpage_hi",
+  "confidence": "medium",
+  "rationale": "DR_TPAGE prim (page 0x280) added when the status glyph index arg1>=4 in kaze_slot_overlay_add_status_strip."
+ },
+ "D_800AE250": {
+  "name": "kaze_slot_overlay_status_tile_prims",
+  "confidence": "high",
+  "rationale": "kaze_slot_overlay_panel_prims_init builds a TILE prim array here for the status panel background."
+ },
+ "D_800AE270": {
+  "name": "kaze_slot_overlay_status_border_light",
+  "confidence": "medium",
+  "rationale": "LINE_F3 border with the lighter 0xA0 grey shade, forming one edge of the status panel's beveled outline."
+ },
+ "D_800AE2A0": {
+  "name": "kaze_slot_overlay_status_border_dark",
+  "confidence": "medium",
+  "rationale": "LINE_F3 border with the darker 0x60 grey shade, forming the opposite edge of the status panel's beveled outline."
+ },
+ "D_800AE2D0": {
+  "name": "kaze_ending_light0_dir_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_lighting_init sets this (via *p=0) as the x component of the flat light 0 direction (0,1000,1000)."
+ },
+ "D_800AE2D4": {
+  "name": "kaze_ending_light0_dir_y",
+  "confidence": "high",
+  "rationale": "kaze_ending_lighting_init sets this to 1000, the y component of light 0's direction vector."
+ },
+ "D_800AE2D8": {
+  "name": "kaze_ending_light0_dir_z",
+  "confidence": "high",
+  "rationale": "kaze_ending_lighting_init sets this to 1000, the z component of light 0's direction vector."
+ },
+ "D_800AE2DC": {
+  "name": "kaze_ending_light0_color_r",
+  "confidence": "high",
+  "rationale": "kaze_ending_lighting_init sets this to 0xff (white) as the red channel passed to GsSetFlatLight(0,...)."
+ },
+ "D_800AE2DD": {
+  "name": "kaze_ending_light0_color_g",
+  "confidence": "high",
+  "rationale": "kaze_ending_lighting_init sets this to 0xff (white) as the green channel passed to GsSetFlatLight(0,...)."
+ },
+ "D_800AE2DE": {
+  "name": "kaze_ending_light0_color_b",
+  "confidence": "high",
+  "rationale": "kaze_ending_lighting_init sets this to 0xff (white) as the blue channel passed to GsSetFlatLight(0,...)."
+ },
+ "D_800AE2E0": {
+  "name": "kaze_ending_light1_pos_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update writes camera_pos_x here as light 1's x position, which follows the balloon."
+ },
+ "D_800AE2E4": {
+  "name": "kaze_ending_light1_pos_y",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update writes camera_scroll+0x1a4 here as light 1's y position."
+ },
+ "D_800AE2E8": {
+  "name": "kaze_ending_light1_pos_z",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update writes camera_pos_z here as light 1's z position."
+ },
+ "D_800AE2EC": {
+  "name": "kaze_ending_light1_color_r",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update ramps this flame-flicker red channel and passes it to GsSetFlatLight(1,...)."
+ },
+ "D_800AE2ED": {
+  "name": "kaze_ending_light1_color_g",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update ramps this flame-flicker green channel and passes it to GsSetFlatLight(1,...)."
+ },
+ "D_800AE2EE": {
+  "name": "kaze_ending_light1_color_b",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update sets this flame-flicker blue channel (kept at 0) for GsSetFlatLight(1,...)."
+ },
+ "D_800AE300": {
+  "name": "kaze_ending_ot_headers",
+  "confidence": "medium",
+  "rationale": "GsClearOt/GsSortClear/GsDrawOt operate on this per-buffer ordering-table header array (indexed j=i*5) in kaze_ending_screen_loop."
+ },
+ "D_800AE304": {
+  "name": "kaze_ending_ot_base_ptrs",
+  "confidence": "medium",
+  "rationale": "AddPrim calls throughout the ending code index D_800AE304[idx*5]+depth as the OT head pointer for the active buffer."
+ },
+ "D_800AE328": {
+  "name": "kaze_ending_ot_buffer_a",
+  "confidence": "high",
+  "rationale": "kaze_ending_graphics_init allocates this as one of the two 0x1000-entry OT arrays; freed in kaze_ending_buffers_free."
+ },
+ "D_800AE32C": {
+  "name": "kaze_ending_ot_buffer_b",
+  "confidence": "high",
+  "rationale": "kaze_ending_graphics_init allocates this as the second 0x1000-entry OT array; freed in kaze_ending_buffers_free."
+ },
+ "D_800AE330": {
+  "name": "kaze_ending_packet_buffer_a",
+  "confidence": "high",
+  "rationale": "kaze_ending_graphics_init allocates this as one of the two 0x5dc0-byte GPU packet buffers, used via kaze_gs_set_work_base."
+ },
+ "D_800AE334": {
+  "name": "kaze_ending_packet_buffer_b",
+  "confidence": "high",
+  "rationale": "kaze_ending_graphics_init allocates this as the second 0x5dc0-byte GPU packet buffer."
+ },
+ "D_800AE338": {
+  "name": "kaze_ending_camera_view2",
+  "confidence": "high",
+  "rationale": "kaze_ending_camera_init copies the GsVIEW2 template from D_800B20F8 here before calling GsSetView2(&D_800AE338)."
+ },
+ "D_800AE358": {
+  "name": "kaze_ending_coord2_ptr",
+  "confidence": "medium",
+  "rationale": "kaze_ending_camera_init sets this pointer to &D_800AE35C after GsInitCoordinate2, likely the active coordinate-system pointer."
+ },
+ "D_800AE35C": {
+  "name": "kaze_ending_coord2_buffer",
+  "confidence": "high",
+  "rationale": "kaze_ending_camera_init passes this to GsInitCoordinate2(0, D_800AE35C) as the ending scene's coordinate system storage."
+ },
+ "D_800AE360": {
+  "name": "kaze_ending_camera_matrix",
+  "confidence": "high",
+  "rationale": "kaze_ending_keyframe_load and kaze_ending_debug_camera_control build the rotation/translation matrix here via RotMatrixYXZ/kaze_trans_matrix/SetRotMatrix."
+ },
+ "D_800AE3AC": {
+  "name": "kaze_ending_camera_angle_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_camera_init/reset_defaults zero this as the x component of the ending camera's angle vector."
+ },
+ "D_800AE3AE": {
+  "name": "kaze_ending_camera_angle_y",
+  "confidence": "high",
+  "rationale": "kaze_ending_camera_init/reset_defaults zero this as the y component of the ending camera's angle vector."
+ },
+ "D_800AE3B0": {
+  "name": "kaze_ending_camera_angle_z",
+  "confidence": "high",
+  "rationale": "kaze_ending_camera_init/reset_defaults zero this as the z component of the ending camera's angle vector."
+ },
+ "D_800AE3B4": {
+  "name": "kaze_ending_camera_pos_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_camera_init/reset_defaults zero this as the x component of the ending camera's position vector."
+ },
+ "D_800AE3B8": {
+  "name": "kaze_ending_camera_pos_y",
+  "confidence": "high",
+  "rationale": "kaze_ending_camera_init/reset_defaults zero this as the y component of the ending camera's position vector."
+ },
+ "D_800AE3BC": {
+  "name": "kaze_ending_camera_pos_z",
+  "confidence": "high",
+  "rationale": "kaze_ending_camera_init sets this to -0xbb8 (reset_defaults uses -3000) as the z (depth) component of the camera position."
+ },
+ "D_800AE3C8": {
+  "name": "kaze_ending_camera_roll",
+  "confidence": "medium",
+  "rationale": "kaze_ending_debug_camera_control sets this to +/-0x20 from pad bits 0x20/0x80 in the camera-angle debug mode, alongside the angle vector."
+ },
+ "D_800AE3CC": {
+  "name": "kaze_ending_backdrop_sprites",
+  "confidence": "high",
+  "rationale": "kaze_ending_prims_init documents this as the backdrop SPRT pair; kaze_ending_credit_prims_add repositions it via D_800AE404/408."
+ },
+ "D_800AE3F4": {
+  "name": "kaze_ending_backdrop_tpage_prims",
+  "confidence": "high",
+  "rationale": "kaze_ending_prims_init builds the DR_TPAGE prims here paired with the D_800AE3CC backdrop sprites."
+ },
+ "D_800AE404": {
+  "name": "kaze_ending_backdrop_scroll_x",
+  "confidence": "medium",
+  "rationale": "kaze_ending_credit_prims_add writes this into the backdrop sprite's x0 (offset 8); reset to -0xA0 in kaze_ending_state_reset."
+ },
+ "D_800AE408": {
+  "name": "kaze_ending_backdrop_scroll_y",
+  "confidence": "medium",
+  "rationale": "kaze_ending_credit_prims_add writes this into the backdrop sprite's y0 (offset 0xA); reset to -0x78 in kaze_ending_state_reset."
+ },
+ "D_800AE414": {
+  "name": "kaze_ending_backdrop_poly",
+  "confidence": "medium",
+  "rationale": "kaze_ending_prims_init builds a single black POLY_F4 here, added every frame in kaze_ending_credit_prims_add as a static backdrop quad."
+ },
+ "D_800AE418": {
+  "name": "kaze_ending_backdrop_poly_r",
+  "confidence": "high",
+  "rationale": "Offset 4 into the D_800AE414 POLY_F4 (red channel), set to 0 (black) in kaze_ending_prims_init."
+ },
+ "D_800AE419": {
+  "name": "kaze_ending_backdrop_poly_g",
+  "confidence": "high",
+  "rationale": "Offset 5 into the D_800AE414 POLY_F4 (green channel), set to 0 (black) in kaze_ending_prims_init."
+ },
+ "D_800AE41A": {
+  "name": "kaze_ending_backdrop_poly_b",
+  "confidence": "high",
+  "rationale": "Offset 6 into the D_800AE414 POLY_F4 (blue channel), set to 0 (black) in kaze_ending_prims_init."
+ },
+ "D_800AE41C": {
+  "name": "kaze_ending_backdrop_poly_x0",
+  "confidence": "high",
+  "rationale": "Offset 8 into the D_800AE414 POLY_F4 (x0 vertex), set to 0 in kaze_ending_prims_init."
+ },
+ "D_800AE41E": {
+  "name": "kaze_ending_backdrop_poly_y0",
+  "confidence": "high",
+  "rationale": "Offset 0xA into the D_800AE414 POLY_F4 (y0 vertex), set to -0x78 in kaze_ending_prims_init."
+ },
+ "D_800AE420": {
+  "name": "kaze_ending_backdrop_poly_x1",
+  "confidence": "high",
+  "rationale": "Offset 0xC into the D_800AE414 POLY_F4 (x1 vertex), set to 0xA0 (160) in kaze_ending_prims_init."
+ },
+ "D_800AE422": {
+  "name": "kaze_ending_backdrop_poly_y1",
+  "confidence": "high",
+  "rationale": "Offset 0xE into the D_800AE414 POLY_F4 (y1 vertex), set to -0x78 in kaze_ending_prims_init."
+ },
+ "D_800AE424": {
+  "name": "kaze_ending_backdrop_poly_x2",
+  "confidence": "high",
+  "rationale": "Offset 0x10 into the D_800AE414 POLY_F4 (x2 vertex), set to 0 in kaze_ending_prims_init."
+ },
+ "D_800AE426": {
+  "name": "kaze_ending_backdrop_poly_y2",
+  "confidence": "high",
+  "rationale": "Offset 0x12 into the D_800AE414 POLY_F4 (y2 vertex), set to 0x78 in kaze_ending_prims_init."
+ },
+ "D_800AE428": {
+  "name": "kaze_ending_backdrop_poly_x3",
+  "confidence": "high",
+  "rationale": "Offset 0x14 into the D_800AE414 POLY_F4 (x3 vertex), set to 0xA0 (160) in kaze_ending_prims_init."
+ },
+ "D_800AE42A": {
+  "name": "kaze_ending_backdrop_poly_y3",
+  "confidence": "high",
+  "rationale": "Offset 0x16 into the D_800AE414 POLY_F4 (y3 vertex), set to 0x78 in kaze_ending_prims_init."
+ },
+ "D_800AE42C": {
+  "name": "kaze_ending_credit_title_sprites",
+  "confidence": "high",
+  "rationale": "kaze_ending_credit_text_layout positions two of these SPRTs per page as the centered title/word graphic (entry type 1 branch)."
+ },
+ "D_800AE43A": {
+  "name": "kaze_ending_credit_title_cluts",
+  "confidence": "high",
+  "rationale": "kaze_ending_prims_init stores GetClut(0x3c0,0x1fc) here per D_800AE42C title sprite entry."
+ },
+ "D_800AE47C": {
+  "name": "kaze_ending_credit_title_tpage_prims",
+  "confidence": "high",
+  "rationale": "kaze_ending_prims_init builds DR_TPAGE prims here paired with the D_800AE42C title sprites."
+ },
+ "D_800AE49C": {
+  "name": "kaze_ending_credit_title_pos",
+  "confidence": "medium",
+  "rationale": "kaze_ending_credit_text_layout writes a centered {x,y} pair here used to position the D_800AE42C title sprites."
+ },
+ "D_800AE4AC": {
+  "name": "kaze_ending_credit_line_sprites",
+  "confidence": "high",
+  "rationale": "kaze_ending_credit_text_layout positions per-character glyph SPRTs here for each credits text line (entry->[3] lines)."
+ },
+ "D_800AE4BA": {
+  "name": "kaze_ending_credit_line_cluts",
+  "confidence": "high",
+  "rationale": "kaze_ending_prims_init stores GetClut(0x3c0,0x1fc) here per D_800AE4AC line-glyph sprite entry."
+ },
+ "D_800AE524": {
+  "name": "kaze_ending_credit_line_tpage_prims",
+  "confidence": "high",
+  "rationale": "kaze_ending_prims_init builds DR_TPAGE prims here paired with the D_800AE4AC text line sprites."
+ },
+ "D_800AE554": {
+  "name": "kaze_ending_credit_line_cursor",
+  "confidence": "medium",
+  "rationale": "kaze_ending_credit_text_layout writes a {glyph_width,y_baseline} pair here used to lay out text-line sprites row by row."
+ },
+ "D_800AE564": {
+  "name": "kaze_ending_fade_polys",
+  "confidence": "high",
+  "rationale": "kaze_ending_fade_prims_init/kaze_ending_fade_poly_update build the semi-trans black POLY_F4 fade quads here."
+ },
+ "D_800AE594": {
+  "name": "kaze_ending_fade_tpage_prims",
+  "confidence": "high",
+  "rationale": "kaze_ending_fade_prims_init/kaze_ending_fade_poly_update build the DR_TPAGE prims paired with the D_800AE564 fade quads."
+ },
+ "D_800AE5A4": {
+  "name": "kaze_ending_screen_move_prims",
+  "confidence": "high",
+  "rationale": "kaze_ending_prims_init and kaze_ending_screen_move_prim_add build/add DR_MOVE screen-copy prims here."
+ },
+ "D_800AE604": {
+  "name": "kaze_ending_flame_polys",
+  "confidence": "high",
+  "rationale": "kaze_ending_prims_init documents this as the semi-trans flame POLY_FT4 array."
+ },
+ "D_800AE60C": {
+  "name": "kaze_ending_flame_poly_verts",
+  "confidence": "high",
+  "rationale": "Offset 8 into the D_800AE604 POLY_FT4 (x0y0 field); kaze_ending_flame_quad_render writes all 4 transformed vertex pairs starting here."
+ },
+ "D_800AE612": {
+  "name": "kaze_ending_flame_poly_clut",
+  "confidence": "high",
+  "rationale": "Offset 0xE into the D_800AE604 POLY_FT4 (clut field); kaze_ending_prims_init stores GetClut(0x3c0,0x1fb) here."
+ },
+ "D_800AE61A": {
+  "name": "kaze_ending_flame_poly_tpage",
+  "confidence": "high",
+  "rationale": "Offset 0x16 into the D_800AE604 POLY_FT4 (tpage field); kaze_ending_prims_init stores GetTPage(0,1,0x280,0x100) here."
+ },
+ "D_800AE654": {
+  "name": "kaze_ending_flame_coord2",
+  "confidence": "medium",
+  "rationale": "kaze_ending_prims_init passes this to GsInitCoordinate2(0, D_800AE654) as a local coordinate buffer for the flame effect."
+ },
+ "D_800AE658": {
+  "name": "kaze_ending_flame_matrix",
+  "confidence": "high",
+  "rationale": "kaze_ending_flame_quad_render builds the flame's rotation/translation matrix here via RotMatrix/kaze_trans_matrix/GsGetLws."
+ },
+ "D_800AE6A4": {
+  "name": "kaze_ending_flame_pos_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_flame_quad_render writes camera_pos_x here as the flame quad's x position (tvec base)."
+ },
+ "D_800AE6A8": {
+  "name": "kaze_ending_flame_pos_y",
+  "confidence": "high",
+  "rationale": "kaze_ending_flame_quad_render writes camera_scroll+0x1d6 here as the flame quad's y position."
+ },
+ "D_800AE6AC": {
+  "name": "kaze_ending_flame_pos_z",
+  "confidence": "high",
+  "rationale": "kaze_ending_flame_quad_render writes camera_pos_z here as the flame quad's z position."
+ },
+ "D_800AE6B4": {
+  "name": "kaze_ending_flame_angle_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_flame_quad_render passes &D_800AE6B4 (sv) as the angle vector to RotMatrix for the flame quad."
+ },
+ "D_800AE6B6": {
+  "name": "kaze_ending_flame_angle_y",
+  "confidence": "high",
+  "rationale": "Second short of the flame angle vector starting at D_800AE6B4, zeroed in kaze_ending_prims_init."
+ },
+ "D_800AE6B8": {
+  "name": "kaze_ending_flame_angle_z",
+  "confidence": "high",
+  "rationale": "Third short of the flame angle vector starting at D_800AE6B4, zeroed in kaze_ending_prims_init."
+ },
+ "D_800AE6BC": {
+  "name": "kaze_ending_flame_quad_v0_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update sets this to phase-0x19 as vertex 0's x coord of the 4-vertex flame quad fed to RotAverageNclip4."
+ },
+ "D_800AE6BE": {
+  "name": "kaze_ending_flame_quad_v0_y",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update sets this to phase*5-0x5a as vertex 0's y coord of the flame quad."
+ },
+ "D_800AE6C0": {
+  "name": "kaze_ending_flame_quad_v0_z",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update zeroes this, vertex 0's z coord of the flame quad."
+ },
+ "D_800AE6C4": {
+  "name": "kaze_ending_flame_quad_v1_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update sets this to 0x19-phase as vertex 1's x coord of the flame quad."
+ },
+ "D_800AE6C6": {
+  "name": "kaze_ending_flame_quad_v1_y",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update copies D_800AE6BE here as vertex 1's y coord of the flame quad."
+ },
+ "D_800AE6C8": {
+  "name": "kaze_ending_flame_quad_v1_z",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update zeroes this, vertex 1's z coord of the flame quad."
+ },
+ "D_800AE6CC": {
+  "name": "kaze_ending_flame_quad_v2_x",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update copies D_800AE6BC here as vertex 2's x coord of the flame quad."
+ },
+ "D_800AE6CE": {
+  "name": "kaze_ending_flame_quad_v2_y",
+  "confidence": "high",
+  "rationale": "kaze_ending_burner_light_update zeroes this, vertex 2's y coord of the flame quad."
+ },
+ "D_800AE6D0": {
+  "name": "kaze_ending_flame_quad_v2_z",
+  "confidence": "high",
+  "rationale": "Offset +0x10 from RotAverageNclip4 base D_800AE6BC (SVECTOR stride 8) makes this vertex2.z; zeroed alongside the other vertex-z fields in kaze_ending_burner_light_update."
+ },
+ "D_800AE6D4": {
+  "name": "kaze_ending_flame_quad_v3_x",
+  "confidence": "high",
+  "rationale": "Offset +0x18 from D_800AE6BC is vertex3.x per the RotAverageNclip4 call; set to mirror D_800AE6C4 (vertex1.x) in kaze_ending_burner_light_update."
+ },
+ "D_800AE6D6": {
+  "name": "kaze_ending_flame_quad_v3_y",
+  "confidence": "high",
+  "rationale": "vertex3.y of the flame quad passed to RotAverageNclip4; zeroed with the other y components in kaze_ending_burner_light_update."
+ },
+ "D_800AE6D8": {
+  "name": "kaze_ending_flame_quad_v3_z",
+  "confidence": "high",
+  "rationale": "vertex3.z of the flame quad passed to RotAverageNclip4; zeroed with the other z components in kaze_ending_burner_light_update."
+ },
+ "D_800AE6DC": {
+  "name": "kaze_ending_screen_state",
+  "confidence": "high",
+  "rationale": "Top-level ending loop state driving kaze_ending_state_dispatch (0=debug viewer,1=credits) and the exit test (==2) in kaze_ending_screen_loop."
+ },
+ "D_800AE6E0": {
+  "name": "kaze_ending_credits_substate",
+  "confidence": "high",
+  "rationale": "Switch variable for the credits sequence stages (load/fade-in/scroll/fade-out) in kaze_ending_credits_update."
+ },
+ "D_800AE6E4": {
+  "name": "kaze_ending_debug_camera_mode",
+  "confidence": "high",
+  "rationale": "Cycled 0-3 by the select-button press in kaze_ending_debug_camera_control to choose camera/balloon-pos/light edit mode."
+ },
+ "D_800AE6E8": {
+  "name": "kaze_ending_debug_toggle_flag",
+  "confidence": "medium",
+  "rationale": "XORed by pad2 new-press bit 0x800 in kaze_ending_debug_viewer_update; the consumer of the flag is not in the decompiled scope, so purpose is inferred."
+ },
+ "D_800AE6EC": {
+  "name": "kaze_ending_fade_phase",
+  "confidence": "high",
+  "rationale": "Phase selector switching between fade-in/fade-out branches in kaze_ending_fade_poly_update and gating credits-substate advance."
+ },
+ "D_800AE6F0": {
+  "name": "kaze_ending_credit_page_index",
+  "confidence": "high",
+  "rationale": "Indexes the DAT_800ae758 credit-page texture table for VRAM upload/text layout per kaze_ending_credit_page_upload/kaze_ending_credit_text_layout."
+ },
+ "D_800AE6F4": {
+  "name": "kaze_ending_fade_level",
+  "confidence": "high",
+  "rationale": "0-0xff brightness level ramped by +/-5 each frame in kaze_ending_fade_poly_update."
+ },
+ "D_800AE6F8": {
+  "name": "kaze_ending_credits_frame_counter",
+  "confidence": "high",
+  "rationale": "Frame counter compared against multiples of 0x78/0x1e0/0x1e0 to time credits state transitions in kaze_ending_credits_update."
+ },
+ "D_800AE6FC": {
+  "name": "kaze_ending_balloon_bob_phase",
+  "confidence": "high",
+  "rationale": "Advances by 0xc per frame, wraps at 0x1001, and feeds rcos() to produce the balloon bob offset in kaze_ending_balloon_path_step."
+ },
+ "D_800AE700": {
+  "name": "kaze_ending_balloon_bob_offset_y",
+  "confidence": "high",
+  "rationale": "rcos(bob_phase)>>0xb result added to the balloon's Y position in kaze_ending_balloon_path_step per the doc comment."
+ },
+ "D_800AE704": {
+  "name": "kaze_ending_path_start_x",
+  "confidence": "high",
+  "rationale": "Segment start X loaded from the keyframe table and copied into kaze_menu_camera_pos_x in kaze_ending_path_segment_setup."
+ },
+ "D_800AE708": {
+  "name": "kaze_ending_path_start_y",
+  "confidence": "high",
+  "rationale": "Segment start Y loaded into kaze_menu_camera_scroll in kaze_ending_path_segment_setup."
+ },
+ "D_800AE70C": {
+  "name": "kaze_ending_path_start_z",
+  "confidence": "high",
+  "rationale": "Segment start Z loaded into kaze_menu_camera_pos_z in kaze_ending_path_segment_setup."
+ },
+ "D_800AE710": {
+  "name": "kaze_ending_path_end_x",
+  "confidence": "high",
+  "rationale": "Segment end X used to compute dx = end_x - x in kaze_ending_path_segment_setup."
+ },
+ "D_800AE714": {
+  "name": "kaze_ending_path_end_y",
+  "confidence": "high",
+  "rationale": "Segment end Y used to compute dy in kaze_ending_path_segment_setup."
+ },
+ "D_800AE718": {
+  "name": "kaze_ending_path_end_z",
+  "confidence": "high",
+  "rationale": "Segment end Z used to compute dz in kaze_ending_path_segment_setup."
+ },
+ "D_800AE71C": {
+  "name": "kaze_ending_path_delta_x",
+  "confidence": "high",
+  "rationale": "abs(dx) DDA range term compared against the accumulators in kaze_ending_balloon_path_step."
+ },
+ "D_800AE720": {
+  "name": "kaze_ending_path_delta_y",
+  "confidence": "high",
+  "rationale": "abs(dy) DDA range term compared against the accumulators in kaze_ending_balloon_path_step."
+ },
+ "D_800AE724": {
+  "name": "kaze_ending_path_delta_z",
+  "confidence": "high",
+  "rationale": "abs(dz) DDA range term compared against the accumulators in kaze_ending_balloon_path_step."
+ },
+ "D_800AE728": {
+  "name": "kaze_ending_path_error_x",
+  "confidence": "high",
+  "rationale": "DDA error accumulator for the X axis, incremented each step and reduced by the dominant-axis delta in kaze_ending_balloon_path_step."
+ },
+ "D_800AE72C": {
+  "name": "kaze_ending_path_error_y",
+  "confidence": "high",
+  "rationale": "DDA error accumulator for the Y axis in kaze_ending_balloon_path_step."
+ },
+ "D_800AE730": {
+  "name": "kaze_ending_path_error_z",
+  "confidence": "high",
+  "rationale": "DDA error accumulator for the Z axis in kaze_ending_balloon_path_step."
+ },
+ "D_800AE734": {
+  "name": "kaze_ending_path_step_x",
+  "confidence": "high",
+  "rationale": "Signed per-frame speed step applied to the X position, sign set from dx in kaze_ending_path_segment_setup."
+ },
+ "D_800AE738": {
+  "name": "kaze_ending_path_step_y",
+  "confidence": "high",
+  "rationale": "Signed per-frame speed step applied to the Y position in kaze_ending_path_segment_setup/kaze_ending_balloon_path_step."
+ },
+ "D_800AE73C": {
+  "name": "kaze_ending_path_step_z",
+  "confidence": "high",
+  "rationale": "Signed per-frame speed step applied to the Z position in kaze_ending_path_segment_setup/kaze_ending_balloon_path_step."
+ },
+ "D_800AE740": {
+  "name": "kaze_ending_path_progress",
+  "confidence": "high",
+  "rationale": "Accumulates by kaze_ending_path_speed along the dominant axis and is compared against the axis delta to end the segment in kaze_ending_balloon_path_step."
+ },
+ "D_800AE744": {
+  "name": "kaze_ending_path_speed",
+  "confidence": "high",
+  "rationale": "Keyframe 'speed' field loaded in kaze_ending_keyframe_load and used as the DDA step increment."
+ },
+ "D_800AE748": {
+  "name": "kaze_ending_path_dominant_axis",
+  "confidence": "high",
+  "rationale": "Selects which axis (0/1/2) drives the DDA stepper in kaze_ending_balloon_path_step, computed in kaze_ending_path_segment_setup."
+ },
+ "D_800AE750": {
+  "name": "kaze_ending_asset_load_buffer_ptr",
+  "confidence": "medium",
+  "rationale": "Reused scratch pointer for END.TXP/END2.TXP/FULL.TIM file loads across kaze_ending_textures_load/kaze_ending_state_reset, freed in kaze_ending_buffers_free."
+ },
+ "D_800AE754": {
+  "name": "kaze_ending_balloon_model_ptr",
+  "confidence": "high",
+  "rationale": "Holds the BAL\\T\\BALL.MDL load result per the kaze_ending_balloon_model_load doc comment and is freed in kaze_ending_buffers_free."
+ },
+ "D_800AE758": {
+  "name": "kaze_ending_credit_page_texture_table",
+  "confidence": "high",
+  "rationale": "Array of per-page sub-image offsets filled in kaze_ending_textures_load and indexed by the credit-page index for VRAM upload."
+ },
+ "D_800AE788": {
+  "name": "kaze_ending_music_track_id",
+  "confidence": "high",
+  "rationale": "XA track id passed to kaze_xa_audio_manager_35a0 each frame in kaze_ending_screen_loop; -2 means no music, matching the doc comment."
+ },
+ "D_800B0E60": {
+  "name": "kaze_gs_view_pos_x",
+  "confidence": "high",
+  "rationale": "Menu 3D view translation X; doc comment 'Resets view position DAT_800b0e60..68' in kaze_gs_view_init_92c8, also set in kaze_gs_view_set_pose_94c8."
+ },
+ "D_800B0E64": {
+  "name": "kaze_gs_view_pos_y",
+  "confidence": "high",
+  "rationale": "Menu 3D view translation Y, part of the DAT_800b0e60..68 view position triple."
+ },
+ "D_800B0E68": {
+  "name": "kaze_gs_view_pos_z",
+  "confidence": "high",
+  "rationale": "Menu 3D view translation Z, part of the DAT_800b0e60..68 view position triple."
+ },
+ "D_800B0E78": {
+  "name": "kaze_memcard_slot_status_flags",
+  "confidence": "high",
+  "rationale": "Per-slot decoded memcard status bit array written by kaze_memcard_result_decode and read by kaze_memcard_slot_select/kaze_memcard_slot_select_draw."
+ },
+ "D_800B0E7C": {
+  "name": "kaze_memcard_slot1_status_flags",
+  "confidence": "high",
+  "rationale": "Second slot's decoded status flags, checked alongside D_800B0E78[0] in kaze_memcard_slot_select/kaze_memcard_slot_select_draw."
+ },
+ "D_800B0E88": {
+  "name": "kaze_gs_packet_buffer_a_ptr",
+  "confidence": "high",
+  "rationale": "0x1000-byte GS packet buffer allocated in kaze_gs_graphics_init_9170 and freed in kaze_gs_graphics_free_9270."
+ },
+ "D_800B0E8C": {
+  "name": "kaze_gs_packet_buffer_b_ptr",
+  "confidence": "high",
+  "rationale": "Second 0x1000-byte GS packet buffer, allocated/freed alongside D_800B0E88 in kaze_gs_graphics_init_9170/_free_9270."
+ },
+ "D_800B0E98": {
+  "name": "kaze_input_current_pad2_mask",
+  "confidence": "high",
+  "rationale": "Decoded from the port-2 digital pad buffer (D_800B192A..) and ORed into kaze_input_current_a in kaze_pad_mask_update."
+ },
+ "D_800B0EA4": {
+  "name": "kaze_input_pad2_mask_current",
+  "confidence": "high",
+  "rationale": "Per-frame snapshot of D_800B0E98 taken in kaze_pad_edge_latch_update, used as the 'current' operand for pad2 new-press detection."
+ },
+ "D_800B0EA8": {
+  "name": "kaze_gs_disp_buff_x0",
+  "confidence": "high",
+  "rationale": "Stores the x0 parameter of the double-buffer display origin in PsyQ kaze_gs_def_disp_buff."
+ },
+ "D_800B0EAA": {
+  "name": "kaze_gs_disp_buff_x1",
+  "confidence": "high",
+  "rationale": "Stores the x1 parameter of the double-buffer display origin in PsyQ kaze_gs_def_disp_buff."
+ },
+ "D_800B0F44": {
+  "name": "kaze_gs_disp_buff_y0",
+  "confidence": "high",
+  "rationale": "Stores the y0 parameter of the double-buffer display origin in PsyQ kaze_gs_def_disp_buff."
+ },
+ "D_800B0F46": {
+  "name": "kaze_gs_disp_buff_y1",
+  "confidence": "high",
+  "rationale": "Stores the y1 parameter of the double-buffer display origin in PsyQ kaze_gs_def_disp_buff."
+ },
+ "D_800B0F4C": {
+  "name": "kaze_input_pad1_hold_counter",
+  "confidence": "high",
+  "rationale": "Reset to 0 when the pad1 mask changes, else incremented each frame in kaze_pad_edge_latch_update."
+ },
+ "D_800B0F54": {
+  "name": "kaze_input_pad2_hold_counter",
+  "confidence": "high",
+  "rationale": "Reset to 0 when the pad2 mask changes, else incremented each frame in kaze_pad_edge_latch_update."
+ },
+ "D_800B1448": {
+  "name": "kaze_gs_light0_dir_x",
+  "confidence": "high",
+  "rationale": "First word of the GsF_LIGHT block passed to GsSetFlatLight(0,...) in kaze_gs_light_init_default_93b0/_alt_9454."
+ },
+ "D_800B144C": {
+  "name": "kaze_gs_light0_dir_y",
+  "confidence": "high",
+  "rationale": "Second word of the flat-light direction vector set in kaze_gs_light_init_default_93b0/_alt_9454."
+ },
+ "D_800B1450": {
+  "name": "kaze_gs_light0_dir_z",
+  "confidence": "high",
+  "rationale": "Third word of the flat-light direction vector set in kaze_gs_light_init_default_93b0/_alt_9454."
+ },
+ "D_800B1454": {
+  "name": "kaze_gs_light0_color_r",
+  "confidence": "high",
+  "rationale": "Red color byte of the GsF_LIGHT block, set to 0xff/0x00 in kaze_gs_light_init_default_93b0/_alt_9454."
+ },
+ "D_800B1455": {
+  "name": "kaze_gs_light0_color_g",
+  "confidence": "high",
+  "rationale": "Green color byte of the GsF_LIGHT block in kaze_gs_light_init_default_93b0/_alt_9454."
+ },
+ "D_800B1456": {
+  "name": "kaze_gs_light0_color_b",
+  "confidence": "high",
+  "rationale": "Blue color byte of the GsF_LIGHT block in kaze_gs_light_init_default_93b0/_alt_9454."
+ },
+ "D_800B1498": {
+  "name": "kaze_gs_view_coord2",
+  "confidence": "high",
+  "rationale": "GsCOORDINATE2 struct for the menu view, initialized via GsInitCoordinate2 in kaze_gs_view_init_92c8 and cleared (.flg) in kaze_gs_view_set_pose_94c8."
+ },
+ "D_800B149C": {
+  "name": "kaze_gs_view_matrix",
+  "confidence": "high",
+  "rationale": "View rotation MATRIX rebuilt via RotMatrix and used for GsSetView2 in kaze_gs_view_set_pose_94c8, per the doc comment."
+ },
+ "D_800B14E8": {
+  "name": "kaze_input_action_button_mask",
+  "confidence": "medium",
+  "rationale": "Remappable button binding defaulting to Square (0x80) in kaze_input_poll and stored as remap slot 4 in kaze_settings_menu_dispatch; used for a new-press check in world_update.c/kaze_pause_exit_prompt.c."
+ },
+ "D_800B14F8": {
+  "name": "kaze_menu_render_rot_x",
+  "confidence": "high",
+  "rationale": "Scratch rotation copied from kaze_menu_camera_rot_x and fed to RotMatrix in kaze_title_model_sort_shadow; reset in balloon_editor.c/kaze_task_menu_enter_init.c."
+ },
+ "D_800B14FA": {
+  "name": "kaze_menu_render_rot_y",
+  "confidence": "high",
+  "rationale": "Scratch rotation copied from kaze_menu_camera_rot_y in kaze_title_model_sort_shadow."
+ },
+ "D_800B14FC": {
+  "name": "kaze_menu_render_rot_z",
+  "confidence": "high",
+  "rationale": "Scratch rotation copied from kaze_menu_camera_rot_z in kaze_title_model_sort_shadow."
+ },
+ "D_800B1514": {
+  "name": "kaze_input_prev_pad2_mask",
+  "confidence": "high",
+  "rationale": "Latches the previous frame's D_800B0E98 pad2 mask in kaze_pad_mask_update, compared for edge detection."
+ },
+ "D_800B1530": {
+  "name": "kaze_gs_draw_buff_clip_x0",
+  "confidence": "high",
+  "rationale": "Draw-buffer clip rect x0, set from GsDefDispBuff params (or zeroed in interlace mode) in kaze_gs_def_disp_buff."
+ },
+ "D_800B1532": {
+  "name": "kaze_gs_draw_buff_clip_x1",
+  "confidence": "high",
+  "rationale": "Draw-buffer clip rect x1 in kaze_gs_def_disp_buff."
+ },
+ "D_800B1534": {
+  "name": "kaze_gs_draw_buff_clip_y0",
+  "confidence": "high",
+  "rationale": "Draw-buffer clip rect y0 in kaze_gs_def_disp_buff."
+ },
+ "D_800B1536": {
+  "name": "kaze_gs_draw_buff_clip_y1",
+  "confidence": "high",
+  "rationale": "Draw-buffer clip rect y1 in kaze_gs_def_disp_buff."
+ },
+ "D_800B153C": {
+  "name": "kaze_input_pad1_mask_previous",
+  "confidence": "high",
+  "rationale": "Per-loop copy of kaze_input_current_b used as the 'previous' operand for the pad1 new-press mask in kaze_pad_edge_latch_update."
+ },
+ "D_800B1540": {
+  "name": "kaze_input_pad2_mask_previous",
+  "confidence": "high",
+  "rationale": "Per-loop copy of D_800B1514 used as the 'previous' operand for the pad2 new-press mask (paired with D_800B0EA4) in kaze_pad_edge_latch_update."
+ },
+ "D_800B1548": {
+  "name": "kaze_memcard_slot_request_state",
+  "confidence": "high",
+  "rationale": "Raw card-library request/event state bits (info/load/clear pending) per slot, driven by _card_info/_card_load/_card_clear in kaze_memcard_slot_poll_start/kaze_memcard_state_machine."
+ },
+ "D_800B154C": {
+  "name": "kaze_memcard_slot1_request_state",
+  "confidence": "high",
+  "rationale": "Second slot's raw card-library request state, checked alongside D_800B1548 in kaze_memcard_state_machine/kaze_memcard_slot_select_draw."
+ },
+ "D_800B1558": {
+  "name": "kaze_gs_work_base_ptr",
+  "confidence": "high",
+  "rationale": "Stores the current GPU packet work-area pointer set each frame by kaze_gs_set_work_base per its doc comment."
+ },
+ "D_800B15D0": {
+  "name": "kaze_title_shadow_line_verts_a",
+  "confidence": "high",
+  "rationale": "SVECTOR[4] holding one endpoint set of the title shadow lines, filled in kaze_title_shadow_line_setup and transformed via RotTransPers in title_model_sort.c."
+ },
+ "D_800B15F0": {
+  "name": "kaze_title_shadow_line_verts_b",
+  "confidence": "high",
+  "rationale": "SVECTOR[4] holding the other endpoint set of the title shadow lines, filled in kaze_title_shadow_line_setup and transformed via RotTransPers in title_model_sort.c."
+ },
+ "D_800B1654": {
+  "name": "kaze_ss_vm_damper_flag",
+  "confidence": "high",
+  "rationale": "PsyQ SPU voice-manager damper flag set/cleared by kaze_ss_vm_damper_on/_off per their doc comments."
+ },
+ "D_800B1698": {
+  "name": "kaze_menu_mode_preview_tim_table",
+  "confidence": "high",
+  "rationale": "Array of TIM ids indexed by kaze_menu_mode_source and uploaded to VRAM in kaze_setup_menu_mode_texture_upload; also a resolved section pointer from the menu model pack in kaze_menu_model_load."
+ },
+ "D_800B16D0": {
+  "name": "kaze_grid_select_reentry_flag",
+  "confidence": "medium",
+  "rationale": "Mirrors kaze_staged_stage_variant in kaze_game_menu_mode_init and seeds the initial grid-select state (1 vs 0) in kaze_grid_select_init; cleared on exit in kaze_grid_select_confirm_result."
+ },
+ "D_800B16F8": {
+  "name": "kaze_balloon_scale_x",
+  "confidence": "high",
+  "rationale": "Defaults to 0x1000 (unity fixed point) with D_800B16FC/D_800B1700 and is passed as a 3-component vector to ScaleMatrix in balloon_draw.c; animated in kaze_pause_exit_prompt.c."
+ },
+ "D_800B16FC": {
+  "name": "kaze_balloon_scale_y",
+  "confidence": "high",
+  "rationale": "Second component of the balloon ScaleMatrix vector, defaults to 0x1000 and is squashed via rsin(D_800B1734) in kaze_pause_exit_prompt.c."
+ },
+ "D_800B1700": {
+  "name": "kaze_balloon_scale_z",
+  "confidence": "high",
+  "rationale": "Third component of the balloon ScaleMatrix vector, defaults to 0x1000 and is stretched via rsin(D_800B1734) in kaze_pause_exit_prompt.c."
+ },
+ "D_800B171A": {
+  "name": "kaze_balloon_render_rot_y",
+  "confidence": "medium",
+  "rationale": "Sits between kaze_balloon_render_rot0 (0x800b1718) and kaze_balloon_render_rot1 (0x800b171c) as consecutive shorts, all zeroed together in kaze_game_state_defaults_init as the balloon render rotation vector."
+ },
+ "D_800B172A": {
+  "name": "kaze_balloon_sway_offset_y",
+  "confidence": "high",
+  "rationale": "Computed as rsin(D_800B1730)*10>>0xc in kaze_pause_exit_prompt.c/objective_markers.c and added to a render vertex offset in balloon_draw.c."
+ },
+ "D_800B1730": {
+  "name": "kaze_balloon_sway_phase",
+  "confidence": "high",
+  "rationale": "Angle accumulator advanced by a state-based rate (*(state+0xa4)*0x20 & 0xfff) whose rsin() drives kaze_balloon_sway_offset_y in kaze_pause_exit_prompt.c/objective_markers.c."
+ },
+ "D_800B1734": {
+  "name": "kaze_impact_flash_timer",
+  "confidence": "medium",
+  "rationale": "Reset to 0x4000 on every collision/landing bump (flight_scene.c, kaze_object_physics_snapshot.c, objective_spawn.c), decays each frame in kaze_wind_motion_update.c and gates state flag 0x80 when low."
+ },
+ "D_800B1738": {
+  "name": "kaze_burner_hold_charge",
+  "confidence": "medium",
+  "rationale": "Accumulates by delta*0x20 while the burner-hold bit is set in kaze_pause_exit_prompt.c, caps at 0x1000 to trigger success/failure, and is zeroed in kaze_landing_goal_handler's terminal path."
+ },
+ "D_800B1790": {
+  "name": "kaze_input_bind_descend",
+  "confidence": "medium",
+  "rationale": "Default Cross mask (input_defaults.c); held state increases the gas-floor drop rate in kaze_gas_floor_reset (collision.c), i.e. a quick-descend button binding."
+ },
+ "D_800B17D0": {
+  "name": "kaze_input_bind_left",
+  "confidence": "high",
+  "rationale": "input_defaults.c sets it to 0x8000 which kaze_input_poll's doc comment labels Left; used as the left-dpad mask in kaze_camera_control_update/objective_spawn."
+ },
+ "D_800B17F0": {
+  "name": "kaze_menu_camera_trans_x",
+  "confidence": "high",
+  "rationale": "title_model_sort.c passes &D_800B17F0 as the 3-word translation vector to kaze_trans_matrix after RotMatrix, seeded from kaze_menu_camera_pos_x in balloon_editor.c/kaze_task_menu_enter_init.c."
+ },
+ "D_800B17F4": {
+  "name": "kaze_menu_camera_trans_y",
+  "confidence": "high",
+  "rationale": "Second word of the menu-camera translation vector (D_800B17F0..F8); set from kaze_menu_camera_scroll+0x180 in title_model_sort.c."
+ },
+ "D_800B17F8": {
+  "name": "kaze_menu_camera_trans_z",
+  "confidence": "high",
+  "rationale": "Third word of the menu-camera translation vector; set from kaze_menu_camera_pos_z in title_model_sort.c."
+ },
+ "D_800B1800": {
+  "name": "kaze_cd_stream_start",
+  "confidence": "medium",
+  "rationale": "kaze_st_set_mask.c doc: PsyQ StSetMask stores its 'mask/start/rewind' params into DAT_800b55f0/DAT_800b1800/DAT_800b55e8 respectively, so this is the 'start' parameter (a1)."
+ },
+ "D_800B1804": {
+  "name": "kaze_ss_mono_flag",
+  "confidence": "high",
+  "rationale": "spu_stereo.c: kaze_ss_set_mono sets it to 1 and kaze_ss_set_stereo clears it to 0 (PsyQ SsSetMono/SsSetStereo mono-output flag)."
+ },
+ "D_800B1808": {
+  "name": "kaze_input_bind_down",
+  "confidence": "high",
+  "rationale": "input_defaults.c sets it to 0x4000, the Down mask per kaze_input_poll's doc comment; used as the down-dpad mask in kaze_camera_control_update."
+ },
+ "D_800B1890": {
+  "name": "kaze_camera_anchor_target_x",
+  "confidence": "high",
+  "rationale": "objective_markers.c: kaze_approach_value(ANCH_X, D_800B1890[ROUTE*8], ...) smooths the menu-camera anchor X toward this per-route default table (200/0x708/0x10 seeded in game_defaults.c)."
+ },
+ "D_800B1894": {
+  "name": "kaze_camera_anchor_target_y",
+  "confidence": "high",
+  "rationale": "objective_markers.c smooths ANCH_Y toward D_800B1894[ROUTE*8]; default 200 seeded in game_defaults.c."
+ },
+ "D_800B1898": {
+  "name": "kaze_camera_anchor_target_z",
+  "confidence": "high",
+  "rationale": "objective_markers.c smooths ANCH_Z toward D_800B1898[ROUTE*8]; default 0x708 seeded in game_defaults.c; also compared in kaze_object_physics_snapshot.c."
+ },
+ "D_800B18A0": {
+  "name": "kaze_camera_control_speed_x",
+  "confidence": "high",
+  "rationale": "kaze_camera_control_update (objective_markers.c) multiplies D_800B18A0[ROUTE*8] by the per-frame step to move the manual-camera X offset on dpad input."
+ },
+ "D_800B18A4": {
+  "name": "kaze_camera_control_speed_y",
+  "confidence": "high",
+  "rationale": "Same function uses D_800B18A4[ROUTE*8] as the per-route Y-axis manual camera speed table."
+ },
+ "D_800B18B0": {
+  "name": "kaze_camera_anchor_route1_x",
+  "confidence": "medium",
+  "rationale": "objective_markers.c compares ANCH_X==D_800B18B0 (with route==1) to detect the manual camera reached its route-1 goal position."
+ },
+ "D_800B18B4": {
+  "name": "kaze_camera_anchor_route1_y",
+  "confidence": "medium",
+  "rationale": "Same completion check compares ANCH_Y==D_800B18B4 for route 1; default -0x32 in game_defaults.c."
+ },
+ "D_800B18B8": {
+  "name": "kaze_camera_anchor_route1_z",
+  "confidence": "medium",
+  "rationale": "Same completion check compares ANCH_Z==D_800B18B8 for route 1."
+ },
+ "D_800B1908": {
+  "name": "kaze_pad1_buffer",
+  "confidence": "high",
+  "rationale": "kaze_system_boot_init.c passes &D_800B1908 to InitPAD as the 0x22-byte pad-1 buffer; kaze_pad_mask_update.c reads its status byte D_800B1909 for the type nibble."
+ },
+ "D_800B1909": {
+  "name": "kaze_pad1_type_byte",
+  "confidence": "high",
+  "rationale": "kaze_pad_mask_update.c checks (D_800B1909>>4)==4 (digital-pad type) before decoding pad-1 buttons."
+ },
+ "D_800B190A": {
+  "name": "kaze_pad1_buttons_hi",
+  "confidence": "high",
+  "rationale": "kaze_pad_mask_update.c builds kaze_input_current_a from (D_800B190A<<8)|D_800B190B ^ 0xFFFF, the raw pad-1 button bytes."
+ },
+ "D_800B190B": {
+  "name": "kaze_pad1_buttons_lo",
+  "confidence": "high",
+  "rationale": "Low byte of the raw pad-1 button word decoded alongside D_800B190A in kaze_pad_mask_update.c."
+ },
+ "D_800B192A": {
+  "name": "kaze_pad2_status_byte",
+  "confidence": "high",
+  "rationale": "kaze_pad_mask_update.c checks D_800B192A==0 before decoding pad 2, mirroring the D_800B1908 pad-1 status byte."
+ },
+ "D_800B192B": {
+  "name": "kaze_pad2_type_byte",
+  "confidence": "high",
+  "rationale": "kaze_pad_mask_update.c checks (D_800B192B>>4)==4 for pad 2's type nibble, mirroring D_800B1909."
+ },
+ "D_800B192C": {
+  "name": "kaze_pad2_buttons_hi",
+  "confidence": "high",
+  "rationale": "kaze_pad_mask_update.c builds D_800B0E98 from (D_800B192C<<8)|D_800B192D ^ 0xFFFF, the raw pad-2 button bytes."
+ },
+ "D_800B192D": {
+  "name": "kaze_pad2_buttons_lo",
+  "confidence": "high",
+  "rationale": "Low byte of the raw pad-2 button word decoded alongside D_800B192C in kaze_pad_mask_update.c."
+ },
+ "D_800B199C": {
+  "name": "kaze_camera_invert_pitch",
+  "confidence": "medium",
+  "rationale": "kaze_settings_menu_dispatch.c loads it from save byte D_8008DC1D; kaze_camera_control_update (objective_markers.c) negates the up/down camera delta (local[0]) when it is nonzero."
+ },
+ "D_800B19A0": {
+  "name": "kaze_camera_invert_yaw",
+  "confidence": "medium",
+  "rationale": "kaze_settings_menu_dispatch.c loads it from save byte D_8008DC1C; kaze_camera_control_update negates the left/right camera delta (local[1]) when nonzero."
+ },
+ "D_800B19AC": {
+  "name": "kaze_menu_camera_matrix",
+  "confidence": "medium",
+  "rationale": "balloon_editor.c: RotMatrix(&kaze_menu_camera_rot_x, &D_800B19AC) then kaze_trans_matrix(&D_800B19AC, ...) -- the rotation-matrix scratch for the menu camera transform."
+ },
+ "D_800B19F8": {
+  "name": "kaze_menu_camera_coord_word",
+  "confidence": "medium",
+  "rationale": "title_model_sort.c stores kaze_menu_camera_coord_flags into *coord where coord=&D_800B19F8; zeroed in balloon_editor.c/kaze_task_menu_enter_init.c on menu entry."
+ },
+ "D_800B1A4C": {
+  "name": "kaze_menu_screen_mode",
+  "confidence": "high",
+  "rationale": "kaze_game_menu_master_loop.c doc: 'dispatches DAT_800b1a4c modes (0 main select, 1 setup, 2/4/5 sub-screens) until 8/9'; written by every menu screen (main_menu.c, setup_menu.c, memcard_menu.c, options_menu.c, ...)."
+ },
+ "D_800B1AA8": {
+  "name": "kaze_menu_vcount_timestamp",
+  "confidence": "high",
+  "rationale": "Every menu loop assigns it GsGetVcount() (main_menu.c, grid_select.c, memcard_screen.c, ...); memcard_screen.c derives an XA seek position from it, i.e. a frame-count timestamp."
+ },
+ "D_800B1AB4": {
+  "name": "kaze_input_bind_right",
+  "confidence": "high",
+  "rationale": "input_defaults.c sets it to 0x2000, the Right mask per kaze_input_poll's doc comment; used as the right-dpad mask in kaze_camera_control_update."
+ },
+ "D_800B1AD8": {
+  "name": "kaze_record_table_a",
+  "confidence": "high",
+  "rationale": "kaze_records_screen_init doc: 'copies the 3x3x6 record table DAT_800b1ad8'; base of the RecordEntry{a,b,c,pad,score} array, byte a."
+ },
+ "D_800B1AD9": {
+  "name": "kaze_record_table_b",
+  "confidence": "medium",
+  "rationale": "records_screen.c/save_slot_overlay.c access it as RecordEntry.b, one byte past D_800B1AD8 in the same 8-byte-stride record table."
+ },
+ "D_800B1ADA": {
+  "name": "kaze_record_table_c",
+  "confidence": "medium",
+  "rationale": "records_screen.c/save_slot_overlay.c access it as RecordEntry.c, two bytes past D_800B1AD8 in the same record table."
+ },
+ "D_800B1ADB": {
+  "name": "kaze_record_table_pad",
+  "confidence": "medium",
+  "rationale": "game_defaults.c zeroes it as the fourth byte of the RecordEntry{a,b,c,pad} struct alongside D_800B1AD8/9/A."
+ },
+ "D_800B1ADC": {
+  "name": "kaze_record_table_score",
+  "confidence": "high",
+  "rationale": "records_screen.c/save_slot_overlay.c/kaze_record_table_reset_defaults.c access it as the 4-byte RecordEntry.score field (offset +4 from D_800B1AD8's stride)."
+ },
+ "D_800B1C88": {
+  "name": "kaze_menu_gs_ot_buf",
+  "confidence": "high",
+  "rationale": "kaze_gs_graphics_init_9170 sets it to 0xC (OT length) and it is also indexed as an array of 20-byte double-buffer OT descriptors ('ot = D_800B1C88 + active*20') passed to GsSortObject4/GsDrawOt."
+ },
+ "D_800B1C8C": {
+  "name": "kaze_menu_gs_ot_buf0_org",
+  "confidence": "high",
+  "rationale": "kaze_gs_graphics_init_9170: D_800B1C8C = packet-buffer pointer *p, the 'org' field of the buffer-0 GsOT struct that starts at D_800B1C88; also used as an AddPrim OT-pointer table in balloon_editor_prims.c."
+ },
+ "D_800B1C9C": {
+  "name": "kaze_menu_gs_ot_buf1_length",
+  "confidence": "high",
+  "rationale": "kaze_gs_graphics_init_9170 sets it to 0xC, the length field of the second (double-buffered) GsOT struct at D_800B1C88+0x14."
+ },
+ "D_800B1CA0": {
+  "name": "kaze_menu_gs_ot_buf1_org",
+  "confidence": "high",
+  "rationale": "kaze_gs_graphics_init_9170: D_800B1CA0 = D_800B0E8C, the packet-buffer pointer ('org') of the second double-buffered GsOT struct."
+ },
+ "D_800B1CD0": {
+  "name": "kaze_model_prim_ptr_table",
+  "confidence": "high",
+  "rationale": "kaze_model_packet_table_build_97ec.c doc: 'stores each record pointer into the table at DAT_800b1cd0', walking 264 variable-length primitive records from a model header."
+ },
+ "D_800B20F8": {
+  "name": "kaze_gs_view2_template",
+  "confidence": "high",
+  "rationale": "gs_graphics.c doc: 'copies matrix DAT_800b20f8 into GsVIEW2 DAT_800b3448'; ending_scene.c copies the same template into its own GsVIEW2 (D_800AE338)."
+ },
+ "D_800B2128": {
+  "name": "kaze_model_vertex_ptr_table",
+  "confidence": "high",
+  "rationale": "kaze_model_packet_triple_table_build_9828.c doc: 264-entry table of three base-relative vertex pointers per model record at DAT_800b2128; balloon_editor.c passes it to RotNclip3."
+ },
+ "D_800B2DB8": {
+  "name": "kaze_save_slot_unpack_buffer",
+  "confidence": "medium",
+  "rationale": "kaze_save_verify_unpack_records.c doc: unpacks the five 0x108-entry record tables from a save image into DAT_800b2db8[]; also reinterpreted as a per-stage balloon-color/model table in balloon_editor.c and main_menu.c."
+ },
+ "D_800B2F60": {
+  "name": "kaze_menu_model1_gsobj",
+  "confidence": "high",
+  "rationale": "kaze_gs_model_pair_link_init_9604.c doc: 'links them as GsDOBJ2 DAT_800b2f60/DAT_800b2f70'; passed as the object arg to GsLinkObject4 in balloon_editor.c/kaze_task_menu_enter_init.c."
+ },
+ "D_800B2F64": {
+  "name": "kaze_menu_model1_coord_ptr",
+  "confidence": "medium",
+  "rationale": "gs_graphics.c stores the GsInitCoordinate2 result pointer here right after linking model 1 (GsLinkObject4 with obj=&D_800B2F60); title_model_sort.c reads it via GsGetLws."
+ },
+ "D_800B2F68": {
+  "name": "kaze_menu_model1_data_ptr",
+  "confidence": "medium",
+  "rationale": "balloon_editor.c/kaze_task_menu_enter_init.c dereference it as ModelBlock** (*D_800B2F68[4] = ...); title_render_setup.c reads *D_800B2F68 as the model-1 vertex base for the shadow-line setup."
+ },
+ "D_800B2F74": {
+  "name": "kaze_menu_model2_coord_ptr",
+  "confidence": "medium",
+  "rationale": "gs_graphics.c stores the GsInitCoordinate2 result for the second linked model (obj+0x10, GsDOBJ2 at D_800B2F70) here; title_model_sort.c reads it via GsGetLws for GsSetLightMatrix."
+ },
+ "D_800B2F78": {
+  "name": "kaze_menu_model2_data_ptr",
+  "confidence": "medium",
+  "rationale": "title_render_setup.c dereferences *D_800B2F78 as the second model's SVECTOR vertex base, paired with D_800B2F68 for model 1 in kaze_title_shadow_line_setup."
+ },
+ "D_800B2F80": {
+  "name": "kaze_balloon_color_table_r",
+  "confidence": "high",
+  "rationale": "kaze_balloon_color_apply.c (main_menu.c) doc: copies 264 RGB triples into the DAT_800b2f80 color array; kaze_prim_color_table_copy.c copies this table into a model's primitive colors."
+ },
+ "D_800B2F81": {
+  "name": "kaze_balloon_color_table_g",
+  "confidence": "high",
+  "rationale": "main_menu.c fills it as the green byte of each RGB triple alongside D_800B2F80/D_800B2F82."
+ },
+ "D_800B2F82": {
+  "name": "kaze_balloon_color_table_b",
+  "confidence": "high",
+  "rationale": "main_menu.c fills it as the blue byte of each RGB triple alongside D_800B2F80/D_800B2F81."
+ },
+ "D_800B33A0": {
+  "name": "kaze_input_bind_confirm",
+  "confidence": "medium",
+  "rationale": "Default Select mask (input_defaults.c); kaze_pause_exit_prompt.c uses it to gate the exit-prompt confirm edge after Start opens the prompt."
+ },
+ "D_800B33A8": {
+  "name": "kaze_gs_view_rot_x",
+  "confidence": "high",
+  "rationale": "kaze_gs_view_init_92c8.c doc: 'angles DAT_800b33a8..'; map_screen_states.c passes &D_800B33A8 to RotMatrixZYX as the view rotation vector."
+ },
+ "D_800B33AA": {
+  "name": "kaze_gs_view_rot_y",
+  "confidence": "high",
+  "rationale": "Second word of the view rotation vector (D_800B33A8..AC) reset in kaze_gs_view_init_92c8 and driven by rsin/rcos in map_screen_states.c's camera path."
+ },
+ "D_800B33AC": {
+  "name": "kaze_gs_view_rot_z",
+  "confidence": "high",
+  "rationale": "Third word of the view rotation vector reset in kaze_gs_view_init_92c8 alongside D_800B33A8/AA."
+ },
+ "D_800B33B4": {
+  "name": "kaze_input_bind_pause",
+  "confidence": "high",
+  "rationale": "Default Start mask (0x800, input_defaults.c); kaze_pause_exit_prompt.c doc: 'sets the exit prompt latch at base+0xecafc' when this button is pressed."
+ },
+ "D_800B33C0": {
+  "name": "kaze_menu_ot_work_buf0",
+  "confidence": "high",
+  "rationale": "kaze_gs_graphics_init_9170.c doc: 'allocates two 48000-byte OT buffers (DAT_800b33c0/c4)'; kaze_gs_set_work_base(D_800B33C0[active]) selects the double-buffered menu OT."
+ },
+ "D_800B33C4": {
+  "name": "kaze_menu_ot_work_buf1",
+  "confidence": "high",
+  "rationale": "Second 48000-byte OT buffer allocated alongside D_800B33C0 in kaze_gs_graphics_init_9170 and freed in kaze_gs_graphics_free_9270."
+ },
+ "D_800B33C8": {
+  "name": "kaze_title_shadow_line_prims",
+  "confidence": "high",
+  "rationale": "kaze_title_shadow_line_setup.c doc: 'Builds 8 LINE_F2 shadow-line primitives at DAT_800b33c8/3408'."
+ },
+ "D_800B3448": {
+  "name": "kaze_menu_gs_view2",
+  "confidence": "high",
+  "rationale": "kaze_gs_view_init_92c8.c doc: 'copies matrix DAT_800b20f8 into GsVIEW2 DAT_800b3448'; passed to GsSetView2 in gs_graphics.c and map_screen_states.c."
+ },
+ "D_800B3468": {
+  "name": "kaze_menu_view_coord_ptr",
+  "confidence": "medium",
+  "rationale": "kaze_gs_view_init_92c8.c sets D_800B3468 = D_800B1498 (the GsCOORDINATE2 struct), caching a pointer to it for the menu view."
+ },
+ "D_800B346C": {
+  "name": "kaze_input_bind_marker_drop",
+  "confidence": "high",
+  "rationale": "Default Circle mask; kaze_pause_exit_prompt.c: on its press edge (with flag 0x100 set) it calls kaze_marker_slot_find_free/kaze_marker_drop."
+ },
+ "D_800B4C70": {
+  "name": "kaze_gs_tmd_semi_flag",
+  "confidence": "medium",
+  "rationale": "kaze_gs_tmd_div_f3l/g3l/tg3l.c (PsyQ GsTMDdiv*L subdivision renderers) all OR (D_800B4C70<<1) into the emitted polygon's CODE byte, matching the PsyQ semi-transparency flag convention."
+ },
+ "D_800B4C7C": {
+  "name": "kaze_menu_input_prev_mask",
+  "confidence": "medium",
+  "rationale": "misc_helpers.c/title_memcard_events.c set it to kaze_input_current_b and diff it against kaze_input_current_c to derive kaze_input_edge; balloon_editor.c/map screens reset it to 0 on entry."
+ },
+ "D_800B4D44": {
+  "name": "kaze_menu_balloon_model_ptr",
+  "confidence": "medium",
+  "rationale": "menu_transition.c doc: one of six GM.MDL section pointers; balloon_editor.c/kaze_task_menu_enter_init.c pass D_800B4D44+0xC to GsLinkObject4 with obj=&D_800B2F60 (the balloon model object)."
+ },
+ "D_800B4D4C": {
+  "name": "kaze_menu_task_model_ptr",
+  "confidence": "medium",
+  "rationale": "task_carousel.c/task_carousel_anim.c pass D_800B4D4C+0xc to GsLinkObject4 for the task-carousel model; balloon_editor_prims.c also reads it as a model pointer."
+ },
+ "D_800B4D50": {
+  "name": "kaze_pad1_edge_mask",
+  "confidence": "high",
+  "rationale": "kaze_pad_edge_latch_update.c doc: 'derives new-press masks DAT_800b4d50/4d54 vs previous DAT_800b1510/1514'; computed as kaze_menu_input_replay_flags & ~D_800B153C."
+ },
+ "D_800B4D54": {
+  "name": "kaze_pad2_edge_mask",
+  "confidence": "high",
+  "rationale": "Same kaze_pad_edge_latch_update.c function computes it as D_800B0EA4 & ~D_800B1540, the pad-2 new-press edge mask paired with D_800B4D50."
+ },
+ "D_800B55E8": {
+  "name": "kaze_cd_stream_rewind",
+  "confidence": "medium",
+  "rationale": "kaze_st_set_mask.c doc: PsyQ StSetMask stores its third 'rewind' parameter (a2) into DAT_800b55e8."
+ },
+ "D_800B55EC": {
+  "name": "kaze_gs_interlace_flag",
+  "confidence": "medium",
+  "rationale": "kaze_gs_def_disp_buff.c doc: display-buffer origins are 'zeroed in interlace mode DAT_800b55ec'."
+ },
+ "D_800B55F0": {
+  "name": "kaze_cd_stream_mask",
+  "confidence": "medium",
+  "rationale": "kaze_st_set_mask.c doc: PsyQ StSetMask stores its first 'mask' parameter (a0) into DAT_800b55f0."
+ },
+ "D_800B5648": {
+  "name": "kaze_input_bind_burner",
+  "confidence": "high",
+  "rationale": "kaze_burner_input_update.c doc: 'Burner input: button (DAT_800b0e94 & DAT_800b5648)'; default Triangle mask (0x10) in input_defaults.c."
+ },
+ "D_800B56A0": {
+  "name": "kaze_gs_light1_dir_z",
+  "confidence": "medium",
+  "rationale": "kaze_gs_light_init_default_93b0.c doc: 'seeds secondary light params DAT_800b56a0=0xd556' alongside the primary flat-light direction/color block."
+ },
+ "D_800B56A8": {
+  "name": "kaze_gs_light1_color_r",
+  "confidence": "medium",
+  "rationale": "kaze_gs_light_init_default_93b0.c sets it to the same white color byte (0xff) as the primary light's r/g/b, forming a second light's red component."
+ },
+ "D_800B56A9": {
+  "name": "kaze_gs_light1_color_g",
+  "confidence": "medium",
+  "rationale": "Set to the same 0xff color byte alongside D_800B56A8/AA, the second light's green component."
+ },
+ "D_800B56AA": {
+  "name": "kaze_gs_light1_color_b",
+  "confidence": "medium",
+  "rationale": "Set to the same 0xff color byte alongside D_800B56A8/A9, the second light's blue component."
+ },
+ "D_800B56AC": {
+  "name": "kaze_input_bind_up",
+  "confidence": "high",
+  "rationale": "input_defaults.c sets it to 0x1000, the Up mask per kaze_input_poll's doc comment; used as the up-dpad mask in kaze_camera_control_update."
+ },
+ "D_800B56F8": {
+  "name": "kaze_input_hold_timer",
+  "confidence": "high",
+  "rationale": "misc_helpers.c/title_memcard_events.c reset it to 0 on input release and increment it while held; balloon_editor.c, map_screen_states.c and task_carousel_anim.c all gate coarse/fast cursor movement on its magnitude, a classic hold-to-repeat counter."
+ }
+}

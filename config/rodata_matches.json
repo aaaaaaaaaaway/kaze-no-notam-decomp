@@ -1,0 +1,163 @@
+[
+ {
+  "function": "kaze_stage_staging_copy",
+  "src": "src/kaze_stage_staging_copy.c",
+  "opt": "-O2",
+  "text_size": 248,
+  "rodata_vram": "0x80010330",
+  "rodata_size": 36
+ },
+ {
+  "function": "kaze_stage_completion_check",
+  "src": "src/kaze_stage_completion_check.c",
+  "opt": "-O2",
+  "text_size": 2948,
+  "rodata_vram": "0x80010360",
+  "rodata_size": 36
+ },
+ {
+  "function": "kaze_dynobj_update",
+  "src": "src/kaze_dynobj_update.c",
+  "opt": "-O2",
+  "text_size": 516,
+  "rodata_vram": "0x80010388",
+  "rodata_size": 36
+ },
+ {
+  "function": "kaze_xa_audio_loop_poll_33690",
+  "src": "src/kaze_xa_audio_loop_poll_33690.c",
+  "opt": "-O2",
+  "text_size": 444,
+  "rodata_vram": "0x800103ec",
+  "rodata_size": 220
+ },
+ {
+  "function": "kaze_map_wind_overlay_anim",
+  "src": "src/kaze_map_wind_overlay_anim.c",
+  "opt": "-O2",
+  "text_size": 820,
+  "rodata_vram": "0x800105c4",
+  "rodata_size": 32
+ },
+ {
+  "function": "kaze_game_menu_master_loop",
+  "src": "src/kaze_game_menu_master_loop.c",
+  "opt": "-O2",
+  "compiler": "2.6.3-psx",
+  "text_size": 376,
+  "rodata_vram": "0x800105e4",
+  "rodata_size": 24
+ },
+ {
+  "function": "kaze_settings_menu_dispatch",
+  "src": "src/kaze_settings_menu_dispatch.c",
+  "opt": "-O2",
+  "text_size": 936,
+  "rodata_vram": "0x8001062c",
+  "rodata_size": 72
+ },
+ {
+  "function": "kaze_setup_menu_loop",
+  "src": "src/kaze_setup_menu_loop.c",
+  "opt": "-O2",
+  "text_size": 524,
+  "rodata_vram": "0x80010694",
+  "rodata_size": 80
+ },
+ {
+  "function": "kaze_setup_menu_bgm_row_input",
+  "src": "src/kaze_setup_menu_bgm_row_input.c",
+  "opt": "-O2",
+  "text_size": 388,
+  "rodata_vram": "0x800106e4",
+  "rodata_size": 40
+ },
+ {
+  "function": "kaze_options_state_dispatch",
+  "src": "src/kaze_options_state_dispatch.c",
+  "opt": "-O2",
+  "text_size": 416,
+  "rodata_vram": "0x8001073c",
+  "rodata_size": 48
+ },
+ {
+  "function": "kaze_registration_state_dispatch",
+  "src": "src/kaze_registration_state_dispatch.c",
+  "opt": "-O2",
+  "text_size": 416,
+  "rodata_vram": "0x8001078c",
+  "rodata_size": 180
+ },
+ {
+  "function": "kaze_task_menu_state_machine",
+  "src": "src/kaze_task_menu_state_machine.c",
+  "opt": "-O2",
+  "text_size": 468,
+  "rodata_vram": "0x80010844",
+  "rodata_size": 180
+ },
+ {
+  "function": "kaze_memcard_busy_state_check",
+  "src": "src/kaze_memcard_busy_state_check.c",
+  "opt": "-O1",
+  "text_size": 68,
+  "rodata_vram": "0x80010cd8",
+  "rodata_size": 124
+ },
+ {
+  "function": "kaze_memcard_state_dispatch",
+  "src": "src/kaze_memcard_state_dispatch.c",
+  "opt": "-O2",
+  "text_size": 232,
+  "rodata_vram": "0x80010d58",
+  "rodata_size": 124
+ },
+ {
+  "function": "kaze_memcard_format_flow",
+  "src": "src/kaze_memcard_format_flow.c",
+  "opt": "-O2",
+  "text_size": 516,
+  "rodata_vram": "0x80010dd8",
+  "rodata_size": 28
+ },
+ {
+  "function": "kaze_memcard_load_flow",
+  "src": "src/kaze_memcard_load_flow.c",
+  "opt": "-O2",
+  "text_size": 588,
+  "rodata_vram": "0x80010e08",
+  "rodata_size": 40
+ },
+ {
+  "function": "kaze_memcard_save_flow",
+  "src": "src/kaze_memcard_save_flow.c",
+  "opt": "-O2",
+  "text_size": 720,
+  "rodata_vram": "0x80010e30",
+  "rodata_size": 40
+ },
+ {
+  "function": "kaze_memcard_format_draw",
+  "src": "src/kaze_memcard_format_draw.c",
+  "opt": "-O2",
+  "text_size": 188,
+  "rodata_vram": "0x80010e58",
+  "rodata_size": 28
+ },
+ {
+  "function": "kaze_memcard_load_draw",
+  "src": "src/kaze_memcard_load_draw.c",
+  "opt": "-O2",
+  "text_size": 212,
+  "rodata_vram": "0x80010e78",
+  "rodata_size": 40
+ },
+ {
+  "function": "kaze_memcard_save_draw",
+  "src": "src/kaze_memcard_save_draw.c",
+  "opt": "-O2",
+  "text_size": 216,
+  "rodata_vram": "0x80010ea0",
+  "rodata_size": 40
+ }
+]

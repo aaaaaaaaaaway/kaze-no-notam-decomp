@@ -1,0 +1,33 @@
+# maspsx li-expansion patch for Kaze no Notam (SLPS_009.12)
+#
+# The original PlayStation build of this game was assembled with a version
+# of Sony's ASPSX assembler that expands a "li" pseudo-instruction
+# differently from the maspsx default at commit 42b862c: for a positive
+# 16-bit-or-smaller immediate below 0x8000, that assembler emits addiu
+# (add immediate unsigned, sign-extended) rather than ori (or immediate).
+# ori is only used for the 0x8000..0xFFFF range, where addiu's sign
+# extension would change the value.
+#
+# Without this patch the reassembled payload does not match the original
+# executable; several hundred scattered byte differences appear across the
+# matched functions. tools/configure.py applies this patch automatically
+# after checking out the maspsx submodule; see fetch_deps() and
+# docs/compiler-notes.md.
+#
+diff --git a/maspsx/__init__.py b/maspsx/__init__.py
+index 6ff7f7f..73a48ea 100644
+--- a/maspsx/__init__.py
++++ b/maspsx/__init__.py
+@@ -223,7 +223,11 @@ def expand_load_immediate(line: str) -> List[str]:
+     r_dest = match.group(1)
+     operand = int(match.group(2), 0)
+ 
+-    if 0 < operand < 0x10000:
++    if 0 < operand < 0x8000:
++        # kaze-decomp local patch: this game's ASPSX emits addiu for
++        # signed-16-bit-positive immediates and ori only for 0x8000..0xFFFF.
++        res.append(f"addiu\t{r_dest},$zero,{operand}")
++    elif 0x8000 <= operand < 0x10000:
+         res.append(f"ori\t{r_dest},$zero,{operand}")
+     elif operand >= 0x10000:
+         res.append(f"lui\t{r_dest},({operand} >> 16) & 0xFFFF")

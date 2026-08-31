@@ -1,0 +1,205 @@
+{
+  "policy": "Island-assisted matches were merged on 2026-07-10, while the project used a strict islands policy; whether these count as islands or as certificates was deferred for later review. The EXE stays byte-identical either way; this list only affects the lawful-board metric. Ratified 2026-07-10: the sanctioned section was added; lawful board = matched minus len(functions).",
+  "functions": {
+    "kaze_water_quad_subdivide_render": {
+      "islands": 2,
+      "insns": 6,
+      "note": "Tier 3 (2026-07-10): island #1 is a sanctioned GTE cfc2 bundle. Island #2 is a scheduling island, not an unaligned-access requirement: lwl/lwr is achievable in C (a CopyBlk struct copy, __builtin_memcpy, or a packed struct all emit the exact bytes, confirmed in isolation). It enforces a copy-at-head plus argument-move-in-delay-slot order that C alone could not reach, because a store cannot be hoisted past the following external call: removing it regresses the differing-word count from 17 to 35. The lawful floor using only the cfc2 bundle is 17 words / 1200 bytes. A follow-up probe confirmed island #2 is essential: without it, the naive form produces 289 instructions, the wrong instruction count and size, since the barrier is what prevents an incorrect anti-dependency hoist. Island #1's cfc2 access remains GTE-sanctionable."
+    }
+  },
+  "sanctioned": {
+    "kaze_terrain_tile_render": {
+      "islands": 24,
+      "insns": 135,
+      "note": "PS1 GTE/COP2 matrix, vector, command, and result feed/drain bundles only; zero generic ALU or scheduling islands remain.",
+      "verdict": "Lawful redo (2026-07-12): the exact 2012-byte candidate removes the former non-GTE root-load island (D_8008D9D0) using split raw/jj C expressions plus a zero-code base dependency. All remaining emitted blocks are required GTE hardware interface operations. Verified against a stock match three times."
+    },
+    "kaze_quad_subdivide_render": {
+      "islands": 18,
+      "insns": 69,
+      "note": "Canonical source contains only PS1 GTE/COP2 vector loads, RTPT/RTPS commands, flag reads, and screen/depth result stores.",
+      "verdict": "Sanctioned bookkeeping (2026-07-12): the existing 2568-byte C/GTE reconstruction is byte-exact and has no generic ALU, scheduling, padding, or division islands. Verified against the stock canonical match three times; the registry entry was added after regeneration exposed a previously untracked GTE-only file."
+    },
+    "kaze_object_vertex_anim": {
+      "islands": 1,
+      "insns": 3,
+      "note": "GTE mfc2 read + sra/sw tail - borderline GTE class",
+      "verdict": "Ratified 2026-07-10: GTE-class, an mfc2 data-register read bundle in the same category as the gte.h/TMD helpers; C cannot express the coprocessor read directly."
+    },
+    "kaze_model_tri_g3_355ac": "Lawful redo 2026-07-11: removed 130-insn hand-transcribed ALU color-clamp island; remaining 4 islands/18 insns are ALL sanctioned GTE (lwc2/swc2 from intrinsics, verified). Pure-C clamp + fresh-per-vertex-temp lever. model_tri family template.",
+    "kaze_model_tri_g3_nolight_3b460": "Lawful redo 2026-07-11 (g3 variant batch): removed hand-transcribed ALU island; remaining islands GTE-only (lwc2/swc2 from gte.h macros, verified). Cheap transfer of the 355ac template.",
+    "kaze_model_tri_g3_semitrans_35a54": "Lawful redo 2026-07-11 (g3 variant batch): removed hand-transcribed ALU island; remaining islands GTE-only (lwc2/swc2 from gte.h macros, verified). Cheap transfer of the 355ac template.",
+    "kaze_model_tri_g3_nolight_semitrans_3b870": "Lawful redo 2026-07-11 (g3 variant batch): removed hand-transcribed ALU island; remaining islands GTE-only (lwc2/swc2 from gte.h macros, verified). Cheap transfer of the 355ac template.",
+    "kaze_model_tri_g3_3normal_semitrans_36d68": "Lawful redo 2026-07-11 (g3 batch): ALU island removed, GTE-only islands remain (verified). Cheap sibling-template transfer.",
+    "kaze_model_tri_g3_pervtx_semitrans_363b0": "Lawful redo 2026-07-11 (g3 batch): ALU island removed, GTE-only islands remain (verified). Cheap sibling-template transfer.",
+    "kaze_model_quad_f4_semitrans_37dd8": "Lawful redo 2026-07-11 (render sweep): ALU island removed, GTE-only islands + sanctioned hazard nops remain. Cheap transfer (f4 lit + nolight_semitrans donors).",
+    "kaze_model_quad_ft4_fixedlight_3e97c": "Lawful redo 2026-07-11 (render sweep): ALU island removed, GTE-only + sanctioned hazard nops. Cheap transfer (ft4_3a500 donor, fixedlight const-color path).",
+    "kaze_tmd_quad_gouraud_lit_0bac": "Lawful redo 2026-07-11 (render sweep, tmd_quad gouraud batch): GTE-only + sanctioned hazard nops; template from lawful g4/g3 siblings.",
+    "kaze_tmd_quad_gouraud_lit_tpage_0f24": "Lawful redo 2026-07-11 (render sweep, tmd_quad gouraud batch): GTE-only + sanctioned hazard nops; template from lawful g4/g3 siblings.",
+    "kaze_tmd_quad_gouraud_4normal_1910": "Lawful redo 2026-07-11 (render sweep, tmd_quad gouraud batch): GTE-only + sanctioned hazard nops; template from lawful g4/g3 siblings.",
+    "kaze_tmd_quad_gouraud_4normal_tpage_1ce8": "Lawful redo 2026-07-11 (render sweep, tmd_quad gouraud batch): GTE-only + sanctioned hazard nops; template from lawful g4/g3 siblings.",
+    "kaze_model_quad_gt4_fixedlight_3ecdc": "Lawful redo 2026-07-11 (render sweep): GTE-only + sanctioned hazard nops; gt4_3a904 donor, fixedlight regalloc grind.",
+    "kaze_tmd_quad_grad_1normal_1240": "Lawful redo 2026-07-11 (render sweep): GTE-only + hazard nops; grad clip-sibling template.",
+    "kaze_tmd_quad_grad_1normal_tpage_15d0": "Lawful redo 2026-07-11 (render sweep): GTE-only + hazard nops; grad clip-sibling template.",
+    "kaze_stage_flag_fx_render": "Lawful redo 2026-07-11: heavy GTE fn, all 51 islands verified GTE-family bundles (cop2/lwc2/swc2/mfc2 incl. sanctioned gte_stszotz mfc2/sra/sw per object_vertex_anim precedent), zero pure-ALU.",
+    "kaze_dynobj_render": "Lawful redo 2026-07-11 (render-loop): pure-C object/slot loop calling lawful TMD emitters as leaves; all 26 islands GTE-family verified, 0 pure-ALU.",
+    "kaze_marker_render": "Lawful redo 2026-07-11 (render-loop): pure-C object/slot loop calling lawful TMD emitters as leaves; all 26 islands GTE-family verified, 0 pure-ALU.",
+    "kaze_mode_object_render": "Lawful redo 2026-07-11 (render-loop): pure-C object/slot loop calling lawful TMD emitters as leaves; all 32 islands GTE-family verified, 0 pure-ALU.",
+    "kaze_trail_particle_render": "Lawful redo 2026-07-11 (render-loop): pure-C object/slot loop calling lawful TMD emitters as leaves; all 31 islands GTE-family verified, 0 pure-ALU.",
+    "kaze_model_tri_ft3_nolight_3bc48": "Lawful redo 2026-07-11 (render sweep): GTE-only; g3/ft3 split-by-role + pinned-mask transfer.",
+    "kaze_model_tri_gt3_nolight_3bf54": "Lawful redo 2026-07-11 (render sweep): GTE-only; g3/ft3 split-by-role + pinned-mask transfer.",
+    "kaze_tmd_tri_gouraud_3normal_00b8": "Lawful redo 2026-07-11 (render sweep): GTE-only + hazard nops; family transfer.",
+    "kaze_tmd_tri_grad_1normal_fad8": "Lawful redo 2026-07-11 (render sweep): GTE-only + hazard nops; family transfer.",
+    "kaze_model_tri_ft3_fixedlight_3e358": "Lawful redo 2026-07-11 (render sweep): GTE-only + hazard nops; family transfer.",
+    "kaze_tmd_tri_gouraud_lit_f580": "Lawful redo 2026-07-11 (render sweep): GTE-only + hazard nops; tmd_tri sibling transfer.",
+    "kaze_tmd_tri_gouraud_3normal_tpage_03dc": "Lawful redo 2026-07-11 (render sweep): GTE-only + hazard nops; tmd_tri sibling transfer.",
+    "kaze_tmd_tri_grad_1normal_tpage_fde4": "Lawful redo 2026-07-11 (render sweep): GTE-only + hazard nops; tmd_tri sibling transfer.",
+    "kaze_tmd_tri_gouraud_lit_tpage_f848": "Lawful redo 2026-07-11 (render sweep FINAL): GTE-only; dummy-if LICM-perturbation lever.",
+    "kaze_model_tri_f3_4f98": {
+      "islands": 4,
+      "insns": 14,
+      "note": "POLY_F3 flat-lit tri; GTE ldv3/ldnrm/nccs/stsxy3 intrinsics only, zero hand-ALU (2 GTE-command hazard nops inside a multi-insn block)",
+      "verdict": "LAWFUL REDO 2026-07-12: whole-body-asm island (9 islands/142 hand-ALU insns) replaced with clean C using gte.h intrinsics + scoped asm(\"$N\") pins; byte-identical f8f44c2d; same GTE-only profile as sanctioned g3/ft3/gt3 render family"
+    },
+    "kaze_model_tri_f3_fixedlight_3f0cc": {
+      "islands": 3,
+      "insns": 11,
+      "note": "POLY_F3 fixedlight tri; GTE ldv3/ldv0/ldrgb/nccs/stsxy3 intrinsics only, zero hand-ALU; 2 pre-existing GTE-command hazard nops before nccs (same pattern as sanctioned ft3_fixedlight_3e358)",
+      "verdict": "LAWFUL REDO 2026-07-12: whole-body-asm island (9 islands/101 hand-ALU insns) replaced with clean C; byte-identical f8f44c2d"
+    },
+    "kaze_model_tri_f3_nolight_semitrans_3b1fc": {
+      "islands": 2,
+      "insns": 9,
+      "note": "POLY_F3 nolight semitrans tri; GTE ldv3/stsxy3 intrinsics only, zero hand-ALU",
+      "verdict": "LAWFUL REDO 2026-07-12: whole-body-asm island (5 islands/106 hand-ALU insns) replaced with clean C; byte-identical f8f44c2d"
+    },
+    "kaze_model_tri_f3_semitrans_352c4": {
+      "islands": 3,
+      "insns": 11,
+      "note": "POLY_F3 semitrans tri; GTE ldv0/ldrgb/nccs/stsxy3 intrinsics only, zero hand-ALU; 2 pre-existing GTE-command hazard nops (same class as sanctioned ft3_fixedlight)",
+      "verdict": "LAWFUL REDO 2026-07-12: whole-body-asm island (8 islands/130 hand-ALU insns) replaced with clean C; byte-identical f8f44c2d"
+    },
+    "kaze_model_tri_gt3_fixedlight_3e638": {
+      "islands": 4,
+      "insns": 18,
+      "note": "POLY_GT3 fixedlight tri; GTE ldv3/ldrgb/ncct/strgb/stsxy3 intrinsics only, zero hand-ALU; fixedlight uses GTE-computed colors (no per-channel clamp)",
+      "verdict": "LAWFUL REDO 2026-07-12: whole-body-asm island (9 islands/170 hand-ALU insns) replaced with clean C from gt4_fixedlight+gt3_375ac lawful siblings + 2 zero-code launders; byte-identical f8f44c2d"
+    },
+    "kaze_tmd_quad_flat_lit_tpage_0924": {
+      "islands": 4,
+      "insns": 13,
+      "note": "POLY_GT4 flat-lit textured quad; GTE ldv3/ldv0/stsxy/rtpt/nclip/avsz4/nccs intrinsics only, zero hand-ALU (4 sanctioned GTE hazard nops)",
+      "verdict": "LAWFUL REDO 2026-07-12: whole-body-asm island (9 islands/~95 hand-ALU insns) replaced with clean C from tmd_quad_gouraud_lit_tpage_0f24 lawful sibling; byte-identical f8f44c2d. Was silently over-counted lawful pre-regen."
+    },
+    "kaze_sky_cloud_quads_render": {
+      "islands": 20,
+      "insns": 98,
+      "note": "GTE cloud-quad renderer; asm bundles byte-identical to sanctioned siblings marker_render/dynobj_render/mode_object_render (ctc2/mtc2/mfc2 matrix+vector GTE feed, lw/lhu/sh feed/drain, cop2/lwc2/swc2); ZERO hand-ALU arithmetic",
+      "verdict": "SANCTIONED 2026-07-12: GTE-render-bundle class already user-ratified for 5 sibling renderers; census confirms zero hand-ALU compute; src already byte-matches f8f44c2d, bookkeeping-only. Was silently over-counted lawful pre-regen."
+    },
+    "kaze_tmd_quad_flat_lit_06c8": {
+      "islands": 4,
+      "insns": 18,
+      "note": "POLY_F4 flat-lit quad; GTE ldv3/ldv0/rtpt/rtps/stsxy/avsz4/nccs/stlvl intrinsics only, zero hand-ALU (hazard nops folded in GTE blocks)",
+      "verdict": "LAWFUL REDO 2026-07-12: whole-body-asm island (~84 hand-ALU insns) replaced with clean C via f3/g3 gte.h idioms; byte-identical f8f44c2d. Was silently over-counted lawful pre-regen."
+    },
+    "kaze_tmd_tri_flat_lit_f348": {
+      "islands": 5,
+      "insns": 30,
+      "note": "Remaining emitted blocks are exclusively PS1 GTE vertex loads, commands, result stores, and required GTE latency/setup sequences. All generic packet arithmetic, control flow, color composition, and pointer advancement are compiler-emitted C.",
+      "verdict": "Lawful redo (2026-07-12): the exact 568-byte C/GTE reconstruction replaces the former three generic islands totaling 54 instructions. Verified against a stock match three times, with no explicit $30/$fp use."
+    },
+    "kaze_balloon_render": {
+      "islands": 50,
+      "insns": 270,
+      "note": "Balloon model renderer; all emitted asm blocks are PS1 GTE matrix/vector feed, command, result-drain, and required hazard-nop bundles (ctc2/mtc2/mfc2/lwc2/swc2 plus adjacent loads/stores). Zero generic ALU, scheduling, padding, or handwritten division islands.",
+      "verdict": "Lawful match (2026-07-12): the exact 2508-byte C/GTE reconstruction was verified against a stock match four times, with the full EXE hash f8f44c2d re-verified. Generic control, arithmetic, projection loops, and the AddPrim tail are compiler-emitted C; only the hardware GTE interface remains in macros."
+    },
+    "kaze_water_quad_subdivide_render": {
+      "islands": 6,
+      "insns": 21,
+      "note": "POLY water-quad subdivide renderer; all 6 islands are GTE-family only (gte_ldv3/ldv0 [lwc2], gte_stflg [cfc2+drain sw], gte_stsxy3_g3/gte_stsz4 [swc2]). Zero generic-ALU: the former counter lw/addiu/sw increment island and addiu pointer-advance islands were reconstructed to plain C. Same GTE-only profile as sanctioned sibling kaze_quad_subdivide_render.",
+      "verdict": "Lawful redo (2026-07-12): de-islanded from generic ALU (counter increment plus pointer advances) to pure C via a pDrv $23 unpin (folding movstr copies to swl $23), a stack-home fence for c, a pinned $8 counter, and a $6 argument in the delay slot. Byte-identical (f8f44c2d), verified against a stock match three times, and island_audit reports GTE-only."
+    },
+    "kaze_init_geom": {
+      "islands": 2,
+      "insns": 27,
+      "note": "PsyQ InitGeom special case: mtc0 $12 (CP0 status write, no C intrinsic) + jal _patch_gte with manual $ra save/restore to D_800A0554 (RA-patch gcc cannot emit from C) + ctc2 GTE control-reg writes. Genuinely un-expressible in portable C; same sanctioned basis as the GTE-family. Verdict 2026-07-13.",
+      "verdict": "SANCTIONED"
+    },
+    "kaze_bios_a0_thunk": {
+      "islands": 1,
+      "insns": 3,
+      "note": "PS1 BIOS A0 syscall thunk: raw `jr $t2` tail-jump to the fixed BIOS A0 dispatch vector (absolute 0xA0) with the A0 function selector 0x72 in $t1 (delay slot) per the BIOS call ABI. No C construct emits a bare jr to a hard-coded absolute address; Ghidra's (*(code*)0xA0)() would be jalr (link) + reload. Genuinely un-C-able, same basis as init_geom. Verdict 2026-07-13.",
+      "verdict": "SANCTIONED"
+    }
+  },
+  "lawfully_redone": {
+    "kaze_mode_object_render": {
+      "islands": 4,
+      "insns": 21,
+      "note": "dbr cert was pending lawful realization",
+      "verdict": "Lawfully redone (2026-07-10): the island version was replaced in src/ by a 0-island byte-match. EXE re-verified: f8f44c2d."
+    },
+    "kaze_memcard_state_machine": {
+      "islands": 1,
+      "insns": 4,
+      "note": "lui/addiu/sll/addu address computation",
+      "verdict": "Lawfully redone (2026-07-10): a named-local base statement plus a $2 pin replaced the 4-instruction address-formation island. EXE re-verified: f8f44c2d."
+    },
+    "kaze_task_carousel_exit_handler": {
+      "islands": 4,
+      "insns": 11,
+      "note": "saved-reg init block + mult/mflo pairs",
+      "verdict": "Lawfully redone (2026-07-10, Tier-3 re-probe): all 4 islands were resolved: a birth-order plus ref-knob adjustment for the saved-register init block (overturning an earlier 'source-kit-immune' assessment), a $6 pin for the sw/lw pair, and a mult-operand-order-by-pseudo-birth technique for the mult/mflo pair. EXE re-verified: f8f44c2d."
+    },
+    "kaze_task_letter_delete_anim": {
+      "islands": 1,
+      "insns": 2,
+      "note": "small",
+      "verdict": "LAWFULLY REDONE 2026-07-11 (main loop, 5-minute fix): the 2-insn la island was GRATUITOUS - plain `dp = &D_8008DBE4;` is byte-identical; EXE re-verified f8f44c2d"
+    },
+    "kaze_map_banner_prim_init": "Lawful redo (2026-07-11): an island_audit-clean match via 5 scoped register pins plus 3 zero-code launders, with no emitted asm. The original quarantine entry was islands:0 under the strict-pins policy only. Source swapped in, EXE re-verified: f8f44c2d.",
+    "kaze_collision_shape_test": "Lawful redo (2026-07-11): a strict plain-C match (0 asm, 0 register pins, 0 launders, 0 goto) via a natural per-arm else-if reconstruction that lets gcc-2.7.2 recreate the cross-jump/mflo weave. This removed the prior emitted-island approach. Source swapped in, EXE re-verified: f8f44c2d.",
+    "kaze_gs_tmd_div_g3l": "Lawful redo (2026-07-11): a strict pure-C match (0 asm/pins/launders/goto), 580 bytes, removing 57 hand-transcribed island instructions. Techniques used: giv-p recompute, an outer-i guard, integer index-first vertex addressing (__builtin_memcpy), and MEM_IN_STRUCT_P struct-field stores. The same approach transfers to kaze_gs_tmd_div_f3l.",
+    "kaze_gs_tmd_div_f3l": "Lawful redo (2026-07-11): a strict pure-C match (568 bytes, 0 asm/pins/launders), retiring 8 islands and 126 hand-transcribed instructions. The technique chain from kaze_gs_tmd_div_g3l transferred verbatim, matching on the first candidate.",
+    "kaze_gs_tmd_div_tg3l": "Lawful redo 2026-07-11: pure-C MATCH (632B, 0 asm), g3l chain 3rd clean transfer. gs_tmd_div sub-family complete (g3l/f3l/tg3l).",
+    "kaze_grid_select_cell_sprites_init": {
+      "islands": 2,
+      "insns": 5,
+      "note": "Former island version used two div-magic scheduling islands; replaced by an island-clean exact C match.",
+      "verdict": "Lawfully redone (2026-07-11): exact 828 bytes and 0/207 words, verified with stock GCC 2.7.2 -O2 three times and island_audit clean. Canonical source replaced; full EXE re-verified: f8f44c2d."
+    },
+    "kaze_title_menu_row_sprites_init": "Lawful redo 2026-07-12: pure lawful MATCH, overturned Tier-3 forbidden-$30 cert. giv-fabrication put loop2 base in $fp pin-free (90->0w); function-scope-decl pseudo numbering + bare-volatile live-length spacers + starved-global-const remat.",
+    "kaze_button_config_prims_draw": {
+      "islands": 3,
+      "insns": 80,
+      "note": "Former nominal match used three hand-transcribed islands covering 80 instructions.",
+      "verdict": "Lawfully redone (2026-07-12): exact 592-byte pure-C reconstruction with scoped register owners and zero-code lifetime edges; island_audit clean with 0 emitted asm instructions. It reconstructs disjoint saved-register reuse, OT master/copy, incremental ABI call setup, and a folded pointer birth for the final commutative operand order. Verified against a stock match four times; full EXE re-verified: f8f44c2d."
+    },
+    "kaze_record_table_insert": {
+      "islands": 4,
+      "insns": 54,
+      "note": "Former nominal match used four hand-transcribed islands covering 54 instructions.",
+      "verdict": "Lawfully redone (2026-07-12): exact 652-byte C reconstruction with scoped t0/t1/v1 owners and zero-code lifetime edges; island_audit clean with 0 emitted asm instructions. It closes the earlier Tier-3 case via carried search offsets, goto-form strength-reduction suppression, split scratch-to-owner multiply chains, a direct rank return, and an explicit flag-base lifetime. Verified against a stock match four times."
+    },
+    "kaze_grid_select_pulse_draw": {
+      "islands": 3,
+      "insns": 96,
+      "note": "Former nominal match used a whole-body transcription and two setup islands covering 96 instructions.",
+      "verdict": "Lawfully redone (2026-07-12): exact 696-byte reconstruction using scoped register owners, zero-code dependency edges, and policy-approved one-instruction forms only; island_audit reports zero multi-instruction islands. It closes the earlier delay-slot/alloc-seed case via v0 grid-base births, destructive pointer and predicate rebirths, split multiply/load-delay chains, and scratch-to-terminal saved-owner copies. Verified against a stock match four times."
+    },
+    "kaze_records_cursor_tab_draw": {
+      "islands": 3,
+      "insns": 41,
+      "note": "Former nominal source used three handwritten scheduling/allocation islands totaling 41 instructions.",
+      "verdict": "Lawfully redone (2026-07-12): exact 1184-byte reconstruction with scoped register owners and zero-code dependencies only; island_audit clean, no explicit $30/$fp, no padding. It closes the final block through offset-consumer placement, a mutable serial v1 page/pointer web, scoped v0 symbol birth, and a final zero-code p3 scheduling dependency. Verified against a stock match three times; the full resplit payload and EXE hash f8f44c2ddaf4969f4132fb17d1abab06a75c2def were confirmed."
+    },
+    "kaze_stage_map_cd_loader": {
+      "islands": 1,
+      "insns": 1,
+      "note": "Former nominal source emitted one handwritten ori scheduling instruction; its remaining asm controls were zero-code.",
+      "verdict": "Lawfully redone (2026-07-12): exact 1016-byte replacement removes the final emitted ori island. It splits a0v into 0xe0000 then |=0xcb28, using a nonvolatile tied zero-code dependency with a basev input between the load and the OR, producing the target load-before-ori order without blocking the preceding branch delay fill. Verified against a stock match three times; island audit reports 0 emitted instructions; no explicit $30/$fp. The full resplit payload and EXE hash f8f44c2ddaf4969f4132fb17d1abab06a75c2def were confirmed."
+    }
+  }
+}

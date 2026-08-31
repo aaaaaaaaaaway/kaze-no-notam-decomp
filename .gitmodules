@@ -1,0 +1,10 @@
+[submodule "tools/asm-differ"]
+	path = tools/asm-differ
+	url = https://github.com/simonlindholm/asm-differ
+[submodule "tools/maspsx"]
+	path = tools/maspsx
+	url = https://github.com/mkst/maspsx
+	# configure.py deliberately patches this submodule's working tree
+	# (tools/maspsx-li-expansion.patch); ignore that local dirt so git
+	# status still reports a real change to the pinned commit itself.
+	ignore = dirty

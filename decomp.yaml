@@ -1,0 +1,11 @@
+name: kaze
+platform: psx
+versions:
+  - name: jp
+    fullname: Kaze no Notam
+    paths:
+      target: baserom.bin
+      build_dir: build
+      map: build/kaze.map
+      compiled_target: build/SLPS_009.12
+      elf: build/kaze.elf
