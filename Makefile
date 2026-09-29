@@ -1,6 +1,6 @@
 DISC ?=
 
-.PHONY: all setup deps check progress clean
+.PHONY: all setup deps check progress report clean
 
 all:
 	./build.sh --resplit
@@ -18,6 +18,9 @@ check: progress
 
 progress:
 	python3 tools/progress.py
+
+report:
+	python3 tools/objdiff_report.py --output build/report.json
 
 clean:
 	rm -rf build
